@@ -1,6 +1,6 @@
-package temados.ejercicios.ejercicio2_3;
+package temados.ejercicios;
 
-public class Escalera {
+public class Ejercicio2_3_Escalera {
 
 	public static void main(String[] args) {
 		

@@ -106,15 +106,16 @@ public class Ejercicio2_1 {
 	 *  Sí, hay miembros no instanciables, son lo estáticos.
 	 *  
 	 *  Un miembro no instanciable es estático, esto quiere decir, que serán comunes a todos los objetos
-	 *  de un mismo tipo de objeto, y podrán ser modificados por todos los objetos del mismo tipo. Un 
-	 *  ejemplo de esto es un contador de objetos instanciamos.
+	 *  de un mismo tipo de objeto, ya que es una propiedad asociada a la clase del objeto, no al objeto en 
+	 *  sí, y podrán ser modificados por todos los objetos del mismo tipo. Un ejemplo de esto es un contador
+	 *  de objetos instanciamos.
 	 *  
 	 *  Para ello, haríamos lo siguiente:
-	 *  - En la clase del tipo de objeto, crearíamos la siguiente variable estática:
+	 *  - En la clase del tipo de objeto, crearíamos la siguiente propiedad/atributo estática/o:
 	 *  	private static int numPersonas;
 	 *  - Después, en el constructor de Persona, la integraríamos como contador:
 	 *  	public Persona(){
-	 *  		Persona.numPersonas++; //usaremos este método en vez de utilizar el this, porque this
+	 *  		Persona.numPersonas++; //usaremos esta forma en vez de utilizar el this, porque this
 	 *  							// no se puede utilizar con variables estáticas.
 	 *  		//Estamos sumando 1 a numPersonas cada vez que se instancia un nuevo objeto de tipo
 	 *  		//persona

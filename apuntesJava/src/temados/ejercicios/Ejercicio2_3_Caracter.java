@@ -1,9 +1,8 @@
-package temados.ejercicios.ejercicio2_3;
+package temados.ejercicios;
 
 import java.util.Scanner;
 
-public class Caracter {
-
+public class Ejercicio2_3_Caracter {
 	public static void main(String[] args) {
 		/*c) (Caracter.java) Pide un número entero por consola (para probar debes introducir un valor
 		 * entre 0 y 255) y muestra el carácter que le corresponde.*/
@@ -15,6 +14,8 @@ public class Caracter {
 		num1 = sc.nextInt();
 		car = (char) num1;
 		System.out.println(String.format("Caracter: %c", car));
+		sc.close();
+		
 		
 		/* - %c para char
 		 * - %s para cadena de caracteres

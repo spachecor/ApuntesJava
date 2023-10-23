@@ -1,8 +1,8 @@
-package temados.ejercicios.ejercicio2_3;
+package temados.ejercicios;
 
 import java.util.Scanner;
 
-public class LongitudCadena {
+public class Ejercicio2_3_LongitudCadena {
 
 	public static void main(String[] args) {
 		
