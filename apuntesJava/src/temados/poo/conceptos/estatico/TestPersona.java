@@ -5,6 +5,12 @@ package temados.poo.conceptos.estatico;
  * arrays.
  * Los arrays son una secuencia de elementos que son el mismo tipo de dato.
  */
+/* Porqué el método main es static? -->Porque la maquina virtual de java tiene que llamar
+ * directamente al main para poder ejecutarse. A la hora de llamarlo la mvj, si no fuese estático
+ * tendría que instanciarlo primero, crear un objeto y luego llamar al main de ese objeto. Para
+ * evitarlo, es static y así no habrá que instanciar nada. Porque la maquina virtual de java
+ * tiene que ejecutar le metodo main sin hacer una instancia. Así consigue que no ocupe tanto en
+ * memoria, no se reserva espacio en memoria y directamente lo ejecuta. Es mejor así. */
 public class TestPersona {
 	public static void main(String[] args) {
 		//Decimos que queremos acceder a la primera posición del array

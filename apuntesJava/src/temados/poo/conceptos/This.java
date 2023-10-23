@@ -34,4 +34,9 @@ public class This {
 	 * this también ayuda con el proceso de encapsulación, pues llamamos a la variable desde un método
 	 * detro de su clase, y así podremos acceder a la propiedad encapsulada.
 	 */
+	/*Si queremos poner varias veces this.nombre = nombre; ,  lo mejor que podemos hacer es utilizarlo
+	 * la primera vez en el principal con las condiciones que haya que aplicar (ya sea no aplicar ninguna,
+	 * incrementarlo, modificarlo de alguna forma, etc)*/
+	
+
 }
