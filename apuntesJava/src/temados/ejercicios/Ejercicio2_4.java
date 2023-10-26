@@ -1,6 +1,6 @@
 package temados.ejercicios;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Ejercicio2_4 {
@@ -49,7 +49,7 @@ public class Ejercicio2_4 {
 		
 		//Cuarto apartado
 		
-		System.out.println(frase.substring(0, frase.indexOf(palabras[2])) + LocalDate.now() + " " +
+		System.out.println(frase.substring(0, frase.indexOf(palabras[2])) + LocalDateTime.now() + " " +
 		palabras[2] + " " + palabras[3]);
 		
 		

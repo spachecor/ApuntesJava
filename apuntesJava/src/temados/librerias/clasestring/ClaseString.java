@@ -6,7 +6,7 @@ public class ClaseString {
 		String string1 = "Hola Mundo", string2 = "hola mundo";
 		char array[] = {'M','i', ' ', 'n', 'o', 'm', 'b', 'r', 'e', ' ', 'e', 's', ' ', 'M', 'a',
 				 'r', 'í', 'a', '.'};
-		//Todos los métodos de la clase String.
+		//Todos los métodos (+ importantes) de la clase String.
 		
 		//charAt(int index) - duelve un tipo de dato char
 		//Devuelve el caracter del índice específicado
