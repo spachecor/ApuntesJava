@@ -98,11 +98,43 @@ public class ClaseMath {
 		/*------------------------------------------------------------------------------------------*/
 		/*-------------------------------------TRIGONOMÉTRICAS--------------------------------------*/
 		
+		//Math.toRadians(angulo) - Devuelve un double
+		//Convierte el ángulo en grados que se le introduzca en radianes
+		
+		double angulo = 30.0;
+		double radian = Math.toRadians(angulo);	//Muestra 0.52....
+		
+		/*------------------------------------------------------------------------------------------*/
+		
+		//Math.toDegrees(angulo en radianes) - Devuelve un double
+		//Convierte un ángulo en radianes en un ángulo en grados
+		
+		double anguloTransformado = Math.toDegrees(radian); //Muestra 30.0 (Puede contener un leve fallo
+															//matemático
+		
+		/*------------------------------------------------------------------------------------------*/
+		
+		//Math.cos()/Math.sin()/Math.tan() - Devuelve un double
+		//Realiza el coseno, seno y tangente de un ángulo (en radianes)
+		
+		double coseno = Math.cos(radian); //Muestra 0.866...
+		double seno = Math.sin(radian); //Muestra 0.499....
+		double tangente = Math.tan(radian); //Muestra 0.577....
+		
+		/*------------------------------------------------------------------------------------------*/
+		
+		//Math.acos()/Math.asin()/Math.atan() - Devuelve un double
+		//Realiza el arcocoseno, arcoseno y arcotangente de un ángulo (en radianes)
+		
+		double arccos = Math.acos(radian);
+		double arcsen = Math.asin(radian);
+		double arctg = Math.atan(radian);
 		
 		
 		
 		
-		System.out.println(raiz);
+		
+		System.out.println(anguloTransformado);
 		
 		
 		

@@ -6,6 +6,31 @@ public class ClaseString {
 		String string1 = "Hola Mundo", string2 = "hola mundo";
 		char array[] = {'M','i', ' ', 'n', 'o', 'm', 'b', 'r', 'e', ' ', 'e', 's', ' ', 'M', 'a',
 				 'r', 'í', 'a', '.'};
+		byte[] bytes = {1, 2, 3, 4};
+		
+		StringBuilder sb = new StringBuilder("hola");
+		
+		StringBuffer sb2 = new StringBuffer("Caracola");
+		
+		//CONSTRUCTORES
+		
+		String const1 = new String();
+		
+		String const2 = new String(bytes);//Se construye con un array de bytes
+		
+		String const3 = new String(bytes, 1, 3);//Se le especifíca de donde a donde tomar
+		
+		String const4 = new String(array);//Se construye con un array de chars
+		
+		String const5 = new String(array, 1, 3);//Se le especifíca de donde a donde tomar
+		
+		String const6 = new String(string1);
+		
+		String const7 = new String(sb);//Se construye con un StringBuilder
+		
+		String const8 = new String(sb2);//Se construye con un StringBuffer
+		
+		//MÉTODOS
 		//Todos los métodos (+ importantes) de la clase String.
 		
 		//charAt(int index) - duelve un tipo de dato char

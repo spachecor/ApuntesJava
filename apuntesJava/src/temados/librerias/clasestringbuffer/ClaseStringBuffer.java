@@ -2,11 +2,20 @@ package temados.librerias.clasestringbuffer;
 
 public class ClaseStringBuffer {
 	public static void main(String[] args) {
+		
+		//CONSTRUCTORES
+		
+		StringBuffer const1 = new StringBuffer();
+		
+		//Se construye un buffer tipo string, sin caracteres y con la capacidad marcada por el parámetro
+		StringBuffer const2 = new StringBuffer(7);//sin caracteres ningunos, no son espacios en blanco
+		
+		StringBuffer const3 = new StringBuffer("Hola Mariola");		
+		
+		//MÉTODOS
 		//Todos los métodos (+ importantes) de la clase StringBuffer:
 		
-		
 		String stringOriginal, stringFinal;
-		
 		
 		//StringBuffer append(dato x) - Devuelve un StringBuffer
 		//Añade al buffer la representación string del dato x que introduzcamos
@@ -105,8 +114,6 @@ public class ClaseStringBuffer {
 		//El String contiene 0iwiloHeslaf1reffuBgnirtsssooooooorue ed sseenoool¬lim  ESA K ALO  ou;		
 		
 
-		
-		int num=0;
 
 	}
 
