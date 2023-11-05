@@ -12,8 +12,7 @@ public class Ejercicio2_3_Caracter {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduce un nº entre 0 y 255");
 		num1 = sc.nextInt();
-		car = (char) num1;
-		System.out.println(String.format("Caracter: %c", car));
+		System.out.println(String.format("Caracter: %c", num1));
 		sc.close();
 		
 		
