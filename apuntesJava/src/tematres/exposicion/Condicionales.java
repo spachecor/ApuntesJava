@@ -78,6 +78,8 @@ public class Condicionales {
 	        }
 	        System.out.printf("La temperatura actual es de %d grados.", temp);
 	        System.out.println("\n" + mensaje);
+	        
+	        sc.close();
 	}
 
 }

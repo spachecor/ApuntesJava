@@ -10,6 +10,7 @@ public class Ejercicio2_1 {
 	 * - Abstraer --> Es la capacidad que permite distinguir aquellas características fundamentales
 	 * 				de un objeto que lo hacen diferente al resto, y que proporcionan límites 
 	 * 				conceptuales bien definidos relativos a la perspectiva del que lo visualiza.
+	 * 				Separamos el comportamiento esencial de un objeto de su implementación.
 	 * - Encapsular --> Es la capacidad que permite mantener oculta la implementación de una
 	 * 					abstracción para los usuarios de la misma. El objetivo de encapsular es la 
 	 * 					ocultación de la implementación, para que ninguna parte de un sistema

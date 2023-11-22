@@ -26,11 +26,13 @@ public class Ejercicio6 {
 		String abc = new String("abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ");
 		String cifrado = new String("ñopqrsabcdefghijklmnABCDEFGHIJtuvwKLMNÑOPQRSTUVWXYZxyz");
 		System.out.println(String.format("La cadena cifrada queda de la siguiente forma: %c%c%c%c%c",
-				cifrado.charAt(abc.indexOf(cadena.substring(0,1))), 
-				cifrado.charAt(abc.indexOf(cadena.substring(1,2))),
-				cifrado.charAt(abc.indexOf(cadena.substring(2,3))),
-				cifrado.charAt(abc.indexOf(cadena.substring(3,4))),
-				cifrado.charAt(abc.indexOf(cadena.substring(4)))));
+				cifrado.charAt(abc.indexOf(cadena.charAt(0))), 
+				cifrado.charAt(abc.indexOf(cadena.charAt(1))),
+				cifrado.charAt(abc.indexOf(cadena.charAt(2))),
+				cifrado.charAt(abc.indexOf(cadena.charAt(3))),
+				cifrado.charAt(abc.indexOf(cadena.charAt(4)))));
+
+
 	}
 
 }

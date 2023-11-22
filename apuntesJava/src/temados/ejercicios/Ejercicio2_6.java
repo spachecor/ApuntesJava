@@ -2,7 +2,7 @@ package temados.ejercicios;
 
 import java.util.StringTokenizer;
 
-public class Ejecicio2_6 {
+public class Ejercicio2_6 {
 	public static void main(String[] args) {
 		/*Modifica la plantilla Java que hay en los recursos de este tema para que dada la siguiente cadena 
 		 * de caracteres "T C A Q K A C T P P P P P P P P", que representan nombre de piezas del ajedrez:
