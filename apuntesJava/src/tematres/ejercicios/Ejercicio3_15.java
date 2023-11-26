@@ -9,7 +9,7 @@ public class Ejercicio3_15 {
 
 			Por ejemplo el 153 es un número de 'Armstrong':  153 = ( 1 * 1 * 1 ) + ( 5 * 5 * 5 ) + ( 3 * 3 * 3 )*/
 
-		int num=0, longitud, auxiliar, contador, acumulado=0;
+		int num=1, longitud, auxiliar, contador, acumulado=0;
 		
 		//usamos un bucle for para pasar por todos los nº del 0 al 600
 		for(int i = 0; i<=600; i++) {
