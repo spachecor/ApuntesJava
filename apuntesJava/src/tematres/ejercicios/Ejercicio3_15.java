@@ -1,5 +1,9 @@
 package tematres.ejercicios;
-
+/**
+ * Solucion a la actividad 3.15. Programa que muestra todos los numeros de armstrong del 0 al 600.
+ * @author selenepachecorodriguez
+ * @version 1.0
+ */
 public class Ejercicio3_15 {
 
 	public static void main(String[] args) {
@@ -36,10 +40,9 @@ public class Ejercicio3_15 {
 				//array de string sea el siguiente
 				contador++;
 			}
-			//sólo si la longitud del nº es diferente de 1 y si el acumulado en el acumulador y el nº corresponden,
-			//se imprime el nº
+			//Si el acumulado en el acumulador y el nº corresponden, se imprime el nº
 			
-			if(acumulado==num&&longitud!=1)System.out.println(num);
+			if(acumulado==num)System.out.println(num);
 			num++;
 		}
 			
