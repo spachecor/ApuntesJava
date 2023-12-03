@@ -17,6 +17,8 @@ public class Ejercicio3_10_multiplo3 {
 		for(int i=0; i<5; i++) {
 			if(numeros[i]%3==0)System.out.println(numeros[i] + " es múltiplo de 3.");
 		}
+		
+		sc.close();
 	}
 
 }
