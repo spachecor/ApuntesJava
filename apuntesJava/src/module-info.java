@@ -9,6 +9,4 @@ module apuntesJava {
 	requires java.desktop;
 	requires java.logging;
 	requires log4j.api;
-
-
 }
