@@ -22,6 +22,16 @@ import java.util.logging.Logger;
 public class ExamenAnioPasado {
 
 	public static void main(String[] args) {
+		//inicializamos el logger
+		Logger logger = Logger.getLogger(ExamenAnioPasado.class.getName());
+		//desactivamos el logger por defecto
+		logger.setUseParentHandlers(false);
+		//Inicializamos nuestro manejador por consola propio y lo añadimos al logger
+		ConsoleHandler consoleHandler = new ConsoleHandler();
+		logger.addHandler(consoleHandler);
+		//seleccionamos el nivel a partir del cual se registrarán los logs
+		consoleHandler.setLevel(Level.CONFIG);
+		logger.setLevel(Level.CONFIG);
 		//creamos un formateador para la fecha y hora del log
 		DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss");
 		//inicializamos con constantes los valores que corresponderán al menú
@@ -39,32 +49,18 @@ public class ExamenAnioPasado {
 		Scanner sc = new Scanner(System.in);
 		//metemos el menú en un bucle do/while, para que se repita cada vez que salimos de una opción hasta que se elija la opción de salir
 		do {
-			//inicializamos el logger
-			Logger logger = Logger.getLogger(ExamenAnioPasado.class.getName());
-			//desactivamos el logger por defecto
-			logger.setUseParentHandlers(false);
-			//Inicializamos nuestro manejador por consola propio y lo añadimos al logger
-			ConsoleHandler consoleHandler = new ConsoleHandler();
-			logger.addHandler(consoleHandler);
-			//seleccionamos el nivel a partir del cual se registrarán los logs
-			consoleHandler.setLevel(Level.CONFIG);
-			logger.setLevel(Level.CONFIG);
-			if(depuracionActivada==false) {
-				//se desactiva el manejador por consola
-				consoleHandler.close();				
-			}
 			//controlamos el texto que aparecerá en la opción 3-Activar/desactivar depuración con la variable depuracionActivada
 			if(depuracionActivada==true)depuracion="Desactivar depuración";
 			else depuracion="Activar depuracion";
 			//pedimos al usuario la opción del menú que desee
-			System.out.println(String.format("Selecciona la opción del menú que necesites. Para ello, introduce el nº coincida con la opción deseada:\n1-Viajar en bus\n2-Números"
-					+ " amigos\n3-%s\n4-Salir", depuracion));
+			System.out.println(String.format("Selecciona la opción del menú que necesites. Para ello, introduce el nº coincida con la opción deseada:"
+					+ "\n1-Viajar en bus\n2-Números amigos\n3-%s\n4-Salir", depuracion));
 			//controlamos con un bloque try/catch que el valor introducido sea un entero. Si no es así, volverá a preguntar el valor
 			try {
 				//guardamos la opción en la variable previamente asignada
 				opcion = sc.nextInt();
 			}catch (InputMismatchException ee) {
-				logger.log(Level.WARNING, "Se ha introducido un caracter incorrecto a la hora de usar el menú. "+LocalDateTime.now().format(formateador).toString()+
+				if(depuracionActivada==true) logger.log(Level.WARNING, "Se ha introducido un caracter incorrecto a la hora de usar el menú. "+LocalDateTime.now().format(formateador).toString()+
 						"El usuario ha introducido un caracter diferente a un nº por consola y ha generado una excepcion tipo InputMismatchException");
 				System.out.println("El carácter introducido es incorrecto, por faovr, introduzca un nº. Pulse 0 + intro para volver al menú.");
 				sc.next();
@@ -91,13 +87,15 @@ public class ExamenAnioPasado {
 						trayecto = sc.nextInt();
 						System.out.println("¿Cuántas personas van a viajar?");
 						viajeros = sc.nextInt();
-						logger.log(Level.INFO, String.format("Se han introducido los siguientes datos: %d km de trayecto y %d viajeros", trayecto, viajeros)+LocalDateTime.now().format(formateador).toString());
+						if(depuracionActivada==true) logger.log(Level.INFO, String.format("Se han introducido los siguientes datos: %d km de trayecto y %d "
+								+ "viajeros", trayecto, viajeros)+LocalDateTime.now().format(formateador).toString());
 						
 					}catch (InputMismatchException e) {
 						System.out.println("El carácter introducido es incorrecto, por faovr, introduzca un nº. Pulse 0 + intro para continuar.");
 						sc.next();
 						sc.next();
-						logger.log(Level.WARNING, "Se ha introducido un caracter incorrecto a la hora de usar el menú"+Level.INFO, LocalDateTime.now().format(formateador).toString()+
+						if(depuracionActivada==true) logger.log(Level.WARNING, "Se ha introducido un caracter incorrecto a la hora de usar el menú"+Level.INFO, 
+								LocalDateTime.now().format(formateador).toString()+
 								"El usuario ha introducido un caracter diferente a un nº por consola y ha generado una excepcion tipo InputMismatchException");
 						continue;
 					}
@@ -105,20 +103,20 @@ public class ExamenAnioPasado {
 					if(viajeros<=0) {
 						System.out.println("El nº de viajeros tiene que ser igual o superior a 1. Pulse 0 + Intro para volverlo a intentar");
 						sc.next();
-						logger.log(Level.INFO, "El usuario ha introducido alguno de los valores igual o inferior a cero, y es incorrecto"
-						+LocalDateTime.now().format(formateador).toString());
+						if(depuracionActivada==true) logger.log(Level.INFO, "El usuario ha introducido alguno de los valores igual o inferior a cero, y es "
+								+ "incorrecto"+LocalDateTime.now().format(formateador).toString());
 					}
 					if(trayecto<=0) {
 						System.out.println("El nº de kilómetros del trayecto tiene que ser igual o superior a 1. Pulse 0 + Intro para volverlo a intentar");
 						sc.next();
-						logger.log(Level.INFO, "El usuario ha introducido alguno de los valores igual o inferior a cero, y es incorrecto"
+						if(depuracionActivada==true) logger.log(Level.INFO, "El usuario ha introducido alguno de los valores igual o inferior a cero, y es incorrecto"
 								+LocalDateTime.now().format(formateador).toString());
 					}
 					if(trayecto<=0&&viajeros<=0) {
 						System.out.println("El nº de viajeros y el nº de kilómetros del trayecto tienen que ser igual o superior a 1. Pulse 0 + Intro para"
 								+ " volverlo a intentar");
 						sc.next();
-						logger.log(Level.INFO, "El usuario ha introducido alguno de los valores igual o inferior a cero, y es incorrecto"
+						if(depuracionActivada==true) logger.log(Level.INFO, "El usuario ha introducido alguno de los valores igual o inferior a cero, y es incorrecto"
 								+LocalDateTime.now().format(formateador).toString());
 					}
 				}while(trayecto<=0||viajeros<=0);
@@ -127,30 +125,30 @@ public class ExamenAnioPasado {
 				//aplicamos los descuentos con estructuras if/else
 				if(trayecto>=LIMITE_KM_UNO) {
 					precio +=(trayecto-LIMITE_KM_UNO)*RECARGO_MAYOR_DOSCIENTOS;
-					logger.log(Level.INFO, String.format("El usuario tiene recargo de %f euros por km excedido de %d", RECARGO_MAYOR_DOSCIENTOS, LIMITE_KM_UNO)+LocalDateTime.now().format(formateador).toString());
+					if(depuracionActivada==true) logger.log(Level.INFO, String.format("El usuario tiene recargo de %f euros por km excedido de %d", RECARGO_MAYOR_DOSCIENTOS, LIMITE_KM_UNO)+LocalDateTime.now().format(formateador).toString());
 					if(trayecto>=LIMITE_KM_DOS) {
 						precio*=(1-DESCUENTO_MAYOR_CUATROCIENTOS);
-						logger.log(Level.INFO, "El usuario tiene un descuento del "+(DESCUENTO_MAYOR_CUATROCIENTOS*100)+" por ciento por superar los "+LIMITE_KM_DOS+
+						if(depuracionActivada==true) logger.log(Level.INFO, "El usuario tiene un descuento del "+(DESCUENTO_MAYOR_CUATROCIENTOS*100)+" por ciento por superar los "+LIMITE_KM_DOS+
 								" km. "+LocalDateTime.now().format(formateador).toString());
 					}
 				}
 				if(viajeros>=3) {
 					precio*=(1-DESCUENTO_MAYOR_TRES);
-					logger.log(Level.INFO, "El usuario tiene un descuento del "+(DESCUENTO_MAYOR_TRES*100)+" por ciento por ser más de 3 viajeros "+LocalDateTime.now().format(formateador).toString());
+					if(depuracionActivada==true) logger.log(Level.INFO, "El usuario tiene un descuento del "+(DESCUENTO_MAYOR_TRES*100)+" por ciento por ser más de 3 viajeros "+LocalDateTime.now().format(formateador).toString());
 				}
 				//mostramos el precio al usuario, distinguiendo entre grupos (>1) e individual(==1)
 				if(viajeros>1) {
 					System.out.println(String.format("El precio total es de %.2f euros.", precio));
 					System.out.println(String.format("Cada billete sale a %.2f euros.", precio/viajeros));
-					logger.log(Level.INFO, "El precio individial es "+precio/viajeros+" euros y el precio total es "+precio+" euros "+LocalDateTime.now().format(formateador).toString());
+					if(depuracionActivada==true) logger.log(Level.INFO, "El precio individial es "+precio/viajeros+" euros y el precio total es "+precio+" euros "+LocalDateTime.now().format(formateador).toString());
 				}
 				if(viajeros==1) {
 					System.out.println(String.format("El precio total es de %.2f euros.", precio));
-					logger.log(Level.INFO, "El precio total es "+precio+" euros "+LocalDateTime.now().format(formateador).toString());
+					if(depuracionActivada==true) logger.log(Level.INFO, "El precio total es "+precio+" euros "+LocalDateTime.now().format(formateador).toString());
 				}
 				//volvemos al menu
 				System.out.println("Pulsa 0 + Intro para volver al menú");
-				logger.log(Level.CONFIG, "Vuelta al menú"+LocalDateTime.now().format(formateador).toString());
+				if(depuracionActivada==true) logger.log(Level.CONFIG, "Vuelta al menú"+LocalDateTime.now().format(formateador).toString());
 				sc.next();
 				break;
 			case NUMEROS_AMIGOS:
@@ -177,7 +175,7 @@ public class ExamenAnioPasado {
 						if(comprobadorUno[i].charAt(0)>='0'&&comprobadorUno[i].charAt(0)<='9')comprobadorNumeros = true;
 						else {
 							comprobadorNumeros = false;
-							logger.warning("1º numero introducido incorrectamente, el caracter no es un nº"+LocalDateTime.now().format(formateador).toString());
+							if(depuracionActivada==true) logger.warning("1º numero introducido incorrectamente, el caracter no es un nº"+LocalDateTime.now().format(formateador).toString());
 						}
 					}
 					//mensaje para cuando el comprobadorNumeros sea false
@@ -196,7 +194,7 @@ public class ExamenAnioPasado {
 						if(comprobadorDos[i].charAt(0)>='0'&&comprobadorDos[i].charAt(0)<='9')comprobadorNumeros = true;
 						else {
 							comprobadorNumeros = false;
-							logger.warning("2º numero introducido incorrectamente, el caracter no es un nº"+LocalDateTime.now().format(formateador).toString());
+							if(depuracionActivada==true) logger.warning("2º numero introducido incorrectamente, el caracter no es un nº"+LocalDateTime.now().format(formateador).toString());
 						}
 					}
 					if(comprobadorNumeros==false) {
@@ -218,15 +216,15 @@ public class ExamenAnioPasado {
 				//viceversa, será nº amigo. Si no, no
 				if(resultadoUno==Integer.parseInt(numeroDos)&&resultadoDos==Integer.parseInt(numeroUno)) {
 					System.out.println(String.format("%s y %s son nº amigos", numeroUno, numeroDos));
-					logger.info(numeroUno+numeroDos+" son nº amigos "+LocalDateTime.now().format(formateador).toString());
+					if(depuracionActivada==true) logger.info(numeroUno+numeroDos+" son nº amigos "+LocalDateTime.now().format(formateador).toString());
 				}	
 				else {
 					System.out.println(String.format("%s y %s no son nº amigos", numeroUno, numeroDos));
-					logger.info(numeroUno+numeroDos+" no son nº amigos "+LocalDateTime.now().format(formateador).toString());
+					if(depuracionActivada==true) logger.info(numeroUno+numeroDos+" no son nº amigos "+LocalDateTime.now().format(formateador).toString());
 				}
 				//mensaje de salida al menú
 				System.out.println("Comprobación terminada. Pulsa 0 + Intro para volver al menú.");
-				logger.log(Level.CONFIG, "Vuelta al menú"+LocalDateTime.now().format(formateador).toString());
+				if(depuracionActivada==true) logger.log(Level.CONFIG, "Vuelta al menú"+LocalDateTime.now().format(formateador).toString());
 				sc.next();
 				break;
 			case ACTIVAR_DEPURACION:			
@@ -243,13 +241,13 @@ public class ExamenAnioPasado {
 			case EXIT:
 				//cuando el usuario elija esta opción, salir pasará a ser true y saldremos del bucle que encierra al menú
 				salir=true;
-				logger.log(Level.CONFIG, "Ha salido del menú"+LocalDateTime.now().format(formateador).toString());
+				if(depuracionActivada==true) logger.log(Level.CONFIG, "Ha salido del menú"+LocalDateTime.now().format(formateador).toString());
 				break;
 				//si se introduce una opción fuera del menú, nos dará mensaje y nos reconducirá de nuevo al menú
 			default:
 				System.out.println("Opción incorrecta. Pulse 0 + Intro para volver al menú.");
 				sc.next();
-				logger.warning("Elegida opcion incorrecta en el menu");
+				if(depuracionActivada==true) logger.warning("Elegida opcion incorrecta en el menu");
 				break;
 			}
 		}while(salir==false);
