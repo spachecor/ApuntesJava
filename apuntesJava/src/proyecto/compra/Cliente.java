@@ -1,5 +1,5 @@
 package proyecto.compra;
 
-public class Compras {
+public class Cliente {
 
 }

@@ -18,6 +18,8 @@ public class Main {
 		System.out.println("Desea usted acceder a: \n1- Zona animal \n2- Zona Tienda \n3- Zona donaciones"
 				+ " \n4- Salir");
 		opcion = sc.nextInt();
+		
+		sc.close();
 	}
 
 }
