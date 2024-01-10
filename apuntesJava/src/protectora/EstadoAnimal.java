@@ -9,8 +9,8 @@ public class EstadoAnimal {
 	private int codigoAnimalAfectado;
 	
 	public EstadoAnimal(boolean comprobacionChip, int codigoAnimal) {
-		if(comprobacionChip)estadoAnimal=EstadoAnimal.ADOPTABLE;
-		else estadoAnimal=EstadoAnimal.INDOCUMENTADO;
+		if(comprobacionChip)this.estadoAnimal=EstadoAnimal.ADOPTABLE;
+		else this.estadoAnimal=EstadoAnimal.INDOCUMENTADO;
 		this.setInstanteCambioEstado();
 		this.setCodigoAnimalAfectado(codigoAnimal);
 	}
@@ -19,5 +19,8 @@ public class EstadoAnimal {
 	}
 	private void setCodigoAnimalAfectado(int codigoAnimalAfectado) {
 		this.codigoAnimalAfectado=codigoAnimalAfectado;
+	}
+	private void modificarEstadoFallecido() {
+		this.estadoAnimal=EstadoAnimal.FALLECIDO;
 	}
 }

@@ -11,5 +11,6 @@ public class Chip {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduzca el nº del chip (15 cifras)");
 		this.numeroChip=sc.nextLong();
+		sc.close();
 	}
 }

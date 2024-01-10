@@ -8,7 +8,6 @@ public class Animal {
 	private String nombreAnimal, colorAnimal, sexoAnimal;
 	//el tiempo en la protectora se cuenta en meses
 	private int codigoAnimal, edadAnimal, tiempoEnProtectora;
-	private long numeroChip;
 	//el contadorAnimales cuenta los animales que existen actualmente, y el contadorInstanciasAnimales cuenta las instancias que se han hecho sin tener en cuenta los
 	//animales que existan o no actualmente
 	private static int contadorAnimales, contadorInstanciasAnimales;
@@ -19,11 +18,13 @@ public class Animal {
 	private EstadoAnimal estadoAnimal;
 	
 	{
-		nombreAnimal = "desconocido";
-		capacidadConvivirAnimales = false;
-		comprobacionChip=false;
-		chip = null;
-		numeroChip=0;
+		this.nombreAnimal = "desconocido";
+		this.capacidadConvivirAnimales = false;
+		this.chip = null;
+	}
+	static {
+		Animal.contadorAnimales=0;
+		Animal.contadorInstanciasAnimales=0;
 	}
 	/**
 	 * Constructor especializado en inicializar un objeto de la clase con los requisitos mínimos especificados, y que automáticamente le asocia el codigo del
@@ -42,17 +43,22 @@ public class Animal {
 		this.setColorAnimal(colorAnimal);
 		this.setSexoAnimal(sexoAnimal);
 		this.setEdadAnimal(fechaNacimientoAnimal);
+		this.setFechaNacimientoAnimal(fechaNacimientoAnimal);
 		this.setFechaEntradaProtectora();
 		this.setTiempoEnProtectora();
 		this.setCastrado(castrado);	
+		this.setComprobacionChip(comprobacionChip);
 		//asignamos el estado del animal
 		this.setEstadoAnimal(comprobacionChip);
 	}
 	public Animal(String nombreAnimal, String colorAnimal, String sexoAnimal, LocalDate fechaNacimientoAnimal, boolean castrado, boolean comprobacionChip, boolean capacidadConvivirAnimales) {
 		this(colorAnimal, sexoAnimal, fechaNacimientoAnimal, castrado, comprobacionChip);
-		//POR TERMINAR
+		this.setNombreAnimal(nombreAnimal);
+		this.capacidadConvivirAnimales=capacidadConvivirAnimales;
 	}
-	
+	private void setNombreAnimal(String nombreAnimal) {
+		this.nombreAnimal=nombreAnimal;
+	}
 	private void setColorAnimal(String colorAnimal) {
 		this.colorAnimal=colorAnimal;
 	}
@@ -65,6 +71,9 @@ public class Animal {
 	private void setEdadAnimal(LocalDate fechaNacimientoAnimal) {
 		this.edadAnimal=(int)ChronoUnit.YEARS.between(fechaNacimientoAnimal, LocalDate.now());
 	}
+	private void setFechaNacimientoAnimal(LocalDate fechaNacimientoAnimal) {
+		this.fechaNacimientoAnimal=fechaNacimientoAnimal;
+	}
 	private void setFechaEntradaProtectora() {
 		this.fechaEntradaProtectora=LocalDateTime.now();
 	}
@@ -73,6 +82,9 @@ public class Animal {
 	}
 	private void setCastrado(boolean castrado) {
 		this.castrado=castrado;
+	}
+	private void setComprobacionChip(boolean comprobacionChip) {
+		this.comprobacionChip=comprobacionChip;
 	}
 	private void setEstadoAnimal(boolean comprobacionChip){
 		if(comprobacionChip) chip = new Chip();
