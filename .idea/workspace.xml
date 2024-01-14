@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e5f99055-a5f7-46bf-b8d3-8b5a848dd66e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Chip.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/EstadoAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/EstadoAnimal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Gato.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Perro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/TestProtectora.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/TestProtectora.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,15 +31,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Class",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/selene/Desktop"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name=".org.eclipse.egit.core.cmp" />

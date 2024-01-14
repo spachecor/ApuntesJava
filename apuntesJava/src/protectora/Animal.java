@@ -95,4 +95,7 @@ public class Animal {
 		animal.estadoAnimal[0]=estadoAnimal;
 		animal.estadoAnimal[1]=estadoAnimal2;
 	}
+	public String getNombreAnimal() {
+		return this.nombreAnimal;
+	}
 }
