@@ -1,0 +1,198 @@
+@startuml
+
+
+
+
+Animal "1..*"-"1..1" EstadoAnimal
+Animal "1..1"--"0..*" SolicitudAdopcion
+SolicitudAdopcion "1..*"--"1..1" Adoptante
+Persona <|-- Adoptante
+Persona <|- Cliente
+Cliente - Compra
+Compra -- Producto
+Compra - MedioPago
+Donacion -- MedioPago
+
+package "utilidades" #DDDDDD{
+class Coloranimal{
+   +{static}MARRON_OSCURO:int
+   +{static}MARRON_CLARO:int
+   +{static}BLANCO:int
+   +{static}NEGRO:int
+   +{static}BICOLOR:int
+   +{static}TRICOLOR:int
+   +{static}NARANJA:int
+   +{static}AZUL:int
+}
+class EstadosAnimal{
+    +{static}ADOPTADO:int
+    +{static}ADOPTABLE:int
+    +{static}INDOCUMENTADO:int
+    +{static}FALLECIDO:int
+}
+class EstadoSolicitudAdopcion{
+    +{static}DENEGADA:int
+    +{static}EN_ESPERA:int
+    +{static}APROBADA:int
+}
+class Razas{
+    +{static}PERSA:int
+	+{static}ESFINGE:int
+	+{static}SIAMES:int
+	+{static}MAINE_COON:int
+	+{static}BENGALI:int
+	+{static}RAGDOLL:int
+	+{static}SIBERIANO:int
+	+{static}ANGORA:int
+	+{static}CORNISH_REX:int
+	+{static}COMUN_EUROPEO:int
+	+{static}ORIENTAL:int
+	+{static}EXOTICO:int
+	+{static}SOMALI:int
+	+{static}CURL_AMERICANO:int
+	+{static}AZUL_RUSO:int
+	+{static}ABISINIO:int
+	+{static}CARTUJO:int
+	+{static}HIMALAYO:int
+	+{static}BOMBAY:int
+	+{static}BOSQUE_NORUEGA:int
+	+{static}CHIHUAHUA:int
+	+{static}POMERANIA:int
+	+{static}BICHON_MALTES:int
+	+{static}CANICHE:int
+	+{static}BULLDOG_FRANCES:int
+	+{static}YORKSHIRE:int
+	+{static}BEAGLE:int
+	+{static}BLOXER:int
+	+{static}JACK_RUSSELL:int
+	+{static}BORDER_COLLIE:int
+	+{static}BULL_TERRIER:int
+	+{static}CARLINO:int
+	+{static}MESTIZO:int
+	+{static}GALGO:int
+	+{static}HUSKY_SIBERIANO:int
+	+{static}SHIBA_INU:int
+	+{static}DALMATA:int
+	+{static}SHAR_PEI:int
+	+{static}LABRADOR:int
+	+{static}SAN_BERNARDO:int
+	+{static}ROTTWEILER:int
+	+{static}BOBTAIL:int
+	+{static}DOGO_ARGENTINO:int
+	+{static}GRAN_DANES:int
+}
+class TipoAnimal{
+   +{static}GATO:int
+   +{static}PERRO:int
+}
+class SexoAnimal{
+   +{static}MACHO:int
+   +{static}HEMBRA:int
+}
+}
+class Animal{
+   -nombreAnimal: String
+   -codigoAnimal: int
+   -colorAnimal: int
+   -razaAnimal: int
+   -tipoAnimal:int
+   -sexoAnimal: int
+   -fechaNacimientoAnimal: LocalDate
+   -edadAnimal: int
+   -castrado: boolean
+   -chip: long
+   -estadoAnimal[]: EstadoAnimal
+   -fechaEntradaProtectora: LocalDateTime
+   -tiempoEnProtectora: int
+   -capacidadConvivirAnimales: boolean
+   -{static}contadorAnimal: int
+   -{static}contadorInstanciasAnimal: int
+
+   -Animal(tipoAnimal:int, colorAnimal:int, sexoAnimal:int, razaAnimal:int, fechaNacimientoAnimal:LocalDate, castrado:boolean, chip:long):void
+   -setNombreAnimal(nombreAnimal:String):void
+   -setTipoAnimal(tipoAnimal:int):void
+   -setColoranimal(colorAnimal:int):void
+   -setSexoAnimal(sexoAnimal:int):void
+   -setEdadAnimal(fechaNacimientoAnimal:LocalDate):void
+   -setFechaNacimientoAnimal(fechaNacimientoAnimal:LocalDate):void
+   -setCastrado(castrado:boolean):void
+   -setChip(chip:long):void
+   -aumentarContadorAnimal():void
+   -aumentarContadorInstanciasAnimal():void
+}
+class EstadoAnimal{
+   -estadoAnimal:int
+   -animal: Animal
+   -instanteCambioEstado:LocalDateTime
+
+   -EstadoAnimal(codigoAnimal:int, estadoAnimal:int):void
+   -setAnimal(animal:Animal):void
+   -setEstadoAnimal(estadoAnimal:int):void
+   -setInstanteCambioEstado(instanteCambioEstado:LocalDateTime):void
+}
+class SolicitudAdopcion{
+   -codigoSolicitud: int
+   -fechaHoraSolicitud: LocalDateTime
+   -estadoSolicitud: String
+   -aprobacionProtectora: boolean
+   -animal: Animal
+   -adoptante: Adoptante
+   -aceptacionConvivientes: boolean
+   -compromisoCastrar boolean
+   -compromisoInformarProtectora: boolean
+
+
+   -comprobacionRequisitosAdopcion(aceptacionconvivientes:boolean, compromisoCastrar:boolean, ingresosAdoptante:int, dimensionesVivienda:int, capacidadConvivirAnimales:boolean, compromisoInformarProtectora:boolean, vetoAdoptante:boolean):boolean
+   -resolverSolicitud(aprobacionProtectora:boolean, estadoSolicitud:String):void
+}
+class Adoptante{
+   -codigoAdoptante: String
+   -ingresosAdoptante: int
+   -dimensionViviendaAdoptante: int
+   -numeroMascotasAdoptante: int
+   -vetoAdoptante: boolean
+}
+class Persona{
+   -dni: String
+   -nombre: String
+   -trabajo: String
+   -telefono: int
+   -email: String
+   -tipoVia: String
+   -nombreVia: String
+   -numeroCasa: int
+   -bloque: int
+   -escalera: String
+   -puerta: String
+   -infoAdicional: String
+   -localidad: String
+   -provincia: String
+   -codigoPostal: int
+}
+class Cliente{
+   -codigoCliente: String
+}
+class Compra{
+   -codigoCompra: int
+   -fechaHoraCompra LocalDateTime
+}
+class Producto{
+   -codigoProducto: int
+   -nombreProducto: String
+   -precio: int
+   -descripcion: String
+   -stock:int
+   -verCaracteristicasProducto()
+   -comprar()
+}
+class MedioPago{
+   -codigoMedioPago: int
+   -nombreMedioPago: String
+}
+class Donacion{
+   -codigoDonacion: int
+   -importe: int
+}
+
+
+@enduml

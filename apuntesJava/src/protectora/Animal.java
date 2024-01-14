@@ -4,69 +4,73 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
+/**
+ * Clase Animal que define las propiedades y los comportamientos de los diferentes animales
+ * @author selene
+ * @version 1.0
+ */
 public class Animal {
-	private String nombreAnimal, colorAnimal, sexoAnimal;
-	//el tiempo en la protectora se cuenta en meses
-	private int codigoAnimal, edadAnimal, tiempoEnProtectora;
-	//el contadorAnimales cuenta los animales que existen actualmente, y el contadorInstanciasAnimales cuenta las instancias que se han hecho sin tener en cuenta los
-	//animales que existan o no actualmente
-	private static int contadorAnimales, contadorInstanciasAnimales;
+	private String nombreAnimal;
+	//el tiempo en protectora se cuenta en meses
+	private int codigoAnimal, edadAnimal, tiempoEnProtectora, colorAnimal, tipoAnimal, sexoAnimal, razaAnimal;
+	private long chip;
+	//el contadorAnimales cuenta los animales que existen actualmente, y el contadoInstanciasAnimales cuenta las instancias que se han hecho sin tener en cuenta los
+	//animales que existen o no actualmente
+	private static int contadorAnimal, contadorInstanciasAnimal;
 	private LocalDate fechaNacimientoAnimal;
 	private LocalDateTime fechaEntradaProtectora;
-	private boolean castrado, capacidadConvivirAnimales, comprobacionChip;
-	private Chip chip;
-	private EstadoAnimal estadoAnimal;
-	
+	private boolean castrado, capacidadConvivirAnimales;
+	//SE PONE PÚBLICO PARA HACER LA PRUEBA
+	public EstadoAnimal estadoAnimal[] ;
 	{
-		this.nombreAnimal = "desconocido";
-		this.capacidadConvivirAnimales = false;
-		this.chip = null;
+		this.nombreAnimal="desconocido";
+		this.capacidadConvivirAnimales=false;
+		this.chip=0;
+		//SE LE PONE UN VALOR PROVISIONAL
+		estadoAnimal=new EstadoAnimal[5];
 	}
 	static {
-		Animal.contadorAnimales=0;
-		Animal.contadorInstanciasAnimales=0;
+		Animal.contadorAnimal=0;
+		Animal.contadorInstanciasAnimal=0;
 	}
 	/**
-	 * Constructor especializado en inicializar un objeto de la clase con los requisitos mínimos especificados, y que automáticamente le asocia el codigo del
-	 * animal y todas sus propiedades
+	 * Constructor especializado en inicializar objetos de la clase con los requisitos especificados y que automáticamente le asocia el código al animal y
+	 * el resto de sus propiedades
 	 * @param colorAnimal
 	 * @param sexoAnimal
 	 * @param fechaNacimientoAnimal
 	 * @param castrado
+	 * @param chip
 	 */
-	public Animal(String colorAnimal, String sexoAnimal, LocalDate fechaNacimientoAnimal, boolean castrado, boolean comprobacionChip) {
-		//aumentamos el contado de animales en el sistema y el contador de animales instanciados
-		this.aumentarContadorAnimales();
-		this.aumentarContadorInstanciasAnimales();
-		//asignamos el código único del animal
-		this.setCodigoAnimal();
+	public Animal(String nombreAnimal, int tipoAnimal, int colorAnimal, int sexoAnimal, int razaAnimal, LocalDate fechaNacimientoAnimal, boolean castrado, long chip) {
+		//aumentamos tanto el contadoAnimales como el contadorInstanciasAnimal
+		this.aumentarContadorAnimal();
+		this.aumentarContadorInstanciasAnimal();
+		//asignamos los valores al objeto animal
+		this.setNombreAnimal(nombreAnimal);
+		this.setTipoAnimal(tipoAnimal);
 		this.setColorAnimal(colorAnimal);
 		this.setSexoAnimal(sexoAnimal);
+		this.setRazaAnimal(razaAnimal);
 		this.setEdadAnimal(fechaNacimientoAnimal);
 		this.setFechaNacimientoAnimal(fechaNacimientoAnimal);
-		this.setFechaEntradaProtectora();
-		this.setTiempoEnProtectora();
-		this.setCastrado(castrado);	
-		this.setComprobacionChip(comprobacionChip);
-		//asignamos el estado del animal
-		this.setEstadoAnimal(comprobacionChip);
-	}
-	public Animal(String nombreAnimal, String colorAnimal, String sexoAnimal, LocalDate fechaNacimientoAnimal, boolean castrado, boolean comprobacionChip, boolean capacidadConvivirAnimales) {
-		this(colorAnimal, sexoAnimal, fechaNacimientoAnimal, castrado, comprobacionChip);
-		this.setNombreAnimal(nombreAnimal);
-		this.capacidadConvivirAnimales=capacidadConvivirAnimales;
+		this.setCastrado(castrado);
+		this.setChip(chip);
 	}
 	private void setNombreAnimal(String nombreAnimal) {
 		this.nombreAnimal=nombreAnimal;
 	}
-	private void setColorAnimal(String colorAnimal) {
-		this.colorAnimal=colorAnimal;
+	private void setTipoAnimal(int tipoAnimal) {
+		this.tipoAnimal=tipoAnimal;;	
 	}
-	private void setSexoAnimal(String sexoAnimal) {
+	public void setColorAnimal(int color) {
+		this.colorAnimal= color;
+	}
+	private void setSexoAnimal(int sexoAnimal) {
 		this.sexoAnimal=sexoAnimal;
 	}
-	private void setCodigoAnimal() {
-		this.codigoAnimal=Animal.contadorInstanciasAnimales;
+	private void setRazaAnimal(int razaAnimal) {
+		this.razaAnimal=razaAnimal;
 	}
 	private void setEdadAnimal(LocalDate fechaNacimientoAnimal) {
 		this.edadAnimal=(int)ChronoUnit.YEARS.between(fechaNacimientoAnimal, LocalDate.now());
@@ -74,35 +78,21 @@ public class Animal {
 	private void setFechaNacimientoAnimal(LocalDate fechaNacimientoAnimal) {
 		this.fechaNacimientoAnimal=fechaNacimientoAnimal;
 	}
-	private void setFechaEntradaProtectora() {
-		this.fechaEntradaProtectora=LocalDateTime.now();
-	}
-	private void setTiempoEnProtectora() {
-		this.tiempoEnProtectora=(int)ChronoUnit.MONTHS.between(fechaEntradaProtectora, LocalDateTime.now());
-	}
 	private void setCastrado(boolean castrado) {
 		this.castrado=castrado;
 	}
-	private void setComprobacionChip(boolean comprobacionChip) {
-		this.comprobacionChip=comprobacionChip;
+	private void setChip(long chip) {
+		this.chip=chip;
 	}
-	private void setEstadoAnimal(boolean comprobacionChip){
-		if(comprobacionChip) chip = new Chip();
-		estadoAnimal = new EstadoAnimal(comprobacionChip, this.getCodigoAnimal());
+	private void aumentarContadorAnimal() {
+		Animal.contadorAnimal++;
 	}
-	private int getCodigoAnimal() {
-		return this.codigoAnimal;
+	private void aumentarContadorInstanciasAnimal() {
+		Animal.contadorInstanciasAnimal++;
 	}
-	/**
-	 * Método de la clase que aumenta el contador de los animales actuales en el sistema
-	 */
-	private void aumentarContadorAnimales() {
-		Animal.contadorAnimales++;
-	}
-	/**
-	 * Método de la clase que aumenta el contador de las instancias de animales actuales en el sistema
-	 */
-	private void aumentarContadorInstanciasAnimales() {
-		Animal.contadorInstanciasAnimales++;
+	//DUDA
+	public void agregarEstadoAnimal(EstadoAnimal estadoAnimal, EstadoAnimal estadoAnimal2, Animal animal) {
+		animal.estadoAnimal[0]=estadoAnimal;
+		animal.estadoAnimal[1]=estadoAnimal2;
 	}
 }
