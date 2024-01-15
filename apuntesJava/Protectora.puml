@@ -119,6 +119,8 @@ class Animal{
    -setChip(chip:long):void
    -aumentarContadorAnimal():void
    -aumentarContadorInstanciasAnimal():void
+   +agregarEstadoAnimal(estadoAnimal:EstadoAnimal, animal:Animal):void
+   +getNombreAnimal():String
 }
 class EstadoAnimal{
    -estadoAnimal:int

@@ -20,17 +20,7 @@ public class TestProtectora {
 	private Animal crearAnimal(String nombreAnimal, int tipoAnimal, int colorAnimal, int sexoAnimal, int razaAnimal, LocalDate fechaNacimientoAnimal, boolean castrado, long chip) {
 		Animal animal = new Animal(nombreAnimal, tipoAnimal, colorAnimal, sexoAnimal, razaAnimal, fechaNacimientoAnimal, castrado, chip);
 		EstadoAnimal estadoAnimal = new EstadoAnimal(animal, EstadosAnimal.INDOCUMENTADO);
-		EstadoAnimal estadoAnimal2 = new EstadoAnimal(animal, EstadosAnimal.ADOPTABLE);
-		EstadoAnimal estadoAnimal3 = new EstadoAnimal(animal, EstadosAnimal.ADOPTADO);
-		EstadoAnimal estadoAnimal4 = new EstadoAnimal(animal, EstadosAnimal.ADOPTABLE);
-		EstadoAnimal estadoAnimal5 = new EstadoAnimal(animal, EstadosAnimal.ADOPTADO);
-		EstadoAnimal estadoAnimal6 = new EstadoAnimal(animal, EstadosAnimal.ADOPTABLE);
 		animal.agregarEstadoAnimal(estadoAnimal, animal);
-		animal.agregarEstadoAnimal(estadoAnimal2, animal);
-		animal.agregarEstadoAnimal(estadoAnimal3, animal);
-		animal.agregarEstadoAnimal(estadoAnimal4, animal);
-		animal.agregarEstadoAnimal(estadoAnimal5, animal);
-		animal.agregarEstadoAnimal(estadoAnimal6, animal);
 		return animal;
 	}
 
