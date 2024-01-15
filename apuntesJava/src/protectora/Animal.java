@@ -90,10 +90,19 @@ public class Animal {
 	private void aumentarContadorInstanciasAnimal() {
 		Animal.contadorInstanciasAnimal++;
 	}
-	//DUDA
-	public void agregarEstadoAnimal(EstadoAnimal estadoAnimal, EstadoAnimal estadoAnimal2, Animal animal) {
-		animal.estadoAnimal[0]=estadoAnimal;
-		animal.estadoAnimal[1]=estadoAnimal2;
+	public void agregarEstadoAnimal(EstadoAnimal estadoAnimal, Animal animal) {
+		//comprobamos que el lugar en el array esté vacío
+		for(int i=0;i<=this.estadoAnimal.length-1;i++) {
+			//si la posición está vacía, le agrega el nuevo estado
+			if(this.estadoAnimal[i]==null) {
+				this.estadoAnimal[i]=estadoAnimal;
+				//una vez agregado, sale del bucle
+				break;
+			}else {
+				//si la posición no está vacía y ya ha llegado a la última, avisa de que el historial está completo
+				if(i==this.estadoAnimal.length-1)System.out.println("Historial lleno");
+			}
+		}
 	}
 	public String getNombreAnimal() {
 		return this.nombreAnimal;
