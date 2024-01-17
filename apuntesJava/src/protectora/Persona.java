@@ -6,7 +6,7 @@ package protectora;
  * @version 1.0
  */
 public class Persona {
-	private String codigo, dni, nombre, trabajo, email, tipoVia, nombreVia, escalera, puerta, 
+	private String dni, nombre, trabajo, email, tipoVia, nombreVia, escalera, puerta, 
 	infoAdicional, localidad, provincia;
 	private int telefono, numeroCasa, bloque, codigoPostal;
 	private static int contadorPersonas;

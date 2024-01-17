@@ -7,7 +7,11 @@ import protectora.utilidades.EstadosAnimal;
 import protectora.utilidades.Razas;
 import protectora.utilidades.SexoAnimal;
 import protectora.utilidades.TipoAnimal;
-
+/**
+ * Clase test que sirve para probar la creación de objetos y sus comportamientos
+ * @author selene
+ * @version 1.0
+ */
 public class TestProtectora {
 
 	public static void main(String[] args) {
