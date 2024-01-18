@@ -54,6 +54,7 @@ public class Animal {
 		this.setRazaAnimal(razaAnimal);
 		this.setEdadAnimal(fechaNacimientoAnimal);
 		this.setFechaNacimientoAnimal(fechaNacimientoAnimal);
+		this.setFechaEntradaProtectora();
 		this.setCastrado(castrado);
 		this.setChip(chip);
 	}
@@ -77,6 +78,9 @@ public class Animal {
 	}
 	private void setFechaNacimientoAnimal(LocalDate fechaNacimientoAnimal) {
 		this.fechaNacimientoAnimal=fechaNacimientoAnimal;
+	}
+	private void setFechaEntradaProtectora() {
+		this.fechaEntradaProtectora=LocalDateTime.now();
 	}
 	private void setCastrado(boolean castrado) {
 		this.castrado=castrado;
