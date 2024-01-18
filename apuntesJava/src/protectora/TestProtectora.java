@@ -36,8 +36,13 @@ public class TestProtectora {
 	 */
 	private Animal crearAnimal(String nombreAnimal, int tipoAnimal, int colorAnimal, int sexoAnimal, int razaAnimal, LocalDate fechaNacimientoAnimal, boolean castrado, long chip) {
 		Animal animal = new Animal(nombreAnimal, tipoAnimal, colorAnimal, sexoAnimal, razaAnimal, fechaNacimientoAnimal, castrado, chip);
+		//estado del animal default
 		EstadoAnimal estadoAnimal = new EstadoAnimal(animal, EstadosAnimal.INDOCUMENTADO);
-		animal.agregarEstadoAnimal(estadoAnimal, animal);
+		//si el animal tiene chip (chip!=0), se le asigna estado de adoptable, si no prosigue con default
+		if(animal.getChip()!=0) {
+			estadoAnimal = new EstadoAnimal(animal, EstadosAnimal.ADOPTABLE);
+		}
+		animal.agregarEstadoAnimal(estadoAnimal);
 		return animal;
 	}
 

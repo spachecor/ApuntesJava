@@ -20,14 +20,15 @@ public class Animal {
 	private LocalDate fechaNacimientoAnimal;
 	private LocalDateTime fechaEntradaProtectora;
 	private boolean castrado, capacidadConvivirAnimales;
-	//SE PONE PÚBLICO PARA HACER LA PRUEBA
-	public EstadoAnimal estadoAnimal[] ;
+	private EstadoAnimal estadoAnimal[];
+	private SolicitudAdopcion solicitudes[];
 	{
 		this.nombreAnimal="desconocido";
 		this.capacidadConvivirAnimales=false;
 		this.chip=0;
 		//SE LE PONE UN VALOR PROVISIONAL
 		estadoAnimal=new EstadoAnimal[5];
+		solicitudes=new SolicitudAdopcion[5];
 	}
 	static {
 		Animal.contadorAnimal=0;
@@ -84,13 +85,16 @@ public class Animal {
 	private void setChip(long chip) {
 		this.chip=chip;
 	}
+	public int getTipoAnimal() {
+		return this.tipoAnimal;
+	}
 	private void aumentarContadorAnimal() {
 		Animal.contadorAnimal++;
 	}
 	private void aumentarContadorInstanciasAnimal() {
 		Animal.contadorInstanciasAnimal++;
 	}
-	public void agregarEstadoAnimal(EstadoAnimal estadoAnimal, Animal animal) {
+	public void agregarEstadoAnimal(EstadoAnimal estadoAnimal) {
 		//comprobamos que el lugar en el array esté vacío
 		for(int i=0;i<=this.estadoAnimal.length-1;i++) {
 			//si la posición está vacía, le agrega el nuevo estado
@@ -104,7 +108,24 @@ public class Animal {
 			}
 		}
 	}
+	public void agregarSolicitudAdopcion(SolicitudAdopcion solicitud) {
+		//comprobamos que el lugar en el array esté vacío
+		for(int i=0;i<=this.solicitudes.length-1;i++) {
+			//si la posición está vacía, le agrega el nuevo estado
+			if(this.solicitudes[i]==null) {
+				this.solicitudes[i]=solicitud;
+				//una vez agregado, sale del bucle
+				break;
+			}else {
+				//si la posición no está vacía y ya ha llegado a la última, avisa de que el historial está completo
+				if(i==this.solicitudes.length-1)System.out.println("Historial lleno");
+			}
+		}
+	}
 	public String getNombreAnimal() {
 		return this.nombreAnimal;
+	}
+	public long getChip() {
+		return this.chip;
 	}
 }
