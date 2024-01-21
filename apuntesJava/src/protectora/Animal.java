@@ -1,15 +1,18 @@
 package protectora;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+
+import protectora.interfaces.Agregable;
 
 /**
  * Clase Animal que define las propiedades y los comportamientos de los diferentes animales
  * @author selene
  * @version 1.0
  */
-public class Animal{
+public class Animal implements Agregable{
 	private String nombreAnimal;
 	//el tiempo en protectora se cuenta en meses
 	private int codigoAnimal, edadAnimal, tiempoEnProtectora, colorAnimal, tipoAnimal, sexoAnimal, razaAnimal;
@@ -58,6 +61,37 @@ public class Animal{
 		this.setCastrado(castrado);
 		this.setChip(chip);
 	}
+	@Override
+	public void agregar(Object object) {
+		if(object instanceof EstadoAnimal) {
+			//comprobamos que el lugar en el array esté vacío
+			for(int i=0;i<=this.estadoAnimal.length-1;i++) {
+				//si la posición está vacía, le agrega el nuevo estado
+				if(this.estadoAnimal[i]==null) {
+					this.estadoAnimal[i]=(EstadoAnimal)object;
+					//una vez agregado, sale del bucle
+					break;
+				}else {
+					//si la posición no está vacía y ya ha llegado a la última, avisa de que el historial está completo
+					if(i==this.estadoAnimal.length-1) throw new RuntimeException("Historial lleno");
+				}
+			}
+		}
+		else if(object instanceof SolicitudAdopcion) {
+			//comprobamos que el lugar en el array esté vacío
+			for(int i=0;i<=this.solicitudes.length-1;i++) {
+				//si la posición está vacía, le agrega el nuevo estado
+				if(this.solicitudes[i]==null) {
+					this.solicitudes[i]=(SolicitudAdopcion)object;
+					//una vez agregado, sale del bucle
+					break;
+				}else {
+					//si la posición no está vacía y ya ha llegado a la última, avisa de que el historial está completo
+					if(i==this.solicitudes.length-1) throw new RuntimeException("Historial lleno");
+				}
+			}
+		}else throw new RuntimeException("Introducido un objeto inválido");
+	}
 	private void setNombreAnimal(String nombreAnimal) {
 		this.nombreAnimal=nombreAnimal;
 	}
@@ -93,34 +127,6 @@ public class Animal{
 	}
 	private void aumentarContadorInstanciasAnimal() {
 		Animal.contadorInstanciasAnimal++;
-	}
-	public void agregarEstadoAnimal(EstadoAnimal estadoAnimal) {
-		//comprobamos que el lugar en el array esté vacío
-		for(int i=0;i<=this.estadoAnimal.length-1;i++) {
-			//si la posición está vacía, le agrega el nuevo estado
-			if(this.estadoAnimal[i]==null) {
-				this.estadoAnimal[i]=estadoAnimal;
-				//una vez agregado, sale del bucle
-				break;
-			}else {
-				//si la posición no está vacía y ya ha llegado a la última, avisa de que el historial está completo
-				if(i==this.estadoAnimal.length-1)System.out.println("Historial lleno");
-			}
-		}
-	}
-	public void agregarSolicitudAdopcion(SolicitudAdopcion solicitud) {
-		//comprobamos que el lugar en el array esté vacío
-		for(int i=0;i<=this.solicitudes.length-1;i++) {
-			//si la posición está vacía, le agrega el nuevo estado
-			if(this.solicitudes[i]==null) {
-				this.solicitudes[i]=solicitud;
-				//una vez agregado, sale del bucle
-				break;
-			}else {
-				//si la posición no está vacía y ya ha llegado a la última, avisa de que el historial está completo
-				if(i==this.solicitudes.length-1)System.out.println("Historial lleno");
-			}
-		}
 	}
 	public String getNombreAnimal() {
 		return this.nombreAnimal;

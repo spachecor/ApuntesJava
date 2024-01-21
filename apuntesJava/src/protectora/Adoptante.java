@@ -1,10 +1,13 @@
 package protectora;
+
+import protectora.interfaces.Agregable;
+
 /**
  * Clase Adoptante que hereda de Persona. Define los comportamientos y las propiedades de los objeto tipo Adoptante
  * @author selene
  * @version 1.0
  */
-public class Adoptante extends Persona{
+public class Adoptante extends Persona implements Agregable{
 	private String codigoAdoptante;
 	private int ingresosAdoptante, dimensionViviendaAdoptante, numeroMascotasAdoptante;
 	private boolean vetoAdoptante;
@@ -22,6 +25,23 @@ public class Adoptante extends Persona{
 		this.setNumeroMascotasAdoptante(numeroMascotasAdoptante);
 		//le asignamos su codigo de adoptante
 		this.setCodigoAdoptante();
+	}
+	@Override
+	public void agregar(Object object) {
+		if(object instanceof SolicitudAdopcion) {
+			//comprobamos que el lugar en el array esté vacío
+			for(int i=0;i<=this.solicitudes.length-1;i++) {
+				//si la posición está vacía, le agrega el nuevo estado
+				if(this.solicitudes[i]==null) {
+					this.solicitudes[i]=(SolicitudAdopcion)object;
+					//una vez agregado, sale del bucle
+					break;
+				}else {
+					//si la posición no está vacía y ya ha llegado a la última, avisa de que el historial está completo
+					if(i==this.solicitudes.length-1)throw new RuntimeException("El objeto introducido es inválido");
+				}
+			}
+		}
 	}
 	private void setIngresosAdoptante(int ingresosAdoptante) {
 		this.ingresosAdoptante=ingresosAdoptante;
@@ -46,19 +66,5 @@ public class Adoptante extends Persona{
 	}
 	private void setCodigoAdoptante() {
 		this.codigoAdoptante=super.getDni().toLowerCase().concat("a");
-	}
-	public void agregarSolicitudAdopcion(SolicitudAdopcion solicitud) {
-		//comprobamos que el lugar en el array esté vacío
-		for(int i=0;i<=this.solicitudes.length-1;i++) {
-			//si la posición está vacía, le agrega el nuevo estado
-			if(this.solicitudes[i]==null) {
-				this.solicitudes[i]=solicitud;
-				//una vez agregado, sale del bucle
-				break;
-			}else {
-				//si la posición no está vacía y ya ha llegado a la última, avisa de que el historial está completo
-				if(i==this.solicitudes.length-1)System.out.println("Historial lleno");
-			}
-		}
 	}
 }

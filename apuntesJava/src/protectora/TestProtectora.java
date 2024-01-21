@@ -42,7 +42,7 @@ public class TestProtectora {
 		if(animal.getChip()!=0) {
 			estadoAnimal = new EstadoAnimal(animal, EstadosAnimal.ADOPTABLE);
 		}
-		animal.agregarEstadoAnimal(estadoAnimal);
+		animal.agregar(estadoAnimal);
 		return animal;
 	}
 
