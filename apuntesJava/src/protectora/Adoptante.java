@@ -11,11 +11,15 @@ public class Adoptante extends Persona implements Agregable{
 	private String codigoAdoptante;
 	private int ingresosAdoptante, dimensionViviendaAdoptante, numeroMascotasAdoptante;
 	private boolean vetoAdoptante;
+	private static int contadorSolicitudes;
 	private SolicitudAdopcion[] solicitudes;
 	{
 		vetoAdoptante=false;
 		//SE LE PONE UN VALOR PROVIVISIONAL
 		solicitudes=new SolicitudAdopcion[5];
+	}
+	static {
+		contadorSolicitudes=0;
 	}
 
 	public Adoptante(String dni, String trabajo, String email, String tipoVia, String nombreVia, String escalera, String puerta, String infoAdicional, String localidad, String provincia, int telefono, int numeroCasa, int bloque, int codigoPostal, int ingresosAdoptante, int dimensionViviendaAdoptante, int numeroMascotasAdoptante) {
@@ -29,19 +33,11 @@ public class Adoptante extends Persona implements Agregable{
 	@Override
 	public void agregar(Object object) {
 		if(object instanceof SolicitudAdopcion) {
-			//comprobamos que el lugar en el array esté vacío
-			for(int i=0;i<=this.solicitudes.length-1;i++) {
-				//si la posición está vacía, le agrega el nuevo estado
-				if(this.solicitudes[i]==null) {
-					this.solicitudes[i]=(SolicitudAdopcion)object;
-					//una vez agregado, sale del bucle
-					break;
-				}else {
-					//si la posición no está vacía y ya ha llegado a la última, avisa de que el historial está completo
-					if(i==this.solicitudes.length-1)throw new RuntimeException("El objeto introducido es inválido");
-				}
-			}
-		}
+			if(Adoptante.contadorSolicitudes!=this.solicitudes.length) {
+				this.solicitudes[Adoptante.contadorSolicitudes]=(SolicitudAdopcion)object;
+				Adoptante.contadorSolicitudes++;
+			}else throw new RuntimeException("Historial lleno");
+		}else throw new RuntimeException("Introducido un objeto inválido");
 	}
 	private void setIngresosAdoptante(int ingresosAdoptante) {
 		this.ingresosAdoptante=ingresosAdoptante;

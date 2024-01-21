@@ -31,6 +31,28 @@ public class SolicitudAdopcion {
 		this.setAnimal(animal);
 		this.setAdoptante(adoptante);
 	}
+	private void aumentarContadorInstanciasSolicitudAnimal() {
+		SolicitudAdopcion.contadorInstanciasSolicitudAdopcion++;
+	}
+	public void primeraComprobacion(Adoptante adoptante, Animal animal, SolicitudAdopcion solicitud) {	
+		boolean requisitos=false;
+		if(!adoptante.getVetoAdoptante()&&solicitud.getAceptacionConvivientes()&&solicitud.getCompromisoCastrar()&&solicitud.getCompromisoInformarProtectora()) {
+			//el animal es un gato
+			if(animal.getTipoAnimal()==0) {
+				//cumple requisitos de vivienda
+				if(adoptante.getDimensionViviendaAdoptante()<=45) requisitos=true;//en espera
+				else requisitos=false;//si no cumple, denegada
+				
+			}else if(animal.getTipoAnimal()==1){//el animal es un perro
+				//cumple los requisitos de vivienda
+				if(adoptante.getDimensionViviendaAdoptante()<=60) requisitos=true;//en espera
+				else requisitos=false;//si no cumple, denegada
+			} 
+		}else requisitos=false;
+		//asignamos el estado resultante
+		if(requisitos) solicitud.setEstadoAdopcion(EstadosSolicitudAdopcion.EN_ESPERA);
+		else solicitud.setEstadoAdopcion(EstadosSolicitudAdopcion.DENEGADA);
+	}
 	private void setCodigoSolicitud() {
 		this.codigoSolicitud=this.getContadorInstanciasSolicitudAdopcion();
 	}
@@ -66,27 +88,5 @@ public class SolicitudAdopcion {
 	}
 	public int getContadorInstanciasSolicitudAdopcion() {
 		return SolicitudAdopcion.contadorInstanciasSolicitudAdopcion;
-	}
-	private void aumentarContadorInstanciasSolicitudAnimal() {
-		SolicitudAdopcion.contadorInstanciasSolicitudAdopcion++;
-	}
-	public void primeraComprobacion(Adoptante adoptante, Animal animal, SolicitudAdopcion solicitud) {	
-		boolean requisitos=false;
-		if(!adoptante.getVetoAdoptante()&&solicitud.getAceptacionConvivientes()&&solicitud.getCompromisoCastrar()&&solicitud.getCompromisoInformarProtectora()) {
-			//el animal es un gato
-			if(animal.getTipoAnimal()==0) {
-				//cumple requisitos de vivienda
-				if(adoptante.getDimensionViviendaAdoptante()<=45) requisitos=true;//en espera
-				else requisitos=false;//si no cumple, denegada
-				
-			}else if(animal.getTipoAnimal()==1){//el animal es un perro
-				//cumple los requisitos de vivienda
-				if(adoptante.getDimensionViviendaAdoptante()<=60) requisitos=true;//en espera
-				else requisitos=false;//si no cumple, denegada
-			} 
-		}else requisitos=false;
-		//asignamos el estado resultante
-		if(requisitos) solicitud.setEstadoAdopcion(EstadosSolicitudAdopcion.EN_ESPERA);
-		else solicitud.setEstadoAdopcion(EstadosSolicitudAdopcion.DENEGADA);
 	}
 }

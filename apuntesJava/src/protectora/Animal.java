@@ -19,7 +19,7 @@ public class Animal implements Agregable{
 	private long chip;
 	//el contadorAnimales cuenta los animales que existen actualmente, y el contadoInstanciasAnimales cuenta las instancias que se han hecho sin tener en cuenta los
 	//animales que existen o no actualmente
-	private static int contadorAnimal, contadorInstanciasAnimal;
+	private static int contadorAnimal, contadorInstanciasAnimal, contadorSolicitudes, contadorEstados;
 	private LocalDate fechaNacimientoAnimal;
 	private LocalDateTime fechaEntradaProtectora;
 	private boolean castrado, capacidadConvivirAnimales;
@@ -36,6 +36,8 @@ public class Animal implements Agregable{
 	static {
 		Animal.contadorAnimal=0;
 		Animal.contadorInstanciasAnimal=0;
+		Animal.contadorSolicitudes=0;
+		Animal.contadorEstados=0;
 	}
 	/**
 	 * Constructor especializado en inicializar objetos de la clase con los requisitos especificados y que automáticamente le asocia el código al animal y
@@ -64,33 +66,19 @@ public class Animal implements Agregable{
 	@Override
 	public void agregar(Object object) {
 		if(object instanceof EstadoAnimal) {
-			//comprobamos que el lugar en el array esté vacío
-			for(int i=0;i<=this.estadoAnimal.length-1;i++) {
-				//si la posición está vacía, le agrega el nuevo estado
-				if(this.estadoAnimal[i]==null) {
-					this.estadoAnimal[i]=(EstadoAnimal)object;
-					//una vez agregado, sale del bucle
-					break;
-				}else {
-					//si la posición no está vacía y ya ha llegado a la última, avisa de que el historial está completo
-					if(i==this.estadoAnimal.length-1) throw new RuntimeException("Historial lleno");
-				}
-			}
-		}
-		else if(object instanceof SolicitudAdopcion) {
-			//comprobamos que el lugar en el array esté vacío
-			for(int i=0;i<=this.solicitudes.length-1;i++) {
-				//si la posición está vacía, le agrega el nuevo estado
-				if(this.solicitudes[i]==null) {
-					this.solicitudes[i]=(SolicitudAdopcion)object;
-					//una vez agregado, sale del bucle
-					break;
-				}else {
-					//si la posición no está vacía y ya ha llegado a la última, avisa de que el historial está completo
-					if(i==this.solicitudes.length-1) throw new RuntimeException("Historial lleno");
-				}
-			}
+			if(Animal.contadorEstados!=this.estadoAnimal.length) {
+				this.estadoAnimal[Animal.contadorEstados]=(EstadoAnimal)object;
+				Animal.contadorEstados++;
+			}else throw new RuntimeException("Historial lleno");
+		}else if(object instanceof SolicitudAdopcion) {
+			if(Animal.contadorSolicitudes!=this.solicitudes.length) {
+				this.solicitudes[Animal.contadorSolicitudes]=(SolicitudAdopcion)object;
+				Animal.contadorSolicitudes++;
+			}else throw new RuntimeException("Historial lleno");
 		}else throw new RuntimeException("Introducido un objeto inválido");
+	}
+	private void aumentarContadorInstanciasAnimal() {
+		Animal.contadorInstanciasAnimal++;
 	}
 	private void setNombreAnimal(String nombreAnimal) {
 		this.nombreAnimal=nombreAnimal;
@@ -124,9 +112,6 @@ public class Animal implements Agregable{
 	}
 	private void aumentarContadorAnimal() {
 		Animal.contadorAnimal++;
-	}
-	private void aumentarContadorInstanciasAnimal() {
-		Animal.contadorInstanciasAnimal++;
 	}
 	public String getNombreAnimal() {
 		return this.nombreAnimal;
