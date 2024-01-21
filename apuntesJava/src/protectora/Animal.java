@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
  * @author selene
  * @version 1.0
  */
-public class Animal {
+public class Animal{
 	private String nombreAnimal;
 	//el tiempo en protectora se cuenta en meses
 	private int codigoAnimal, edadAnimal, tiempoEnProtectora, colorAnimal, tipoAnimal, sexoAnimal, razaAnimal;
