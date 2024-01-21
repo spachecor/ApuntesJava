@@ -15,7 +15,7 @@ import protectora.interfaces.Agregable;
 public class Animal implements Agregable{
 	private String nombreAnimal;
 	//el tiempo en protectora se cuenta en meses
-	private int codigoAnimal, edadAnimal, tiempoEnProtectora, colorAnimal, tipoAnimal, sexoAnimal, razaAnimal;
+	private int codigoAnimal, edadAnimal, tiempoEnProtectora, colorAnimal, tipoAnimal, sexoAnimal, razaAnimal, tamanio;
 	private long chip;
 	//el contadorAnimales cuenta los animales que existen actualmente, y el contadoInstanciasAnimales cuenta las instancias que se han hecho sin tener en cuenta los
 	//animales que existen o no actualmente
@@ -48,7 +48,7 @@ public class Animal implements Agregable{
 	 * @param castrado
 	 * @param chip
 	 */
-	public Animal(String nombreAnimal, int tipoAnimal, int colorAnimal, int sexoAnimal, int razaAnimal, LocalDate fechaNacimientoAnimal, boolean castrado, long chip) {
+	public Animal(String nombreAnimal, int tipoAnimal, int colorAnimal, int sexoAnimal, int razaAnimal, int tamanio, LocalDate fechaNacimientoAnimal, boolean castrado, long chip) {
 		//aumentamos tanto el contadoAnimales como el contadorInstanciasAnimal
 		this.aumentarContadorAnimal();
 		this.aumentarContadorInstanciasAnimal();
@@ -58,6 +58,7 @@ public class Animal implements Agregable{
 		this.setColorAnimal(colorAnimal);
 		this.setSexoAnimal(sexoAnimal);
 		this.setRazaAnimal(razaAnimal);
+		this.setTamanio(tamanio);
 		this.setEdadAnimal(fechaNacimientoAnimal);
 		this.setFechaNacimientoAnimal(fechaNacimientoAnimal);
 		this.setCastrado(castrado);
@@ -94,6 +95,9 @@ public class Animal implements Agregable{
 	}
 	private void setRazaAnimal(int razaAnimal) {
 		this.razaAnimal=razaAnimal;
+	}
+	private void setTamanio(int tamanio){
+		this.tamanio=tamanio;
 	}
 	private void setEdadAnimal(LocalDate fechaNacimientoAnimal) {
 		this.edadAnimal=(int)ChronoUnit.YEARS.between(fechaNacimientoAnimal, LocalDate.now());
