@@ -3,17 +3,33 @@ package protectora;
  * Clase padre Persona que define las propiedades y el comportamiento de los objetos persona que hereden de 
  * persona.
  * @author selene
- * @version 1.0
+ * @version 1.3
  */
 public class Persona {
+	private static int contadorPersonas;
 	private String dni, nombre, trabajo, email, tipoVia, nombreVia, escalera, puerta, 
 	infoAdicional, localidad, provincia;
 	private int telefono, numeroCasa, bloque, codigoPostal;
-	private static int contadorPersonas;
 	static {
 		contadorPersonas=0;
 	}
-	
+	/**
+	 * Constructor de los objetos de tipo Persona
+	 * @param dni
+	 * @param trabajo
+	 * @param email
+	 * @param tipoVia
+	 * @param nombreVia
+	 * @param escalera
+	 * @param puerta
+	 * @param infoAdicional
+	 * @param localidad
+	 * @param provincia
+	 * @param telefono
+	 * @param numeroCasa
+	 * @param bloque
+	 * @param codigoPostal
+	 */
 	public Persona(String dni, String trabajo, String email, String tipoVia, String nombreVia, String escalera, String puerta, String infoAdicional, String localidad, String provincia, int telefono, int numeroCasa, int bloque, int codigoPostal) {
 		this.setDni(dni);
 		this.setTrabajo(trabajo);
@@ -24,16 +40,22 @@ public class Persona {
 		this.setPuerta(puerta);
 		this.setInfoAdicional(infoAdicional);
 		this.setLocalidad(localidad);
-		this.setProvinica(provincia);
+		this.setProvincia(provincia);
 		this.setTelefono(telefono);
 		this.setNumeroCasa(numeroCasa);
 		this.setBloque(bloque);
-		this.setCodigoPostal(codigoPostal);	
+		this.setCodigoPostal(codigoPostal);
 		//aumentamos el nº de objetos persona instanciados
 		this.aumentarContadorPersonas();
 	}
+	/**
+	 * Método que aumenta el contador del número de objetos tipo Persona instanciadas
+	 */
+	private void aumentarContadorPersonas() {
+		Persona.contadorPersonas++;
+	}
 	private void setDni(String dni) {
-			this.dni=dni;		
+		this.dni=dni;
 	}
 	private void setTrabajo(String trabajo) {
 		this.trabajo=trabajo;
@@ -59,7 +81,7 @@ public class Persona {
 	private void setLocalidad(String localidad) {
 		this.localidad=localidad;
 	}
-	private void setProvinica(String provincia) {
+	private void setProvincia(String provincia) {
 		this.provincia=provincia;
 	}
 	private void setTelefono(int telefono) {
@@ -73,9 +95,6 @@ public class Persona {
 	}
 	private void setCodigoPostal(int codigoPostal) {
 		this.codigoPostal=codigoPostal;
-	}
-	private void aumentarContadorPersonas() {
-		Persona.contadorPersonas++;
 	}
 	protected String getDni() {
 		return this.dni;

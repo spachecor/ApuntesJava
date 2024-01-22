@@ -1,10 +1,11 @@
 package protectora.utilidades;
 /**
- * Clase que contiene los tipos de raza que puede ser un animal como constantes para utilidades
+ * Clase que contiene las razas de los animales como constantes para utilidades
  * @author selene
  * @version 1.0
  */
 public class Razas {
+
 	public static int PERSA, ESFINGE, SIAMES, MAINE_COON, BENGALI, RAGDOLL, SIBERIANO, ANGORA, CORNISH_REX, COMUN_EUROPEO, ORIENTAL, EXOTICO, SOMALI, CURL_AMERICANO, AZUL_RUSO, ABISINIO, 
 	CARTUJO, HIMALAYO, BOMBAY, BOSQUE_NORUEGA, CHIHUAHUA, POMERANIA, BICHON_MALTES, CANICHE, BULLDOG_FRANCES, YORKSHIRE, BEAGLE, BLOXER, JACK_RUSSELL, BORDER_COLLIE, BULL_TERRIER, CARLINO,
 	MESTIZO, GALGO, HUSKY_SIBERIANO, SHIBA_INU, DALMATA, SHAR_PEI, LABRADOR, SAN_BERNARDO, ROTTWEILER, BOBTAIL, DOGO_ARGENTINO, GRAN_DANES;
@@ -55,6 +56,5 @@ public class Razas {
 		BOBTAIL=60;
 		DOGO_ARGENTINO=61;
 		GRAN_DANES=62;
-		
 	}
 }

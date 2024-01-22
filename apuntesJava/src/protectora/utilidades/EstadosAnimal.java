@@ -1,6 +1,6 @@
 package protectora.utilidades;
 /**
- * Clase que contiene los tipos de estado por los que puede pasar un animal como constantes para utilidades
+ * Clase que contiene los estados que pueden tener los animales como constantes para utilidades
  * @author selene
  * @version 1.0
  */

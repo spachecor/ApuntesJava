@@ -1,6 +1,6 @@
 package protectora.utilidades;
 /**
- * Clase que contiene los tipos de animales como constantes para utilidades
+ * Clase que contiene los clos tipos de animales que pueden haber como constantes para utilidades
  * @author selene
  * @version 1.0
  */

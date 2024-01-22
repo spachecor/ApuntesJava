@@ -1,10 +1,10 @@
 package protectora.utilidades;
 /**
- * Clase que contiene los tipos de estado por los que puede pasar la solicitud de adopcion de un animal como constantes para utilidades
+ * Clase que contiene los estados de las solicitudes de adopción de los animales como constantes para utilidades
  * @author selene
  * @version 1.0
  */
-public class EstadosSolicitudAdopcion {
+public class EstadosSolicitudAnimal {
 	public static int DENEGADA, EN_ESPERA, APROBADA;
 	static {
 		DENEGADA=16;

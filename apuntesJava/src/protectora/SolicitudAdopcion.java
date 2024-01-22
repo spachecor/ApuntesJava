@@ -2,56 +2,75 @@ package protectora;
 
 import java.time.LocalDateTime;
 
-import protectora.utilidades.EstadosSolicitudAdopcion;
+import protectora.utilidades.EstadosSolicitudAnimal;
 /**
  * Clase SolicitudAdopcion, que define las propiedades y el comportamiento de las solicitudes de adopción, pudiendo
  * comprobar si el adoptante cumple los requisitos, y si los cumple, cambiar el estado del animal a adoptado
  * @author selene
- * @version 1.0
+ * @version 1.2
  */
 public class SolicitudAdopcion {
+	private static int contadorInstanciasSolicitudAdopcion;
 	private int codigoSolicitud;
 	private LocalDateTime fechaHoraSolicitud;
 	private int estadoSolicitud;
-	private boolean aprobacionProtectora, aceptacionConvivientes, compromisoCastrar, compromisoInformarProtectora, viviendaAdecuada;
+	private boolean aprobacionProtectora, aceptacionConvivientes, compromisoCastrar, compromisoInformarProtectora;
 	private Animal animal;
 	private Adoptante adoptante;
-	private static int contadorInstanciasSolicitudAdopcion;
 	static {
 		contadorInstanciasSolicitudAdopcion=0;
 	}
-	
+	/**
+	 * Constructor de los objetos SolicitudAdopcion, que genera una nueva solicitud de adopción relacionada con el animal y el adoptante y que reúne los requisitos
+	 * para generar esta solicitud
+	 * @param animal el objeto de tipo animal que podría ser adoptado
+	 * @param adoptante el objeto de tipo adoptante que quiere adoptar al animal
+	 * @param aceptacionConvivientes si los convivientes aceptan la nueva adopcion
+	 * @param compromisoCastrar si el adoptante se compromete a castrar al animal en caso de no estarlo
+	 * @param compromisoInformarProtectora si el adoptante se compromete a informar a la protectora en determinadas ocasiones
+	 */
 	public SolicitudAdopcion(Animal animal, Adoptante adoptante, boolean aceptacionConvivientes, boolean compromisoCastrar, boolean compromisoInformarProtectora) {
-		this.setFechaHoraSolicitud();
+		//se le asigna su código único referente al contador de instancias de este objeto
 		this.setCodigoSolicitud();
-		this.aumentarContadorInstanciasSolicitudAnimal();
-		this.setAceptacionConvivientes(aceptacionConvivientes);
-		this.setCompromisoCastrar(compromisoCastrar);
-		this.setCompromisoInformarProtectora(compromisoInformarProtectora);
+		//se aumenta el contador de instancias del objeto
+		this.aumentarContadorInstanciasAnimal();
+		//se asignan las propiedades de la solicitud
 		this.setAnimal(animal);
 		this.setAdoptante(adoptante);
+		this.setFechaHoraSolicitud();
+		this.setAceptacionConvivientes(aceptacionConvivientes);
+		this.setCompromisoCastrar(compromisoCastrar);
+		this.setCompromisoInformarProtectora(compromisoInformarProtectora);		
 	}
-	private void aumentarContadorInstanciasSolicitudAnimal() {
-		SolicitudAdopcion.contadorInstanciasSolicitudAdopcion++;
-	}
-	public void primeraComprobacion(Adoptante adoptante, Animal animal, SolicitudAdopcion solicitud) {	
+	/**
+	 * Método que realiza la primera comprobación del estado de la solicitud de adopcion del animal
+	 * @param adoptante objeto de tipo adoptante
+	 * @param animal objeto de tipo Animal
+	 * @param solicitud objeto de tipo SolicitudAdopcion
+	 */
+	public void primeraComprobacion(Adoptante adoptante, Animal animal, SolicitudAdopcion solicitud) {
 		boolean requisitos=false;
 		if(!adoptante.getVetoAdoptante()&&solicitud.getAceptacionConvivientes()&&solicitud.getCompromisoCastrar()&&solicitud.getCompromisoInformarProtectora()) {
-			//el animal es un gato
+			//si el animal es un gato
 			if(animal.getTipoAnimal()==0) {
-				//cumple requisitos de vivienda
-				if(adoptante.getDimensionViviendaAdoptante()<=45) requisitos=true;//en espera
-				else requisitos=false;//si no cumple, denegada
-				
-			}else if(animal.getTipoAnimal()==1){//el animal es un perro
-				//cumple los requisitos de vivienda
-				if(adoptante.getDimensionViviendaAdoptante()<=60) requisitos=true;//en espera
-				else requisitos=false;//si no cumple, denegada
-			} 
+				//si cumple los requisitos de vivienda
+				if(adoptante.getDimensionViviendaAdoptante()<=45)requisitos=true;
+				else requisitos=false;
+			//si el animal es un perro
+			}else if(animal.getTipoAnimal()==1) {
+				//si cumple con los requisitos de vivienda
+				if(adoptante.getDimensionViviendaAdoptante()<=60)requisitos=true;
+				else requisitos=false;
+			}
 		}else requisitos=false;
-		//asignamos el estado resultante
-		if(requisitos) solicitud.setEstadoAdopcion(EstadosSolicitudAdopcion.EN_ESPERA);
-		else solicitud.setEstadoAdopcion(EstadosSolicitudAdopcion.DENEGADA);
+		if(requisitos)solicitud.setEstadoAdopcion(EstadosSolicitudAnimal.EN_ESPERA);
+		else solicitud.setEstadoAdopcion(EstadosSolicitudAnimal.DENEGADA);
+	}
+	/**
+	 * Método que aumenta el contador de objetos de tipo SolicitudAdopcion instanciados
+	 */
+	private void aumentarContadorInstanciasAnimal() {
+		SolicitudAdopcion.contadorInstanciasSolicitudAdopcion++;
 	}
 	private void setCodigoSolicitud() {
 		this.codigoSolicitud=this.getContadorInstanciasSolicitudAdopcion();
@@ -77,8 +96,8 @@ public class SolicitudAdopcion {
 	private void setEstadoAdopcion(int estadoSolicitud) {
 		this.estadoSolicitud=estadoSolicitud;
 	}
-	public boolean getAceptacionConvivientes() {
-		return this.aceptacionConvivientes;
+	private int getContadorInstanciasSolicitudAdopcion() {
+		return SolicitudAdopcion.contadorInstanciasSolicitudAdopcion;
 	}
 	public boolean getCompromisoCastrar() {
 		return this.compromisoCastrar;
@@ -86,7 +105,7 @@ public class SolicitudAdopcion {
 	public boolean getCompromisoInformarProtectora() {
 		return this.compromisoInformarProtectora;
 	}
-	public int getContadorInstanciasSolicitudAdopcion() {
-		return SolicitudAdopcion.contadorInstanciasSolicitudAdopcion;
+	public boolean getAceptacionConvivientes() {
+		return this.aceptacionConvivientes;
 	}
 }

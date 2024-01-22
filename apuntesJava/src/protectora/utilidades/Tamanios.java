@@ -1,5 +1,9 @@
 package protectora.utilidades;
-
+/**
+ * Clase que contiene los posibles tamaños de los animales como constantes para utilidades
+ * @author selene
+ * @version 1.0
+ */
 public class Tamanios {
 	public static int PEQUENIO, MEDIANO, GRANDE, GIGANTE;
 	static {
