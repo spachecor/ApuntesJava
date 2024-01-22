@@ -2,6 +2,7 @@ package protectora;
 
 import java.time.LocalDateTime;
 
+import protectora.utilidades.EstadosAnimal;
 import protectora.utilidades.EstadosSolicitudAnimal;
 /**
  * Clase SolicitudAdopcion, que define las propiedades y el comportamiento de las solicitudes de adopción, pudiendo
@@ -48,23 +49,23 @@ public class SolicitudAdopcion {
 	 * @param animal objeto de tipo Animal
 	 * @param solicitud objeto de tipo SolicitudAdopcion
 	 */
-	public void primeraComprobacion(Adoptante adoptante, Animal animal, SolicitudAdopcion solicitud) {
+	public void primeraComprobacion() {
 		boolean requisitos=false;
-		if(!adoptante.getVetoAdoptante()&&solicitud.getAceptacionConvivientes()&&solicitud.getCompromisoCastrar()&&solicitud.getCompromisoInformarProtectora()) {
+		if(this.animal.getEstadoAnimalActual()==EstadosAnimal.ADOPTABLE&&!this.adoptante.getVetoAdoptante()&&this.getAceptacionConvivientes()&&this.getCompromisoCastrar()&&this.getCompromisoInformarProtectora()) {
 			//si el animal es un gato
-			if(animal.getTipoAnimal()==0) {
+			if(this.animal.getTipoAnimal()==0) {
 				//si cumple los requisitos de vivienda
-				if(adoptante.getDimensionViviendaAdoptante()<=45)requisitos=true;
+				if(this.adoptante.getDimensionViviendaAdoptante()>=45)requisitos=true;
 				else requisitos=false;
 			//si el animal es un perro
-			}else if(animal.getTipoAnimal()==1) {
+			}else if(this.animal.getTipoAnimal()==1) {
 				//si cumple con los requisitos de vivienda
-				if(adoptante.getDimensionViviendaAdoptante()<=60)requisitos=true;
+				if(this.adoptante.getDimensionViviendaAdoptante()>=60)requisitos=true;
 				else requisitos=false;
 			}
 		}else requisitos=false;
-		if(requisitos)solicitud.setEstadoAdopcion(EstadosSolicitudAnimal.EN_ESPERA);
-		else solicitud.setEstadoAdopcion(EstadosSolicitudAnimal.DENEGADA);
+		if(requisitos)this.setEstadoAdopcion(EstadosSolicitudAnimal.EN_ESPERA);
+		else this.setEstadoAdopcion(EstadosSolicitudAnimal.DENEGADA);
 	}
 	/**
 	 * Método que aumenta el contador de objetos de tipo SolicitudAdopcion instanciados

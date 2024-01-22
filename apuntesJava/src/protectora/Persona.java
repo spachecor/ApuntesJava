@@ -30,7 +30,8 @@ public class Persona {
 	 * @param bloque
 	 * @param codigoPostal
 	 */
-	public Persona(String dni, String trabajo, String email, String tipoVia, String nombreVia, String escalera, String puerta, String infoAdicional, String localidad, String provincia, int telefono, int numeroCasa, int bloque, int codigoPostal) {
+	public Persona(String nombre, String dni, String trabajo, String email, String tipoVia, String nombreVia, String escalera, String puerta, String infoAdicional, String localidad, String provincia, int telefono, int numeroCasa, int bloque, int codigoPostal) {
+		this.setNombre(nombre);
 		this.setDni(dni);
 		this.setTrabajo(trabajo);
 		this.setEmail(email);
@@ -53,6 +54,9 @@ public class Persona {
 	 */
 	private void aumentarContadorPersonas() {
 		Persona.contadorPersonas++;
+	}
+	private void setNombre(String nombre) {
+		this.nombre=nombre;
 	}
 	private void setDni(String dni) {
 		this.dni=dni;

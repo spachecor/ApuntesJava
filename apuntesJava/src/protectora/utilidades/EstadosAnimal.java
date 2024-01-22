@@ -7,8 +7,8 @@ package protectora.utilidades;
 public class EstadosAnimal {
 	public static int ADOPTADO, ADOPTABLE, INDOCUMENTADO, FALLECIDO;
 	static {
-		ADOPTADO=12;
-		ADOPTABLE=13;
+		ADOPTABLE=12;
+		ADOPTADO=13;
 		INDOCUMENTADO=14;
 		FALLECIDO=15;
 	}

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
+import java.util.Collections;
 
 import org.eclipse.jdt.annotation.NonNull;
 
@@ -108,14 +109,17 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	 * @param objects[] es un array de objetos
 	 */
 	public void ordenar(Object[] objects) {
+		//ordenamos el array, nos lo ordenará de mayor a menor
 		Arrays.sort(objects);
+		//como lo queremos de menor a mayor,invertimos el orden del array con un método static de la class Collection
+		Collections.reverse(Arrays.asList(objects));
 	}
 	@Override
 	/**
 	 * Método compareto de la interfaz Comparable que ordena los animales según su código de animal
 	 */
 	public int compareTo(Object arg0) {
-		if(((Animal)arg0).getCodigoAnimal()<this.getCodigoAnimal())return-1;
+		if(((Animal)arg0).getCodigoAnimal()<this.getCodigoAnimal())return -1;
 		else if(((Animal)arg0).getCodigoAnimal()>this.getCodigoAnimal())return 1;
 		else return 0;
 	}
@@ -166,5 +170,9 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	}
 	public Object[] getEstadosAnimal() {
 		return estadosAnimal;
+	}
+	public int getEstadoAnimalActual() {
+		EstadoAnimal[] estados = (EstadoAnimal[]) this.getEstadosAnimal();
+		return estados[Animal.contadorEstados-1].getEstadoAnimal();
 	}
 }

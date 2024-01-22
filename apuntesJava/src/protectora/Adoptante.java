@@ -41,8 +41,8 @@ public class Adoptante extends Persona implements Agregable{
 	 * @param dimensionViviendaAdoptante
 	 * @param numeroMascotasAdoptante
 	 */
-	public Adoptante(String dni, String trabajo, String email, String tipoVia, String nombreVia, String escalera, String puerta, String infoAdicional, String localidad, String provincia, int telefono, int numeroCasa, int bloque, int codigoPostal, int ingresosAdoptante, int dimensionViviendaAdoptante, int numeroMascotasAdoptante) {
-		super(dni, trabajo, email, tipoVia, nombreVia, escalera, puerta, infoAdicional, localidad, provincia, telefono, numeroCasa, bloque, codigoPostal);
+	public Adoptante(String nombre, String dni, String trabajo, String email, String tipoVia, String nombreVia, String escalera, String puerta, String infoAdicional, String localidad, String provincia, int telefono, int numeroCasa, int bloque, int codigoPostal, int ingresosAdoptante, int dimensionViviendaAdoptante, int numeroMascotasAdoptante) {
+		super(nombre, dni, trabajo, email, tipoVia, nombreVia, escalera, puerta, infoAdicional, localidad, provincia, telefono, numeroCasa, bloque, codigoPostal);
 		this.setIngresosAdoptante(ingresosAdoptante);;
 		this.setDimensionesViviendasAdoptante(dimensionViviendaAdoptante);
 		this.setNumeroMascotasAdoptante(numeroMascotasAdoptante);
