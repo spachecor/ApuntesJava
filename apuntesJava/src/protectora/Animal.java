@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
-import java.util.Collections;
 
 import org.eclipse.jdt.annotation.NonNull;
 
@@ -56,9 +55,10 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	 */
 	public Animal(@NonNull String nombreAnimal, int tipoAnimal, int colorAnimal, int sexoAnimal, int razaAnimal, int tamanio, LocalDate fechaNacimientoAnimal, boolean castrado, long chip) {
 		//aumentamos tanto el contadoAnimales como el contadorInstanciasAnimal
-		this.aumentarContadorAnimal();
-		this.aumentarContadorInstanciasAnimal();
+		Animal.aumentarContadorAnimal();
+		Animal.aumentarContadorInstanciasAnimal();
 		//asignamos los valores al objeto animal
+		this.setCodigoAnimal();
 		this.setNombreAnimal(nombreAnimal);
 		this.setTipoAnimal(tipoAnimal);
 		this.setColorAnimal(colorAnimal);
@@ -67,6 +67,7 @@ public class Animal implements Agregable, Ordenable, Comparable{
 		this.setTamanio(tamanio);
 		this.setEdadAnimal(fechaNacimientoAnimal);
 		this.setFechaEntradaProtectora();
+		this.setTiempoEnProtectora();
 		this.setFechaNacimientoAnimal(fechaNacimientoAnimal);
 		this.setCastrado(castrado);
 		this.setChip(chip);
@@ -74,13 +75,13 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	/**
 	 * Aumenta el contador de animales existentes actualmente
 	 */
-	private void aumentarContadorAnimal() {
+	private static void aumentarContadorAnimal() {
 		Animal.contadorAnimal++;
 	}
 	/**
 	 * Aumenta el número de instancias del objeto Animal
 	 */
-	private void aumentarContadorInstanciasAnimal() {
+	private static void aumentarContadorInstanciasAnimal() {
 		Animal.contadorInstanciasAnimal++;
 	}
 	@Override
@@ -109,19 +110,30 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	 * @param objects[] es un array de objetos
 	 */
 	public void ordenar(Object[] objects) {
-		//ordenamos el array, nos lo ordenará de mayor a menor
 		Arrays.sort(objects);
-		//como lo queremos de menor a mayor,invertimos el orden del array con un método static de la class Collection
-		Collections.reverse(Arrays.asList(objects));
 	}
 	@Override
 	/**
-	 * Método compareto de la interfaz Comparable que ordena los animales según su código de animal
+	 * Método compareto de la interfaz Comparable que ordena los animales según su código de animal(multiplicamos resultado por menos uno para obtener el orden
+	 * de menor a mayor)
 	 */
 	public int compareTo(Object arg0) {
-		if(((Animal)arg0).getCodigoAnimal()<this.getCodigoAnimal())return -1;
-		else if(((Animal)arg0).getCodigoAnimal()>this.getCodigoAnimal())return 1;
+		if(((Animal)arg0).getCodigoAnimal()<this.getCodigoAnimal())return-1*-1;
+		else if(((Animal)arg0).getCodigoAnimal()>this.getCodigoAnimal())return 1*-1;
 		else return 0;
+	}
+	/**
+	 * Método heredado toString que te dice las características del animal
+	 */
+	@Override
+	public String toString() {
+		return "Nombre: "+this.getNombreAnimal()+" - Tipo: "+this.getTipoAnimal()+" - Color: "+this.getColorAnimal()+" - Sexo: "+this.getSexoAnimal()+" - Raza: "+this.getRazaAnimal()+" - Tamaño: "
+				+this.getTamanio()+" - Edad: "+this.getEdadAnimal()+" - Tiempo en protectora(en meses): "+this.getTiempoEnProtectora()
+				+" - ¿Castrado?: "+this.getCastrado()+" - ¿Chip?"+this.getComprobacionChip()+(this.getComprobacionChip()?
+						" - Nº Chip: "+this.getChip():"");
+	}
+	private void setCodigoAnimal() {
+		this.codigoAnimal=Animal.getContadorInstanciasAnimal();
 	}
 	private void setNombreAnimal(String nombreAnimal) {
 		this.nombreAnimal=nombreAnimal;
@@ -156,6 +168,21 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	private void setChip(long chip) {
 		this.chip=chip;
 	}
+	private void setTiempoEnProtectora() {
+		ChronoUnit.MONTHS.between(fechaEntradaProtectora, LocalDateTime.now());
+	}
+	public static int getContadorAnimal() {
+		return Animal.contadorAnimal;
+	}
+	public static int getContadorInstanciasAnimal() {
+		return Animal.contadorInstanciasAnimal;
+	}
+	public static int getContadorSolicitudes() {
+		return Animal.contadorSolicitudes;
+	}
+	public static int getContadorEstados() {
+		return Animal.contadorEstados;
+	}
 	public String getNombreAnimal() {
 		return this.nombreAnimal;
 	}
@@ -165,6 +192,31 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	public int getTipoAnimal() {
 		return this.tipoAnimal;
 	}
+	public int getColorAnimal() {
+		return this.colorAnimal;
+	}
+	public int getSexoAnimal() {
+		return this.sexoAnimal;
+	}
+	public int getRazaAnimal() {
+		return this.razaAnimal;
+	}
+	public int getTamanio() {
+		return this.tamanio;
+	}
+	public int getEdadAnimal() {
+		return this.edadAnimal;
+	}
+	public int getTiempoEnProtectora() {
+		return this.tiempoEnProtectora;
+	}
+	public boolean getCastrado() {
+		return this.castrado;
+	}
+	public boolean getComprobacionChip() {
+		if(this.getChip()==0)return false;
+		else return true;
+	}
 	public int getCodigoAnimal() {
 		return this.codigoAnimal;
 	}
@@ -172,7 +224,7 @@ public class Animal implements Agregable, Ordenable, Comparable{
 		return estadosAnimal;
 	}
 	public int getEstadoAnimalActual() {
-		EstadoAnimal[] estados = (EstadoAnimal[]) this.getEstadosAnimal();
+		EstadoAnimal[] estados = (EstadoAnimal[])this.getEstadosAnimal();
 		return estados[Animal.contadorEstados-1].getEstadoAnimal();
 	}
 }

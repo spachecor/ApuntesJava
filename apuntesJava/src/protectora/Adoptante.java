@@ -7,7 +7,8 @@ import protectora.interfaces.Agregable;
  * @author selene
  * @version 1.1
  */
-public class Adoptante extends Persona implements Agregable{
+public final class Adoptante extends Persona implements Agregable{
+	
 	private static int contadorSolicitudes;
 	private String codigoAdoptante;
 	private int ingresosAdoptante, dimensionViviendaAdoptante, numeroMascotasAdoptante;
@@ -47,7 +48,7 @@ public class Adoptante extends Persona implements Agregable{
 		this.setDimensionesViviendasAdoptante(dimensionViviendaAdoptante);
 		this.setNumeroMascotasAdoptante(numeroMascotasAdoptante);
 		//le asignamos su código de adoptante
-		this.setCodigoAdoptante();
+		this.setCodigo();
 	}
 	@Override
 	/**
@@ -63,6 +64,18 @@ public class Adoptante extends Persona implements Agregable{
 			}else throw new RuntimeException("Historial lleno");
 		}else throw new RuntimeException("Introducido objeto inválido");
 	}
+	@Override
+	public void setCodigo() {
+		this.codigoAdoptante=super.getDni().toLowerCase().concat("a");
+	}
+	@Override
+	public String toString() {
+		return super.toString()+" - Código adoptante: "+this.getCodigo();
+	}
+	@Override
+	public String getCodigo() {
+		return this.codigoAdoptante;
+	}
 	private void setIngresosAdoptante(int ingresosAdoptante) {
 		this.ingresosAdoptante=ingresosAdoptante;
 	}
@@ -75,9 +88,6 @@ public class Adoptante extends Persona implements Agregable{
 	private void setVetoAdoptante(boolean vetoAdoptante) {
 		this.vetoAdoptante=vetoAdoptante;
 	}
-	private void setCodigoAdoptante() {
-		this.codigoAdoptante=super.getDni().toLowerCase().concat("a");
-	}
 	public boolean getVetoAdoptante() {
 		return this.vetoAdoptante;
 	}
@@ -86,5 +96,8 @@ public class Adoptante extends Persona implements Agregable{
 	}
 	public int getDimensionViviendaAdoptante() {
 		return this.dimensionViviendaAdoptante;
+	}
+	public int getIngresosAdoptante() {
+		return this.ingresosAdoptante;
 	}
 }

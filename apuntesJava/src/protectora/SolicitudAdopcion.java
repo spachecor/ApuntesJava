@@ -18,8 +18,11 @@ public class SolicitudAdopcion {
 	private boolean aprobacionProtectora, aceptacionConvivientes, compromisoCastrar, compromisoInformarProtectora;
 	private Animal animal;
 	private Adoptante adoptante;
+	private final int INGRESO_MINIMO;
 	static {
 		contadorInstanciasSolicitudAdopcion=0;
+	} {
+		INGRESO_MINIMO=14000;
 	}
 	/**
 	 * Constructor de los objetos SolicitudAdopcion, que genera una nueva solicitud de adopción relacionada con el animal y el adoptante y que reúne los requisitos
@@ -31,10 +34,10 @@ public class SolicitudAdopcion {
 	 * @param compromisoInformarProtectora si el adoptante se compromete a informar a la protectora en determinadas ocasiones
 	 */
 	public SolicitudAdopcion(Animal animal, Adoptante adoptante, boolean aceptacionConvivientes, boolean compromisoCastrar, boolean compromisoInformarProtectora) {
-		//se le asigna su código único referente al contador de instancias de este objeto
-		this.setCodigoSolicitud();
 		//se aumenta el contador de instancias del objeto
 		this.aumentarContadorInstanciasAnimal();
+		//se le asigna su código único referente al contador de instancias de este objeto
+		this.setCodigoSolicitud();
 		//se asignan las propiedades de la solicitud
 		this.setAnimal(animal);
 		this.setAdoptante(adoptante);
@@ -51,7 +54,7 @@ public class SolicitudAdopcion {
 	 */
 	public void primeraComprobacion() {
 		boolean requisitos=false;
-		if(this.animal.getEstadoAnimalActual()==EstadosAnimal.ADOPTABLE&&!this.adoptante.getVetoAdoptante()&&this.getAceptacionConvivientes()&&this.getCompromisoCastrar()&&this.getCompromisoInformarProtectora()) {
+		if(this.animal.getEstadoAnimalActual()==EstadosAnimal.ADOPTABLE&&this.adoptante.getIngresosAdoptante()>=INGRESO_MINIMO&&!this.adoptante.getVetoAdoptante()&&this.getAceptacionConvivientes()&&this.getCompromisoCastrar()&&this.getCompromisoInformarProtectora()) {
 			//si el animal es un gato
 			if(this.animal.getTipoAnimal()==0) {
 				//si cumple los requisitos de vivienda
@@ -72,6 +75,12 @@ public class SolicitudAdopcion {
 	 */
 	private void aumentarContadorInstanciasAnimal() {
 		SolicitudAdopcion.contadorInstanciasSolicitudAdopcion++;
+	}
+	@Override
+	public String toString() {
+		return "Solicitud con código: "+this.getCodigoSolicitud()+" sobre el animal con nombre "+this.getAnimal().getNombreAnimal()+" y código: "
+				+this.getAnimal().getCodigoAnimal()+" y solicitado por "+this.getAdoptante().getNombre()+" con código "+this.getAdoptante().getCodigo()
+				+" tiene el siguiente estado: "+this.getEstadoAdopcion();
 	}
 	private void setCodigoSolicitud() {
 		this.codigoSolicitud=this.getContadorInstanciasSolicitudAdopcion();
@@ -108,5 +117,17 @@ public class SolicitudAdopcion {
 	}
 	public boolean getAceptacionConvivientes() {
 		return this.aceptacionConvivientes;
+	}
+	public Animal getAnimal() {
+		return this.animal;
+	}
+	public Adoptante getAdoptante() {
+		return this.adoptante;
+	}
+	public int getCodigoSolicitud() {
+		return this.codigoSolicitud;
+	}
+	public int getEstadoAdopcion() {
+		return this.estadoSolicitud;
 	}
 }

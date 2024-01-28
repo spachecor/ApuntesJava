@@ -23,13 +23,14 @@ public class EstadoAnimal implements Comparable{
 	}
 	@Override
 	/**
-	 * Método compate to de la interfaz Comparable que nos ordena los objetos EstadoAnimal según el nº que le pertenece a cada estado
+	 * Método compate to de la interfaz Comparable que nos ordena los objetos EstadoAnimal según el nº que le pertenece a cada estado(multiplicamos resultado por menos uno para obtener el orden
+	 * de menor a mayor)
 	 * @param arg0
 	 * @return
 	 */
 	public int compareTo(Object arg0) {
-		if(((EstadoAnimal)arg0).getEstadoAnimal()<this.estadoAnimal)return -1;
-		else if(((EstadoAnimal)arg0).getEstadoAnimal()>this.estadoAnimal)return 1;
+		if(((EstadoAnimal)arg0).getEstadoAnimal()<this.estadoAnimal)return -1*-1;
+		else if(((EstadoAnimal)arg0).getEstadoAnimal()>this.estadoAnimal)return 1*-1;
 		else return 0;
 	}
 	private void setAnimal(Animal animal) {

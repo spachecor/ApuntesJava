@@ -18,22 +18,25 @@ public class TestProtectora {
 
 	public static void main(String[] args) {
 		TestProtectora ts = new TestProtectora();
-		Animal animal = ts.crearAnimal("Pepito", TipoAnimal.PERRO, ColorAnimal.BLANCO, SexoAnimal.MACHO, Razas.LABRADOR, Tamanios.MEDIANO, LocalDate.of(2019, 12, 01), false, 0);
+		Animal animal = ts.crearAnimal("Pepito", TipoAnimal.PERRO, ColorAnimal.BLANCO, SexoAnimal.MACHO, Razas.LABRADOR, Tamanios.MEDIANO, LocalDate.of(2019, 12, 01), false, 123456789123456L);
 		System.out.println(animal.getNombreAnimal());
-		EstadoAnimal estado2 = new EstadoAnimal(animal, EstadosAnimal.ADOPTABLE);
+		EstadoAnimal estado2 = new EstadoAnimal(animal, EstadosAnimal.ADOPTADO);
 		animal.agregar(estado2);
-		EstadoAnimal estado3 = new EstadoAnimal(animal, EstadosAnimal.ADOPTADO);
+		EstadoAnimal estado3 = new EstadoAnimal(animal, EstadosAnimal.ADOPTABLE);
 		animal.agregar(estado3);
-		EstadoAnimal estado4 = new EstadoAnimal(animal, EstadosAnimal.ADOPTABLE);
+		EstadoAnimal estado4 = new EstadoAnimal(animal, EstadosAnimal.ADOPTADO);
 		animal.agregar(estado4);
-		EstadoAnimal estado5 = new EstadoAnimal(animal, EstadosAnimal.FALLECIDO);
+		EstadoAnimal estado5 = new EstadoAnimal(animal, EstadosAnimal.ADOPTABLE);
 		animal.agregar(estado5);
 		animal.ordenar(animal.getEstadosAnimal());
-		Adoptante adoptante = new Adoptante("Laura Martínez", "12345678A", "ninguno", "a@a.com", "calle", "soleada", null, "izq", null, "Palma del Río", "Córdoba", 789654123, 5, 0, 14500, 15000, 65, 2);
+		System.out.println("Prueba1");
+		Adoptante adoptante = new Adoptante("Maria Reyes", "12345678A", "ninguno", "a@a.com", "calle", "soleada", null, "izq", null, "Palma del Río", "Córdoba", 789654123, 5, 0, 14500, 15000, 65, 2);
 		SolicitudAdopcion solicitud = TestProtectora.crearSolicitud(animal, adoptante, true, true, true);
 		solicitud.primeraComprobacion();
-		System.out.println("Prueba");
-		
+		System.out.println("Prueba2");
+		System.out.println(animal.toString());
+		System.out.println(adoptante.toString());
+		System.out.println(solicitud.toString());
 	}
 	/**
 	 * Método que sirve para crear un animal. Lo crea, le asigna un estado y agrega el estado del animal. Finalmente, devuelve el animal creado.
