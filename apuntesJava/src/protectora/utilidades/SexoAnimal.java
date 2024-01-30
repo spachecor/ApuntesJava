@@ -1,6 +1,6 @@
 package protectora.utilidades;
 /**
- * Clase que contiene los tipos de sexo que pueden ser los animales como constantes para utilidades
+ * Clase que contiene los posibles sexos de los animales como constantes para utilidades
  * @author selene
  * @version 1.0
  */
