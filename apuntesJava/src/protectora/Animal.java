@@ -119,6 +119,11 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	 * de menor a mayor)
 	 */
 	public int compareTo(Object arg0) {
+		//compromaciones de nulidad, de instancia y de parámetro
+		if(arg0==null)throw new RuntimeException("El parámetro no puede ser nulo");
+		if(!(arg0 instanceof Animal))throw new RuntimeException("Introducido un objeto inválido");
+		if(((Animal)arg0).getCodigoAnimal()==0)throw new RuntimeException("El animal no existe/no tiene código asignado");
+		
 		if(((Animal)arg0).getCodigoAnimal()<this.getCodigoAnimal())return-1*-1;
 		else if(((Animal)arg0).getCodigoAnimal()>this.getCodigoAnimal())return 1*-1;
 		else return 0;

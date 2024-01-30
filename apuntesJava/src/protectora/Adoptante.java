@@ -78,6 +78,11 @@ public final class Adoptante extends Persona implements Agregable, Comparable{
 	}
 	@Override
 	public int compareTo(Object arg0) {
+		//comprobaciones de nulidad, de instancia y de parámetro
+		if(arg0==null)throw new RuntimeException("El parámetro no puede ser nulo");
+		if(!(arg0 instanceof Adoptante))throw new RuntimeException("Introducido un objeto inválido");
+		if(((Adoptante)arg0).getCodigo()==null)throw new RuntimeException("El código del adoptante no puede ser nulo");
+		
 		if(((Adoptante)arg0).getCodigo().compareTo(this.getCodigo())==-1)return -1*-1;
 		else if(((Adoptante)arg0).getCodigo().compareTo(this.getCodigo())==1)return 1*-1;
 		else return 0;

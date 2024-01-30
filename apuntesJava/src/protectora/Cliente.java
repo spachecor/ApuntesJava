@@ -41,6 +41,11 @@ public final class Cliente extends Persona implements Comparable{
 	}
 	@Override
 	public int compareTo(Object arg0) {
+		//comprobaciones de nulidad, de instancia y de parámetro
+		if(arg0==null)throw new RuntimeException("El parámetro no puede ser nulo");
+		if(!(arg0 instanceof Cliente))throw new RuntimeException("Introducido un objeto inválido");
+		if(((Cliente)arg0).getCodigo()==null)throw new RuntimeException("El código del cliente no puede ser nulo");
+		
 		if(((Cliente)arg0).getCodigo().compareTo(this.getCodigo())==-1)return -1*-1;
 		else if(((Cliente)arg0).getCodigo().compareTo(this.getCodigo())==1)return 1*-1;
 		else return 0;
