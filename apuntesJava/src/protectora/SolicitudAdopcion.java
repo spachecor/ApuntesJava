@@ -35,7 +35,7 @@ public class SolicitudAdopcion {
 	 */
 	public SolicitudAdopcion(Animal animal, Adoptante adoptante, boolean aceptacionConvivientes, boolean compromisoCastrar, boolean compromisoInformarProtectora) {
 		//se aumenta el contador de instancias del objeto
-		this.aumentarContadorInstanciasAnimal();
+		SolicitudAdopcion.aumentarContadorInstanciasAnimal();
 		//se le asigna su código único referente al contador de instancias de este objeto
 		this.setCodigoSolicitud();
 		//se asignan las propiedades de la solicitud
@@ -73,7 +73,7 @@ public class SolicitudAdopcion {
 	/**
 	 * Método que aumenta el contador de objetos de tipo SolicitudAdopcion instanciados
 	 */
-	private void aumentarContadorInstanciasAnimal() {
+	private static void aumentarContadorInstanciasAnimal() {
 		SolicitudAdopcion.contadorInstanciasSolicitudAdopcion++;
 	}
 	@Override

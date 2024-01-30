@@ -47,7 +47,7 @@ public abstract class Persona {
 		this.setBloque(bloque);
 		this.setCodigoPostal(codigoPostal);
 		//aumentamos el nº de objetos persona instanciados
-		this.aumentarContadorPersonas();
+		Persona.aumentarContadorPersonas();
 	}
 	/**
 	 * Método abstracto que genera el código de las clases herederas
@@ -61,7 +61,7 @@ public abstract class Persona {
 	/**
 	 * Método que aumenta el contador del número de objetos tipo Persona instanciadas
 	 */
-	private void aumentarContadorPersonas() {
+	private static void aumentarContadorPersonas() {
 		Persona.contadorPersonas++;
 	}
 	@Override
