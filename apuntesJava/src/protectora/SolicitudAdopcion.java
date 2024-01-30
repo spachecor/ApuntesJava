@@ -10,7 +10,7 @@ import protectora.utilidades.EstadosSolicitudAnimal;
  * @author selene
  * @version 1.2
  */
-public class SolicitudAdopcion {
+public class SolicitudAdopcion implements Comparable{
 	private static int contadorInstanciasSolicitudAdopcion;
 	private int codigoSolicitud;
 	private LocalDateTime fechaHoraSolicitud;
@@ -81,6 +81,12 @@ public class SolicitudAdopcion {
 		return "Solicitud con código: "+this.getCodigoSolicitud()+" sobre el animal con nombre "+this.getAnimal().getNombreAnimal()+" y código: "
 				+this.getAnimal().getCodigoAnimal()+" y solicitado por "+this.getAdoptante().getNombre()+" con código "+this.getAdoptante().getCodigo()
 				+" tiene el siguiente estado: "+this.getEstadoAdopcion();
+	}
+	@Override
+	public int compareTo(Object arg0) {
+		if(((SolicitudAdopcion)arg0).getCodigoSolicitud()<(this.getCodigoSolicitud()))return -1*-1;
+		else if(((SolicitudAdopcion)arg0).getCodigoSolicitud()>(this.getCodigoSolicitud()))return 1*-1;
+		else return 0;
 	}
 	private void setCodigoSolicitud() {
 		this.codigoSolicitud=this.getContadorInstanciasSolicitudAdopcion();

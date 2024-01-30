@@ -7,7 +7,7 @@ import protectora.interfaces.Agregable;
  * @author selene
  * @version 1.1
  */
-public final class Adoptante extends Persona implements Agregable{
+public final class Adoptante extends Persona implements Agregable, Comparable{
 	
 	private static int contadorSolicitudes;
 	private String codigoAdoptante;
@@ -76,6 +76,12 @@ public final class Adoptante extends Persona implements Agregable{
 	public String getCodigo() {
 		return this.codigoAdoptante;
 	}
+	@Override
+	public int compareTo(Object arg0) {
+		if(((Adoptante)arg0).getCodigo().compareTo(this.getCodigo())==-1)return -1*-1;
+		else if(((Adoptante)arg0).getCodigo().compareTo(this.getCodigo())==1)return 1*-1;
+		else return 0;
+	}
 	private void setIngresosAdoptante(int ingresosAdoptante) {
 		this.ingresosAdoptante=ingresosAdoptante;
 	}
@@ -85,7 +91,7 @@ public final class Adoptante extends Persona implements Agregable{
 	private void setNumeroMascotasAdoptante(int numeroMascotasAdoptante) {
 		this.numeroMascotasAdoptante=numeroMascotasAdoptante;
 	}
-	private void setVetoAdoptante(boolean vetoAdoptante) {
+	public void setVetoAdoptante(boolean vetoAdoptante) {
 		this.vetoAdoptante=vetoAdoptante;
 	}
 	public boolean getVetoAdoptante() {

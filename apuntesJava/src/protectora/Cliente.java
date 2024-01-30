@@ -4,7 +4,7 @@ package protectora;
  * @author selene
  * @version 1.2
  */
-public final class Cliente extends Persona{
+public final class Cliente extends Persona implements Comparable{
 	private String codigoCliente;
 	/**
 	 * Constructor de los objetos de tipo Cliente
@@ -38,5 +38,11 @@ public final class Cliente extends Persona{
 	@Override
 	public String getCodigo() {
 		return this.codigoCliente;
+	}
+	@Override
+	public int compareTo(Object arg0) {
+		if(((Cliente)arg0).getCodigo().compareTo(this.getCodigo())==-1)return -1*-1;
+		else if(((Cliente)arg0).getCodigo().compareTo(this.getCodigo())==1)return 1*-1;
+		else return 0;
 	}
 }
