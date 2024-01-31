@@ -84,11 +84,11 @@ public class SolicitudAdopcion implements Comparable{
 	}
 	@Override
 	public int compareTo(Object arg0) {
-		//compromaciones de nulidad, de instancia y de parámetro
-		if(arg0==null)throw new RuntimeException("El parámetro no puede ser nulo");
+		//comprobación de nulidad, de instancia y de parámetro
+		if(arg0==null) throw new RuntimeException("El parametro no puede ser nulo");
 		if(!(arg0 instanceof SolicitudAdopcion))throw new RuntimeException("Introducido un objeto inválido");
-		if(((SolicitudAdopcion)arg0).getCodigoSolicitud()==0)throw new RuntimeException("La solicitud no existe/no tiene código asignado");
-				
+		if(((SolicitudAdopcion)arg0).getCodigoSolicitud()==0)throw new RuntimeException("El código de la solicitud no puede ser nulo");
+		
 		if(((SolicitudAdopcion)arg0).getCodigoSolicitud()<(this.getCodigoSolicitud()))return -1*-1;
 		else if(((SolicitudAdopcion)arg0).getCodigoSolicitud()>(this.getCodigoSolicitud()))return 1*-1;
 		else return 0;

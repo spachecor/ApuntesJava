@@ -69,7 +69,6 @@ public class Animal implements Agregable, Ordenable, Comparable{
 		this.setFechaEntradaProtectora();
 		this.setTiempoEnProtectora();
 		this.setFechaNacimientoAnimal(fechaNacimientoAnimal);
-		this.setFechaEntradaProtectora();
 		this.setCastrado(castrado);
 		this.setChip(chip);
 	}
@@ -119,8 +118,8 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	 * de menor a mayor)
 	 */
 	public int compareTo(Object arg0) {
-		//compromaciones de nulidad, de instancia y de parámetro
-		if(arg0==null)throw new RuntimeException("El parámetro no puede ser nulo");
+		//comprobación de nulidad, de instancia y de parámetro
+		if(arg0==null) throw new RuntimeException("El parametro no puede ser nulo");
 		if(!(arg0 instanceof Animal))throw new RuntimeException("Introducido un objeto inválido");
 		if(((Animal)arg0).getCodigoAnimal()==0)throw new RuntimeException("El animal no existe/no tiene código asignado");
 		
@@ -133,7 +132,8 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	 */
 	@Override
 	public String toString() {
-		return "Nombre: "+this.getNombreAnimal()+" - Tipo: "+this.getTipoAnimal()+" - Color: "+this.getColorAnimal()+" - Sexo: "+this.getSexoAnimal()+" - Raza: "+this.getRazaAnimal()+" - Tamaño: "
+		return "Nombre: "+this.getNombreAnimal()+" - Tipo: "+this.getTipoAnimal()+" - Color: "+this.getColorAnimal()
+		+" - "+this.getColorAnimal()+" - Sexo: "+this.getSexoAnimal()+" - Raza: "+this.getRazaAnimal()+" - Tamaño: "
 				+this.getTamanio()+" - Edad: "+this.getEdadAnimal()+" - Tiempo en protectora(en meses): "+this.getTiempoEnProtectora()
 				+" - ¿Castrado?: "+this.getCastrado()+" - ¿Chip?"+this.getComprobacionChip()+(this.getComprobacionChip()?
 						" - Nº Chip: "+this.getChip():"");

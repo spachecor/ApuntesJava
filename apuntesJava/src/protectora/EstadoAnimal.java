@@ -29,11 +29,11 @@ public class EstadoAnimal implements Comparable{
 	 * @return
 	 */
 	public int compareTo(Object arg0) {
-		//compromaciones de nulidad, de instancia y de parámetro
-		if(arg0==null)throw new RuntimeException("El parámetro no puede ser nulo");
+		//comprobación de nulidad, de instancia y de parámetro
+		if(arg0==null) throw new RuntimeException("El parametro no puede ser nulo");
 		if(!(arg0 instanceof EstadoAnimal))throw new RuntimeException("Introducido un objeto inválido");
-		if(((EstadoAnimal)arg0).getEstadoAnimal()==12||((EstadoAnimal)arg0).getEstadoAnimal()==13||((EstadoAnimal)arg0).getEstadoAnimal()==14||
-				((EstadoAnimal)arg0).getEstadoAnimal()==15)throw new RuntimeException("El estado no existe/no es correcto");
+		if(!((((EstadoAnimal)arg0).getEstadoAnimal()==12)||(((EstadoAnimal)arg0).getEstadoAnimal()==13)||(((EstadoAnimal)arg0).getEstadoAnimal()==14)
+				||(((EstadoAnimal)arg0).getEstadoAnimal()==15)))throw new RuntimeException("El estado no existe/no es correcto");
 		
 		if(((EstadoAnimal)arg0).getEstadoAnimal()<this.estadoAnimal)return -1*-1;
 		else if(((EstadoAnimal)arg0).getEstadoAnimal()>this.estadoAnimal)return 1*-1;
