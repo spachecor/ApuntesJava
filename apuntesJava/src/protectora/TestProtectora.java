@@ -1,6 +1,14 @@
 package protectora;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 import protectora.utilidades.ColorAnimal;
 import protectora.utilidades.EstadosAnimal;
@@ -16,7 +24,38 @@ import protectora.utilidades.TipoAnimal;
  */
 public class TestProtectora {
 
+	//creamos un nuevo logger
+	private static Logger logger = Logger.getLogger(TestProtectora.class.getName());
 	public static void main(String[] args) {
+		
+		try {
+			//tomamos un nuevo objeto LogManager, luego reinicializamos las propiedades de registro y leemos la configuración de registro en nuestro fichero mylogging.properties
+			LogManager.getLogManager().readConfiguration(new FileInputStream("mylogging.properties"));
+		}catch(SecurityException|IOException e) {
+			e.printStackTrace();
+		}
+		//asignamos el nivel
+		logger.setLevel(Level.FINE);
+		//añadimos un nuevo consolehandler
+		logger.addHandler(new ConsoleHandler());
+		//añadimos el manejador personalizado
+		logger.addHandler(new MyHandler());
+		try {
+			//nuevo filehandler para fichero con limitacion de tamaño y numero de registros de mensajes
+			Handler fileHandler = new FileHandler(System.getProperty("user.home")+"/temp/logger.log", 2000, 5);
+			//le asignamos un nuevo formato
+			fileHandler.setFormatter(new MyFormatter());
+			//le asignamos el filtro
+			fileHandler.setFilter(new MyFilter());
+			//agregamos nuestro filehandler al logger
+			logger.addHandler(fileHandler);
+			
+			logger.info("Prueba");
+			
+		}catch(SecurityException|IOException e) {
+			e.printStackTrace();
+		}
+		
 		TestProtectora ts = new TestProtectora();
 		Animal animal = ts.crearAnimal("Pepito", TipoAnimal.PERRO, ColorAnimal.BLANCO, SexoAnimal.MACHO, Razas.LABRADOR, Tamanios.MEDIANO, LocalDate.of(2019, 12, 01), false, 123456789123456L);
 		System.out.println(animal.getNombreAnimal());
