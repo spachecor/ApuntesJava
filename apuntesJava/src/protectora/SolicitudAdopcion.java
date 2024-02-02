@@ -10,7 +10,7 @@ import protectora.utilidades.EstadosSolicitudAnimal;
  * @author selene
  * @version 1.2
  */
-public class SolicitudAdopcion implements Comparable{
+public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 	private static int contadorInstanciasSolicitudAdopcion;
 	private int codigoSolicitud;
 	private LocalDateTime fechaHoraSolicitud;
@@ -83,14 +83,13 @@ public class SolicitudAdopcion implements Comparable{
 				+" tiene el siguiente estado: "+this.getEstadoAdopcion();
 	}
 	@Override
-	public int compareTo(Object arg0) {
+	public int compareTo(SolicitudAdopcion arg0) {
 		//comprobación de nulidad, de instancia y de parámetro
 		if(arg0==null) throw new RuntimeException("El parametro no puede ser nulo");
-		if(!(arg0 instanceof SolicitudAdopcion))throw new RuntimeException("Introducido un objeto inválido");
-		if(((SolicitudAdopcion)arg0).getCodigoSolicitud()==0)throw new RuntimeException("El código de la solicitud no puede ser nulo");
+		if(arg0.getCodigoSolicitud()==0)throw new RuntimeException("El código de la solicitud no puede ser nulo");
 		
-		if(((SolicitudAdopcion)arg0).getCodigoSolicitud()<(this.getCodigoSolicitud()))return -1*-1;
-		else if(((SolicitudAdopcion)arg0).getCodigoSolicitud()>(this.getCodigoSolicitud()))return 1*-1;
+		if(arg0.getCodigoSolicitud()<(this.getCodigoSolicitud()))return -1*-1;
+		else if(arg0.getCodigoSolicitud()>(this.getCodigoSolicitud()))return 1*-1;
 		else return 0;
 	}
 	private void setCodigoSolicitud() {

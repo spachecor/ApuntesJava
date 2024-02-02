@@ -6,10 +6,9 @@ package protectora.interfaces;
  */
 public interface Buscable {
 	/**
-	 * Este método requiere un objeto, que puede ser el objeto que queremos y en cuyo caso devolvería su posición (con un wrapper, Integer en concreto), y que 
-	 * también puede ser un parámetro con el que buscar nuestro objeto(usando un envoltorio) para que devuelva el objeto en concreto
-	 * @param object puede ser o el objeto buscado o el parámetro para buscar al objeto usando envoltorios
-	 * @return el objeto buscado o su posición(usando envoltorios)
+	 * Este método requiere el código único del objeto donde quiera buscar. Buscará el objeto en el array usando el código único(que entrará como Integer o String)
+	 * y devolverá el índice. Devuelve -1 si el objeto no ha sido encontrado
+	 * @return el índice donde se encuentra el objeto
 	 */
-	Object buscar(Object object);
+	int buscar(Object object);
 }

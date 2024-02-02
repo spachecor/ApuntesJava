@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  * @author selene
  * @version 1.1
  */
-public class EstadoAnimal implements Comparable{
+public class EstadoAnimal implements Comparable<EstadoAnimal>{
 	private int estadoAnimal;
 	private Animal animal;
 	private LocalDateTime instanteCambioEstado;
@@ -28,15 +28,14 @@ public class EstadoAnimal implements Comparable{
 	 * @param arg0
 	 * @return
 	 */
-	public int compareTo(Object arg0) {
-		//comprobación de nulidad, de instancia y de parámetro
+	public int compareTo(EstadoAnimal arg0) {
+		//comprobación de nulidad y de parámetro
 		if(arg0==null) throw new RuntimeException("El parametro no puede ser nulo");
-		if(!(arg0 instanceof EstadoAnimal))throw new RuntimeException("Introducido un objeto inválido");
-		if(!((((EstadoAnimal)arg0).getEstadoAnimal()==12)||(((EstadoAnimal)arg0).getEstadoAnimal()==13)||(((EstadoAnimal)arg0).getEstadoAnimal()==14)
-				||(((EstadoAnimal)arg0).getEstadoAnimal()==15)))throw new RuntimeException("El estado no existe/no es correcto");
+		if(!((arg0.getEstadoAnimal()==12)||(arg0.getEstadoAnimal()==13)||(arg0.getEstadoAnimal()==14)
+				||(arg0.getEstadoAnimal()==15)))throw new RuntimeException("El estado no existe/no es correcto");
 		
-		if(((EstadoAnimal)arg0).getEstadoAnimal()<this.estadoAnimal)return -1*-1;
-		else if(((EstadoAnimal)arg0).getEstadoAnimal()>this.estadoAnimal)return 1*-1;
+		if(arg0.getEstadoAnimal()<this.estadoAnimal)return -1*-1;
+		else if(arg0.getEstadoAnimal()>this.estadoAnimal)return 1*-1;
 		else return 0;
 	}
 	private void setAnimal(Animal animal) {

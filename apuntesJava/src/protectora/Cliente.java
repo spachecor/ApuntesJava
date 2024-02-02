@@ -4,7 +4,7 @@ package protectora;
  * @author selene
  * @version 1.2
  */
-public final class Cliente extends Persona implements Comparable{
+public final class Cliente extends Persona implements Comparable<Cliente>{
 	private String codigoCliente;
 	/**
 	 * Constructor de los objetos de tipo Cliente
@@ -33,21 +33,20 @@ public final class Cliente extends Persona implements Comparable{
 	}
 	@Override
 	public String toString() {
-		return super.toString()+" - Código adoptante: "+this.getCodigo();
+		return "Código cliente: "+this.getCodigo()+" - "+super.toString();
 	}
 	@Override
 	public String getCodigo() {
 		return this.codigoCliente;
 	}
 	@Override
-	public int compareTo(Object arg0) {
-		//comprobación de nulidad, de instancia y de parámetro
+	public int compareTo(Cliente arg0) {
+		//comprobación de nulidad y de parámetro
 		if(arg0==null) throw new RuntimeException("El parametro no puede ser nulo");
-		if(!(arg0 instanceof Cliente))throw new RuntimeException("Introducido un objeto inválido");
-		if(((Cliente)arg0).getCodigo()==null)throw new RuntimeException("El código del cliente no puede ser nulo");
+		if(arg0.getCodigo()==null)throw new RuntimeException("El código del cliente no puede ser nulo");
 		
-		if(((Cliente)arg0).getCodigo().compareTo(this.getCodigo())==-1)return -1*-1;
-		else if(((Cliente)arg0).getCodigo().compareTo(this.getCodigo())==1)return 1*-1;
+		if(arg0.getCodigo().compareTo(this.getCodigo())==-1)return -1*-1;
+		else if(arg0.getCodigo().compareTo(this.getCodigo())==1)return 1*-1;
 		else return 0;
 	}
 }

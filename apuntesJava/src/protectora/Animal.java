@@ -4,18 +4,22 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
+import java.util.logging.Logger;
 
 import org.eclipse.jdt.annotation.NonNull;
 
 import protectora.interfaces.Agregable;
+import protectora.interfaces.Buscable;
+import protectora.interfaces.Eliminable;
 import protectora.interfaces.Ordenable;
+import protectora.logger.ProtectoraLogger;
 
 /**
  * Clase Animal que define las propiedades y los comportamientos de los diferentes animales
  * @author selene
  * @version 1.2
  */
-public class Animal implements Agregable, Ordenable, Comparable{
+public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Comparable<Animal>{
 	//el contadorAnimales cuenta los animales que existen actualmente, y el contadoInstanciasAnimales cuenta las instancias que se han hecho sin tener en cuenta los
 	//animales que existen o no actualmente
 	private static int contadorAnimal, contadorInstanciasAnimal, contadorSolicitudes, contadorEstados;
@@ -29,6 +33,7 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	private boolean castrado, capacidadConvivirAnimales;
 	private EstadoAnimal estadosAnimal[];
 	private SolicitudAdopcion solicitudes[];
+	Logger logger = ProtectoraLogger.getLogger(Animal.class.getName());
 	{
 		this.nombreAnimal="desconocido";
 		this.capacidadConvivirAnimales=false;	
@@ -105,6 +110,34 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	}
 	@Override
 	/**
+	 * Método eliminar que viene de la interfaz Eliminable para eliminar objetos a los arrays de objetos.Lanzará excepcion si el objeto no es el adecuado o si los
+	 * arrays están llenos
+	 * @param object el objeto que entrará en el array si no salta ninguna excepcion
+	 */
+	public void eliminar(Object object) {
+		if(object instanceof EstadoAnimal) {
+			if(Animal.contadorEstados!=0){
+				this.estadosAnimal[Animal.contadorEstados-1]=null;
+				Animal.contadorEstados--;
+			}else throw new RuntimeException("No hay nada que eliminar");
+		}else if(object instanceof SolicitudAdopcion) {
+			if(Animal.contadorSolicitudes!=0){
+				this.solicitudes[Animal.contadorSolicitudes-1]=null;
+				Animal.contadorSolicitudes--;
+			}else throw new RuntimeException("No hay nada que eliminar");
+		}else throw new RuntimeException("Introducido objeto inválido");
+	}
+	@Override
+	public int buscar(Object object) {
+		if(object instanceof Integer) {
+			for(int i=0;i<this.estadosAnimal.length;i++) {
+				//if(((Integer)object)=this.estadosAnimal[i].getEstadoAnimal());//AQUI, SEGUIR POR AQUÍ
+			}
+		}else throw new RuntimeException("El objeto introducido es inválido");
+		return -1;
+	}
+	@Override
+	/**
 	 * Método ordenar que viene de la interfaz Ordenable para ordenar los objetos dentro de un array. Ordena por el numero asignado al
 	 * estado concreto
 	 * @param objects[] es un array de objetos
@@ -117,14 +150,13 @@ public class Animal implements Agregable, Ordenable, Comparable{
 	 * Método compareto de la interfaz Comparable que ordena los animales según su código de animal(multiplicamos resultado por menos uno para obtener el orden
 	 * de menor a mayor)
 	 */
-	public int compareTo(Object arg0) {
-		//comprobación de nulidad, de instancia y de parámetro
+	public int compareTo(Animal arg0) {
+		//comprobación de nulidad y de parámetro
 		if(arg0==null) throw new RuntimeException("El parametro no puede ser nulo");
-		if(!(arg0 instanceof Animal))throw new RuntimeException("Introducido un objeto inválido");
-		if(((Animal)arg0).getCodigoAnimal()==0)throw new RuntimeException("El animal no existe/no tiene código asignado");
+		if(arg0.getCodigoAnimal()==0)throw new RuntimeException("El animal no existe/no tiene código asignado");
 		
-		if(((Animal)arg0).getCodigoAnimal()<this.getCodigoAnimal())return-1*-1;
-		else if(((Animal)arg0).getCodigoAnimal()>this.getCodigoAnimal())return 1*-1;
+		if(arg0.getCodigoAnimal()<this.getCodigoAnimal())return-1*-1;
+		else if(arg0.getCodigoAnimal()>this.getCodigoAnimal())return 1*-1;
 		else return 0;
 	}
 	/**
