@@ -2,13 +2,13 @@ package protectora.interfaces;
 /**
  * Interfaz Buscable, que contiene el comportamiento necesario para buscar
  * @author selene
- * @version 1.2
+ * @version 1.3
  */
 public interface Buscable {
 	/**
-	 * Este método requiere el código único del objeto donde quiera buscar. Buscará el objeto en el array usando el código único(que entrará como Integer o String)
+	 * Este método requiere objeto que se quiere buscar. Buscará el objeto en el array
 	 * y devolverá el índice. Devuelve -1 si el objeto no ha sido encontrado
 	 * @return el índice donde se encuentra el objeto
 	 */
-	int buscar(Object object);
+	int buscar(Object[] array, Object object);
 }

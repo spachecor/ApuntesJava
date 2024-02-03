@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
-import java.util.logging.Logger;
 
 import org.eclipse.jdt.annotation.NonNull;
 
@@ -12,28 +11,27 @@ import protectora.interfaces.Agregable;
 import protectora.interfaces.Buscable;
 import protectora.interfaces.Eliminable;
 import protectora.interfaces.Ordenable;
-import protectora.logger.ProtectoraLogger;
+import protectora.utilidades.EstadosAnimal;
+import protectora.utilidades.EstadosSolicitudAnimal;
 
 /**
  * Clase Animal que define las propiedades y los comportamientos de los diferentes animales
  * @author selene
- * @version 1.2
+ * @version 1.3
  */
-public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Comparable<Animal>{
-	//el contadorAnimales cuenta los animales que existen actualmente, y el contadoInstanciasAnimales cuenta las instancias que se han hecho sin tener en cuenta los
-	//animales que existen o no actualmente
-	private static int contadorAnimal, contadorInstanciasAnimal, contadorSolicitudes, contadorEstados;
+public class Animal implements Agregable, Ordenable, Comparable<Animal>{
+	//el contadoInstanciasAnimales cuenta las instancias que se han hecho
+	private static int contadorInstanciasAnimal;
 	private String nombreAnimal;
 	private int colorAnimal, tipoAnimal, sexoAnimal, razaAnimal, tamanio;
 	//el tiempo en protectora se cuenta en meses
-	private int codigoAnimal, edadAnimal, tiempoEnProtectora;
+	private int codigoAnimal, edadAnimal, tiempoEnProtectora, contadorSolicitudes, contadorEstados;
 	private long chip;
 	private LocalDate fechaNacimientoAnimal;
 	private LocalDateTime fechaEntradaProtectora;
 	private boolean castrado, capacidadConvivirAnimales;
 	private EstadoAnimal estadosAnimal[];
 	private SolicitudAdopcion solicitudes[];
-	Logger logger = ProtectoraLogger.getLogger(Animal.class.getName());
 	{
 		this.nombreAnimal="desconocido";
 		this.capacidadConvivirAnimales=false;	
@@ -42,12 +40,11 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 		this.estadosAnimal= new EstadoAnimal[5];
 		//SE LE PONE UNA LONGITUD PROVISIONAL
 		this.solicitudes=new SolicitudAdopcion[5];
+		this.contadorEstados=0;
+		this.contadorSolicitudes=0;
 	}
 	static {
-		Animal.contadorAnimal=0;
 		Animal.contadorInstanciasAnimal=0;
-		Animal.contadorEstados=0;
-		Animal.contadorSolicitudes=0;
 	}
 	/**
 	 * Constructor especializado en inicializar objetos de la clase con los requisitos mínimos especificados y que automáticamente le asocial el código al animal y
@@ -59,8 +56,7 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	 * @param chip
 	 */
 	public Animal(@NonNull String nombreAnimal, int tipoAnimal, int colorAnimal, int sexoAnimal, int razaAnimal, int tamanio, LocalDate fechaNacimientoAnimal, boolean castrado, long chip) {
-		//aumentamos tanto el contadoAnimales como el contadorInstanciasAnimal
-		Animal.aumentarContadorAnimal();
+		//aumentamos el contadorInstanciasAnimal
 		Animal.aumentarContadorInstanciasAnimal();
 		//asignamos los valores al objeto animal
 		this.setCodigoAnimal();
@@ -78,12 +74,6 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 		this.setChip(chip);
 	}
 	/**
-	 * Aumenta el contador de animales existentes actualmente
-	 */
-	private static void aumentarContadorAnimal() {
-		Animal.contadorAnimal++;
-	}
-	/**
 	 * Aumenta el número de instancias del objeto Animal
 	 */
 	private static void aumentarContadorInstanciasAnimal() {
@@ -96,45 +86,32 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	 * @param object el objeto que entrará en el array si no salta una excepción
 	 */
 	public void agregar(Object object) {
+		//comprobacion de que entre un objeto del tipo EstadoAnimal
 		if(object instanceof EstadoAnimal) {
-			if(Animal.contadorEstados!=this.estadosAnimal.length) {
-				this.estadosAnimal[Animal.contadorEstados]=(EstadoAnimal)object;
-				Animal.contadorEstados++;
+			//comprobacion de que no este lleno en array de estados
+			if(this.contadorEstados!=this.estadosAnimal.length) {
+				//se añade el objeto
+				this.estadosAnimal[this.contadorEstados]=(EstadoAnimal)object;
+				//aumenta la veriable numérica que recoge la cantidad de objetos recogidos dentro del array
+				this.contadorEstados++;
 			}else throw new RuntimeException("Historial lleno");
+			//comprobacion de que entre un objeto del tipo SolicitudAdopcion
 		}else if(object instanceof SolicitudAdopcion) {
-			if(Animal.contadorSolicitudes!=this.solicitudes.length){
-				this.solicitudes[Animal.contadorSolicitudes]=(SolicitudAdopcion)object;
-				Animal.contadorSolicitudes++;
+			//comprobacion de que no este lleno en array de solicitudes
+			if(this.contadorSolicitudes!=this.solicitudes.length){
+				//se añade el objeto
+				this.solicitudes[this.contadorSolicitudes]=(SolicitudAdopcion)object;
+				//se aumenta la variable num,erica que recoge la cantidad de objetos recogidos dentro del array
+				this.contadorSolicitudes++;
 			}else throw new RuntimeException("Historial lleno");
 		}else throw new RuntimeException("Introducido objeto inválido");
 	}
 	@Override
-	/**
-	 * Método eliminar que viene de la interfaz Eliminable para eliminar objetos a los arrays de objetos.Lanzará excepcion si el objeto no es el adecuado o si los
-	 * arrays están llenos
-	 * @param object el objeto que entrará en el array si no salta ninguna excepcion
-	 */
-	public void eliminar(Object object) {
-		if(object instanceof EstadoAnimal) {
-			if(Animal.contadorEstados!=0){
-				this.estadosAnimal[Animal.contadorEstados-1]=null;
-				Animal.contadorEstados--;
-			}else throw new RuntimeException("No hay nada que eliminar");
-		}else if(object instanceof SolicitudAdopcion) {
-			if(Animal.contadorSolicitudes!=0){
-				this.solicitudes[Animal.contadorSolicitudes-1]=null;
-				Animal.contadorSolicitudes--;
-			}else throw new RuntimeException("No hay nada que eliminar");
-		}else throw new RuntimeException("Introducido objeto inválido");
-	}
-	@Override
-	public int buscar(Object object) {
-		if(object instanceof Integer) {
-			for(int i=0;i<this.estadosAnimal.length;i++) {
-				//if(((Integer)object)=this.estadosAnimal[i].getEstadoAnimal());//AQUI, SEGUIR POR AQUÍ
-			}
-		}else throw new RuntimeException("El objeto introducido es inválido");
-		return -1;
+	public boolean equals(Object obj) {
+		//si el objeto es nulo, devuelve false
+		if(obj==null)return false;
+		//si pasa  el filtro, se comparan los códigos del animal. Sólo si son idénticos, es true
+		return ((Animal)obj).getCodigoAnimal()==this.getCodigoAnimal();
 	}
 	@Override
 	/**
@@ -169,6 +146,15 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 				+this.getTamanio()+" - Edad: "+this.getEdadAnimal()+" - Tiempo en protectora(en meses): "+this.getTiempoEnProtectora()
 				+" - ¿Castrado?: "+this.getCastrado()+" - ¿Chip?"+this.getComprobacionChip()+(this.getComprobacionChip()?
 						" - Nº Chip: "+this.getChip():"");
+	}
+	public void resolverSolicitud(boolean aprobacionProtectora) {
+		//comprobacion del estado de la solicitud de adopcion del animal y de la aprobación de la protectora
+		if(this.solicitudes[this.contadorSolicitudes].getEstadoSolicitud()==EstadosSolicitudAnimal.EN_ESPERA&&aprobacionProtectora) {
+			//la solicitud pasa a aprobada y el estado del animal a adoptado
+			this.solicitudes[this.contadorSolicitudes].setEstadoSolicitud(EstadosSolicitudAnimal.APROBADA);
+			this.agregar(new EstadoAnimal(this, EstadosAnimal.ADOPTADO));
+			//si no se cumplen las condiciones, la solicitud será denegada
+		}else this.solicitudes[this.contadorSolicitudes].setEstadoSolicitud(EstadosSolicitudAnimal.DENEGADA);
 	}
 	private void setCodigoAnimal() {
 		this.codigoAnimal=Animal.getContadorInstanciasAnimal();
@@ -209,17 +195,14 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	private void setTiempoEnProtectora() {
 		ChronoUnit.MONTHS.between(fechaEntradaProtectora, LocalDateTime.now());
 	}
-	public static int getContadorAnimal() {
-		return Animal.contadorAnimal;
-	}
 	public static int getContadorInstanciasAnimal() {
 		return Animal.contadorInstanciasAnimal;
 	}
-	public static int getContadorSolicitudes() {
-		return Animal.contadorSolicitudes;
+	public int getContadorSolicitudes() {
+		return this.contadorSolicitudes;
 	}
-	public static int getContadorEstados() {
-		return Animal.contadorEstados;
+	public int getContadorEstados() {
+		return this.contadorEstados;
 	}
 	public String getNombreAnimal() {
 		return this.nombreAnimal;
@@ -263,6 +246,6 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	}
 	public int getEstadoAnimalActual() {
 		EstadoAnimal[] estados = (EstadoAnimal[])this.getEstadosAnimal();
-		return estados[Animal.contadorEstados-1].getEstadoAnimal();
+		return estados[this.contadorEstados-1].getEstadoAnimal();
 	}
 }

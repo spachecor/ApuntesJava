@@ -11,9 +11,12 @@ import java.util.logging.LogRecord;
 public class ProtectoraFilter implements Filter{
 
 	@Override
+	/**
+	 * Método que filtra el nivel en el que los mensajes con se registrarán
+	 */
 	public boolean isLoggable(LogRecord arg0) {
 		//no se registrartán los mensajes de nivel CONFIG
-		if(arg0.getLevel()==Level.INFO)return false;
+		if(arg0.getLevel()==Level.CONFIG)return false;
 		return true;
 	}
 	

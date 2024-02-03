@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 /**
  * Clase EstadoAnimal que es un histórico de los diferentes estados del animal
  * @author selene
- * @version 1.1
+ * @version 1.2
  */
 public class EstadoAnimal implements Comparable<EstadoAnimal>{
 	private int estadoAnimal;

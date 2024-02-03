@@ -9,13 +9,12 @@ import protectora.interfaces.Eliminable;
 /**
  * Clase Adoptante que hereda de Persona. Define los comportamientos y las propiedades de los objeto tipo Adoptante
  * @author selene
- * @version 1.2
+ * @version 1.3
  */
-public final class Adoptante extends Persona implements Agregable, Ordenable, Eliminable, Comparable<Adoptante>{
+public final class Adoptante extends Persona implements Agregable, Ordenable, Comparable<Adoptante>{
 	
 	private static int contadorSolicitudes;//variable estática que sirve para contar las solicitudes actuales
-	private String codigoAdoptante;//código único del adoptante
-	private int ingresosAdoptante, dimensionViviendaAdoptante, numeroMascotasAdoptante;
+	private int ingresosAdoptante, dimensionViviendaAdoptante, numeroMascotasAdoptante, codigoAdoptante;//código único del adoptante
 	private boolean vetoAdoptante;//si el adoptante está o no vetado
 	private SolicitudAdopcion solicitudes[];//array de solicitudes de adopcion realizadas, tanto aceptadas como denegadas
 	{
@@ -61,33 +60,23 @@ public final class Adoptante extends Persona implements Agregable, Ordenable, El
 	 * @param object el objeto que entrará en el array si no salta una excepción
 	 */
 	public void agregar(Object object) {
+		//comprobacion de que entre un objeto de tipo SolicitudAdopcion
 		if(object instanceof SolicitudAdopcion) {
+			//comprobación de que no esté lleno el array de solicitudes
 			if(Adoptante.contadorSolicitudes!=this.solicitudes.length) {
+				//se añade el objeto
 				this.solicitudes[Adoptante.contadorSolicitudes]=(SolicitudAdopcion)object;
+				//se aumenta la variable numérica que recoge la cantidad de objetos recogidos dentro del array
 				Adoptante.contadorSolicitudes++;
 			}else throw new RuntimeException("Historial lleno");
 		}else throw new RuntimeException("Introducido objeto inválido");
 	}
 	@Override
 	/**
-	 * Método eliminar que viene de la interfaz Eliminable para eliminar objetos a los arrays de objetos.Lanzará excepcion si el objeto no es el adecuado o si los
-	 * arrays están llenos
-	 * @param object el objeto que se eliminará en el array si no salta una excepción
-	 */
-	public void eliminar(Object object) {
-		if(object instanceof SolicitudAdopcion) {
-			if(Adoptante.contadorSolicitudes!=0) {
-				this.solicitudes[Adoptante.contadorSolicitudes]=null;
-				Adoptante.contadorSolicitudes--;
-			}else throw new RuntimeException("No hay nada que eliminar");
-		}else throw new RuntimeException("Introducido objeto inválido");
-	}	
-	@Override
-	/**
 	 * Método setCodigo heredado de clase padre Persona para asignar el código único al adoptante
 	 */
 	public void setCodigo() {
-		this.codigoAdoptante=super.getDni().toLowerCase().concat("a");
+		this.codigoAdoptante=Integer.parseInt(super.getDni().substring(0, 8));
 	}
 	@Override
 	/**
@@ -100,7 +89,7 @@ public final class Adoptante extends Persona implements Agregable, Ordenable, El
 	/**
 	 * Método getCodigo heredado de clase padre Persona para mostrar el código único del objeto
 	 */
-	public String getCodigo() {
+	public int getCodigo() {
 		return this.codigoAdoptante;
 	}
 	@Override
@@ -112,10 +101,10 @@ public final class Adoptante extends Persona implements Agregable, Ordenable, El
 	public int compareTo(Adoptante arg0) {
 		//comprobación de nulidad y de parámetro
 		if(arg0==null) throw new RuntimeException("El parametro no puede ser nulo");
-		if(arg0.getCodigo()==null)throw new RuntimeException("El código del adoptante no puede ser nulo");
+		if(arg0.getCodigo()<10000000)throw new RuntimeException("El código del cliente no existe");
 		
-		if(arg0.getCodigo().compareTo(this.getCodigo())==-1)return -1*-1;
-		else if(arg0.getCodigo().compareTo(this.getCodigo())==1)return 1*-1;
+		if(arg0.getCodigo()<(this.getCodigo()))return -1*-1;
+		else if(arg0.getCodigo()>(this.getCodigo()))return 1*-1;
 		else return 0;
 	}
 	@Override

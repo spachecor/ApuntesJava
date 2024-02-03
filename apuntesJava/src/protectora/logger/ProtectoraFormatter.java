@@ -11,8 +11,11 @@ import java.util.logging.LogRecord;
 public class ProtectoraFormatter extends Formatter{
 
 	@Override
+	/**
+	 * Método con el que asignamos el formato con el que se imprimirá nuestro mensaje de depuración
+	 */
 	public String format(LogRecord arg0) {
-		return arg0.getThreadID()+"::"+arg0.getSourceClassName()+"::"+arg0.getSourceMethodName()+"::"+new Date(arg0.getMillis())+"::"+arg0.getMessage()+"\n";
+		return "Ubicación: "+arg0.getSourceClassName()+" - Método: "+arg0.getSourceMethodName()+" - Instante en el que ocurre: "+new Date(arg0.getMillis())+" - Mensaje: "+arg0.getMessage()+"\n";
 	}
 
 }

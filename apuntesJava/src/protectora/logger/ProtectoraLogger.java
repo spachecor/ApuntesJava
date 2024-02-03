@@ -30,8 +30,12 @@ public class ProtectoraLogger {
 		}
 		//asignamos el nivel
 		logger.setLevel(Level.FINE);
-		//añadimos un nuevo consolehandler
-		logger.addHandler(new ConsoleHandler());
+		//creamos el manejador de consola
+		ConsoleHandler consoleHandler = new ConsoleHandler();
+		//agregamos le formato al consoleHandler
+		consoleHandler.setFormatter(new ProtectoraFormatter());
+		//añadimos el consolehandler
+		logger.addHandler(consoleHandler);
 		//añadimos el manejador personalizado
 		logger.addHandler(new ProtectoraHandler());
 		try {

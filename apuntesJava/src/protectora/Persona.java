@@ -5,7 +5,7 @@ package protectora;
  * @author selene
  * @version 1.3
  */
-public abstract class Persona {
+abstract class Persona {
 	private static int contadorPersonas;
 	private String dni, nombre, trabajo, email, tipoVia, nombreVia, escalera, puerta, 
 	infoAdicional, localidad, provincia;
@@ -57,7 +57,7 @@ public abstract class Persona {
 	 * Método abstracto que devuelve el código único del objeto de la clase heredera
 	 * @return el código único de la clase heredera
 	 */
-	protected abstract String getCodigo();
+	protected abstract int getCodigo();
 	/**
 	 * Método que aumenta el contador del número de objetos tipo Persona instanciadas
 	 */

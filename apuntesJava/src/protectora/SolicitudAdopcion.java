@@ -67,8 +67,8 @@ public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 				else requisitos=false;
 			}
 		}else requisitos=false;
-		if(requisitos)this.setEstadoAdopcion(EstadosSolicitudAnimal.EN_ESPERA);
-		else this.setEstadoAdopcion(EstadosSolicitudAnimal.DENEGADA);
+		if(requisitos)this.setEstadoSolicitud(EstadosSolicitudAnimal.EN_ESPERA);
+		else this.setEstadoSolicitud(EstadosSolicitudAnimal.DENEGADA);
 	}
 	/**
 	 * Método que aumenta el contador de objetos de tipo SolicitudAdopcion instanciados
@@ -80,7 +80,7 @@ public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 	public String toString() {
 		return "Solicitud con código: "+this.getCodigoSolicitud()+" sobre el animal con nombre "+this.getAnimal().getNombreAnimal()+" y código: "
 				+this.getAnimal().getCodigoAnimal()+" y solicitado por "+this.getAdoptante().getNombre()+" con código "+this.getAdoptante().getCodigo()
-				+" tiene el siguiente estado: "+this.getEstadoAdopcion();
+				+" tiene el siguiente estado: "+this.getEstadoSolicitud();
 	}
 	@Override
 	public int compareTo(SolicitudAdopcion arg0) {
@@ -113,8 +113,11 @@ public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 	private void setCompromisoInformarProtectora(boolean compromisoInformarProtectora) {
 		this.compromisoInformarProtectora=compromisoInformarProtectora;
 	}
-	private void setEstadoAdopcion(int estadoSolicitud) {
+	void setEstadoSolicitud(int estadoSolicitud) {
 		this.estadoSolicitud=estadoSolicitud;
+	}
+	private void setAprobacionProtectora(boolean aprobacionProtectora) {
+		this.aprobacionProtectora=aprobacionProtectora;
 	}
 	private int getContadorInstanciasSolicitudAdopcion() {
 		return SolicitudAdopcion.contadorInstanciasSolicitudAdopcion;
@@ -137,7 +140,7 @@ public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 	public int getCodigoSolicitud() {
 		return this.codigoSolicitud;
 	}
-	public int getEstadoAdopcion() {
+	public int getEstadoSolicitud() {
 		return this.estadoSolicitud;
 	}
 }
