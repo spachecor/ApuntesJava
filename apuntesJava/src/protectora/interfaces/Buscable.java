@@ -1,4 +1,7 @@
 package protectora.interfaces;
+
+import java.util.ArrayList;
+
 /**
  * Interfaz Buscable, que contiene el comportamiento necesario para buscar
  * @author selene
@@ -10,5 +13,9 @@ public interface Buscable {
 	 * y devolverá el índice. Devuelve -1 si el objeto no ha sido encontrado
 	 * @return el índice donde se encuentra el objeto
 	 */
+<<<<<<< HEAD
+	int buscar(ArrayList array, Object object);
+=======
 	int buscar(Object[] array, Object object);
+>>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 }

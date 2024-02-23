@@ -3,7 +3,9 @@ package protectora;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 import org.eclipse.jdt.annotation.NonNull;
 
@@ -30,16 +32,21 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 	private LocalDate fechaNacimientoAnimal;
 	private LocalDateTime fechaEntradaProtectora;
 	private boolean castrado, capacidadConvivirAnimales;
-	private EstadoAnimal estadosAnimal[];
-	private SolicitudAdopcion solicitudes[];
+	private ArrayList<EstadoAnimal> estadosAnimal;
+	private ArrayList<SolicitudAdopcion> solicitudes;
 	{
 		this.nombreAnimal="desconocido";
 		this.capacidadConvivirAnimales=false;	
 		this.chip=0;
+<<<<<<< HEAD
+		this.estadosAnimal= new ArrayList<EstadoAnimal>();
+		this.solicitudes=new ArrayList<SolicitudAdopcion>();
+=======
 		//SE LE PONE UNA LONGITUD PROVISIONAL
 		this.estadosAnimal= new EstadoAnimal[5];
 		//SE LE PONE UNA LONGITUD PROVISIONAL
 		this.solicitudes=new SolicitudAdopcion[5];
+>>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 		this.contadorEstados=0;
 		this.contadorSolicitudes=0;
 	}
@@ -88,6 +95,14 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 	public void agregar(Object object) {
 		//comprobacion de que entre un objeto del tipo EstadoAnimal
 		if(object instanceof EstadoAnimal) {
+<<<<<<< HEAD
+			//agregamos el nuevo elemento al arraylist
+			this.estadosAnimal.add((EstadoAnimal) object);
+			//comprobacion de que entre un objeto del tipo SolicitudAdopcion
+		}else if(object instanceof SolicitudAdopcion) {
+			//agregamos el nuevo elemento al arraylist
+			this.solicitudes.add((SolicitudAdopcion)object);
+=======
 			//comprobacion de que no este lleno en array de estados
 			if(this.contadorEstados!=this.estadosAnimal.length) {
 				//se añade el objeto
@@ -104,6 +119,7 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 				//se aumenta la variable num,erica que recoge la cantidad de objetos recogidos dentro del array
 				this.contadorSolicitudes++;
 			}else throw new RuntimeException("Historial lleno");
+>>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 		}else throw new RuntimeException("Introducido objeto inválido");
 	}
 	@Override
@@ -119,8 +135,8 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 	 * estado concreto
 	 * @param objects[] es un array de objetos
 	 */
-	public void ordenar(Object[] objects) {
-		Arrays.sort(objects);
+	public void ordenar(ArrayList objects) {
+		Collections.sort(objects);
 	}
 	@Override
 	/**
@@ -142,11 +158,21 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 	@Override
 	public String toString() {
 		return "Nombre: "+this.getNombreAnimal()+" - Tipo: "+this.getTipoAnimal()+" - Color: "+this.getColorAnimal()
-		+" - "+this.getColorAnimal()+" - Sexo: "+this.getSexoAnimal()+" - Raza: "+this.getRazaAnimal()+" - Tamaño: "
+				+" - Sexo: "+this.getSexoAnimal()+" - Raza: "+this.getRazaAnimal()+" - Tamaño: "
 				+this.getTamanio()+" - Edad: "+this.getEdadAnimal()+" - Tiempo en protectora(en meses): "+this.getTiempoEnProtectora()
 				+" - ¿Castrado?: "+this.getCastrado()+" - ¿Chip?"+this.getComprobacionChip()+(this.getComprobacionChip()?
 						" - Nº Chip: "+this.getChip():"");
 	}
+<<<<<<< HEAD
+	public void resolverSolicitud(SolicitudAdopcion solicitud, boolean aprobacionProtectora) {
+		//comprobacion del estado de la solicitud de adopcion del animal y de la aprobación de la protectora
+		if(solicitud.getEstadoSolicitud()==EstadosSolicitudAnimal.EN_ESPERA&&aprobacionProtectora) {
+			//la solicitud pasa a aprobada y el estado del animal a adoptado
+			solicitud.setEstadoSolicitud(EstadosSolicitudAnimal.APROBADA);
+			this.agregar(new EstadoAnimal(this, EstadosAnimal.ADOPTADO));
+			//si no se cumplen las condiciones, la solicitud será denegada
+		}else solicitud.setEstadoSolicitud(EstadosSolicitudAnimal.DENEGADA);
+=======
 	public void resolverSolicitud(boolean aprobacionProtectora) {
 		//comprobacion del estado de la solicitud de adopcion del animal y de la aprobación de la protectora
 		if(this.solicitudes[this.contadorSolicitudes].getEstadoSolicitud()==EstadosSolicitudAnimal.EN_ESPERA&&aprobacionProtectora) {
@@ -155,6 +181,7 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 			this.agregar(new EstadoAnimal(this, EstadosAnimal.ADOPTADO));
 			//si no se cumplen las condiciones, la solicitud será denegada
 		}else this.solicitudes[this.contadorSolicitudes].setEstadoSolicitud(EstadosSolicitudAnimal.DENEGADA);
+>>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 	}
 	private void setCodigoAnimal() {
 		this.codigoAnimal=Animal.getContadorInstanciasAnimal();
@@ -241,11 +268,20 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 	public int getCodigoAnimal() {
 		return this.codigoAnimal;
 	}
-	public Object[] getEstadosAnimal() {
+	public ArrayList<EstadoAnimal> getEstadosAnimal() {
 		return estadosAnimal;
 	}
+	/**
+	 * Método que devuelve el estado del animal contenido dentro de un objeto de tipo EstadoAnimal
+	 * @return
+	 */
 	public int getEstadoAnimalActual() {
+<<<<<<< HEAD
+		ArrayList<EstadoAnimal> estados = this.getEstadosAnimal();
+		return estados.get(estados.size()-1).getEstadoAnimal();
+=======
 		EstadoAnimal[] estados = (EstadoAnimal[])this.getEstadosAnimal();
 		return estados[this.contadorEstados-1].getEstadoAnimal();
+>>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 	}
 }

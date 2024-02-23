@@ -1,6 +1,12 @@
 package protectora;
 
+<<<<<<< HEAD
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+=======
+import java.util.Arrays;
+>>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 
 import protectora.interfaces.Agregable;
 import protectora.interfaces.Ordenable;
@@ -16,11 +22,15 @@ public final class Adoptante extends Persona implements Agregable, Ordenable, Co
 	private static int contadorSolicitudes;//variable estática que sirve para contar las solicitudes actuales
 	private int ingresosAdoptante, dimensionViviendaAdoptante, numeroMascotasAdoptante, codigoAdoptante;//código único del adoptante
 	private boolean vetoAdoptante;//si el adoptante está o no vetado
+<<<<<<< HEAD
+	private ArrayList<SolicitudAdopcion> solicitudes;;//array de solicitudes de adopcion realizadas, tanto aceptadas como denegadas
+=======
 	private SolicitudAdopcion solicitudes[];//array de solicitudes de adopcion realizadas, tanto aceptadas como denegadas
+>>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 	{
 		this.vetoAdoptante=false;
 		//SE LE ASIGNA UNA LONGITUD PROVISIONAL
-		this.solicitudes=new SolicitudAdopcion[5];
+		this.solicitudes=new ArrayList<SolicitudAdopcion>();;
 	}
 	static {
 		Adoptante.contadorSolicitudes=0;
@@ -62,6 +72,10 @@ public final class Adoptante extends Persona implements Agregable, Ordenable, Co
 	public void agregar(Object object) {
 		//comprobacion de que entre un objeto de tipo SolicitudAdopcion
 		if(object instanceof SolicitudAdopcion) {
+<<<<<<< HEAD
+			//agregamos el nuevo elemento ArrayList
+			this.solicitudes.add((SolicitudAdopcion)object);
+=======
 			//comprobación de que no esté lleno el array de solicitudes
 			if(Adoptante.contadorSolicitudes!=this.solicitudes.length) {
 				//se añade el objeto
@@ -69,6 +83,7 @@ public final class Adoptante extends Persona implements Agregable, Ordenable, Co
 				//se aumenta la variable numérica que recoge la cantidad de objetos recogidos dentro del array
 				Adoptante.contadorSolicitudes++;
 			}else throw new RuntimeException("Historial lleno");
+>>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 		}else throw new RuntimeException("Introducido objeto inválido");
 	}
 	@Override
@@ -111,8 +126,13 @@ public final class Adoptante extends Persona implements Agregable, Ordenable, Co
 	/**
 	 * Método implementado por la interfaz Ordenable que ordena el array
 	 */
+<<<<<<< HEAD
+	public void ordenar(ArrayList objects) {
+		Collections.sort(objects);
+=======
 	public void ordenar(Object[] objects) {
 		Arrays.sort(objects);
+>>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 	}
 	private void setIngresosAdoptante(int ingresosAdoptante) {
 		this.ingresosAdoptante=ingresosAdoptante;

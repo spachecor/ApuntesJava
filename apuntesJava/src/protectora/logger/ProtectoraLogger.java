@@ -40,7 +40,11 @@ public class ProtectoraLogger {
 		logger.addHandler(new ProtectoraHandler());
 		try {
 			//nuevo filehandler para fichero con limitación de tamaño y numero de registros de mensajes
+<<<<<<< HEAD
+			Handler fileHandler = new FileHandler(System.getProperty("user.home")+"/git/protectora/protectora/protectora/logs/logger.log", 2000, 5);
+=======
 			Handler fileHandler = new FileHandler(System.getProperty("user.home")+"/git/protectora/protectora/logs/logger.log", 2000, 5);
+>>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 			//le asignamos un nuevo formato
 			fileHandler.setFormatter(new ProtectoraFormatter());
 			//le asignamos el filtro
