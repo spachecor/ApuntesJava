@@ -5,7 +5,7 @@ package protectora.utilidades;
  * @version 1.0
  */
 public class EstadosSolicitudAnimal {
-	public static int DENEGADA, EN_ESPERA, APROBADA;
+	public static final int DENEGADA, EN_ESPERA, APROBADA;
 	static {
 		DENEGADA=16;
 		EN_ESPERA=17;

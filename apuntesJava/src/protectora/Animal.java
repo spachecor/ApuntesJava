@@ -9,7 +9,6 @@ import java.util.Collections;
 import java.util.Iterator;
 
 import org.eclipse.jdt.annotation.NonNull;
-
 import protectora.interfaces.Agregable;
 import protectora.interfaces.Buscable;
 import protectora.interfaces.Eliminable;
@@ -28,7 +27,7 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	private String nombreAnimal;
 	private int colorAnimal, tipoAnimal, sexoAnimal, razaAnimal, tamanio;
 	//el tiempo en protectora se cuenta en meses
-	private int codigoAnimal, edadAnimal, tiempoEnProtectora, contadorSolicitudes, contadorEstados;
+	private int codigoAnimal, edadAnimal, tiempoEnProtectora;
 	private long chip;
 	private LocalDate fechaNacimientoAnimal;
 	private LocalDateTime fechaEntradaProtectora;
@@ -38,11 +37,8 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	{
 		this.nombreAnimal="desconocido";
 		this.capacidadConvivirAnimales=false;	
-		this.chip=0;
 		this.estadosAnimal= new ArrayList<EstadoAnimal>();
 		this.solicitudes=new ArrayList<SolicitudAdopcion>();
-		this.contadorEstados=0;
-		this.contadorSolicitudes=0;
 	}
 	static {
 		Animal.contadorInstanciasAnimal=0;
@@ -80,12 +76,13 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	private static void aumentarContadorInstanciasAnimal() {
 		Animal.contadorInstanciasAnimal++;
 	}
-	@Override
+
 	/**
 	 * Método agregar que viene de la interfaz Agregable para agregar objetos a los arrays de objetos. En este caso, según el objeto que entre, irá a uno u otro 
 	 * array, o lanzará una excepción si el objeto no es el adecuado o si los arrays están llenos
 	 * @param object el objeto que entrará en el array si no salta una excepción
 	 */
+	@Override
 	public void agregar(Object object) {
 		//comprobacion de que entre un objeto del tipo EstadoAnimal
 		if(object instanceof EstadoAnimal) {
@@ -101,12 +98,13 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	public void eliminar(ArrayList array, int indice) {
 		array.remove(indice);
 	}
-	@Override
+
 	/**
 	 * Método buscar heredado de la interfaz buscable, que recibe el arraylist en el que queremos buscar y el objeto a buscar.
 	 * @param array es el arraylist en el que vamos a buscar
 	 * @param object es el objeto que vamos a buscar en el arraylist
 	 */
+	@Override
 	public int buscar(ArrayList array, Object object) {
 		//creamos un iterador
 		Iterator it = array.iterator();//usamos el iterador para iterar por la lista
@@ -126,20 +124,22 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 		//si pasa  el filtro, se comparan los códigos del animal. Sólo si son idénticos, es true
 		return ((Animal)obj).getCodigoAnimal()==this.getCodigoAnimal();
 	}
-	@Override
+
 	/**
 	 * Método ordenar que viene de la interfaz Ordenable para ordenar los objetos dentro de un array. Ordena por el numero asignado al
 	 * estado concreto
-	 * @param objects[] es un array de objetos
+	 * @param objects es un arraylist de objetos
 	 */
+	@Override
 	public void ordenar(ArrayList objects) {
 		Collections.sort(objects);
 	}
-	@Override
+
 	/**
 	 * Método compareto de la interfaz Comparable que ordena los animales según su código de animal(multiplicamos resultado por menos uno para obtener el orden
 	 * de menor a mayor)
 	 */
+	@Override
 	public int compareTo(Animal arg0) {
 		//comprobación de nulidad y de parámetro
 		if(arg0==null) throw new RuntimeException("El parametro no puede ser nulo");
@@ -206,7 +206,7 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 		this.chip=chip;
 	}
 	private void setTiempoEnProtectora() {
-		ChronoUnit.MONTHS.between(fechaEntradaProtectora, LocalDateTime.now());
+		this.tiempoEnProtectora = (int)ChronoUnit.MONTHS.between(fechaEntradaProtectora, LocalDateTime.now());
 	}
 	public static int getContadorInstanciasAnimal() {
 		return Animal.contadorInstanciasAnimal;

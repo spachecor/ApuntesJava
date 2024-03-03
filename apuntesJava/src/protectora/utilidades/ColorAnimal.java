@@ -5,7 +5,7 @@ package protectora.utilidades;
  * @version 1.0
  */
 public class ColorAnimal {
-	public static int  MARRON_OSCURO, MARRON_CLARO, BLANCO, NEGRO, BICOLOR, TRICOLOR, NARANJA, AZUL;
+	public static final int  MARRON_OSCURO, MARRON_CLARO, BLANCO, NEGRO, BICOLOR, TRICOLOR, NARANJA, AZUL;
 	static {
 		MARRON_OSCURO=2;
 		MARRON_CLARO=3;

@@ -33,5 +33,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="eclipse.jdt.annotation" level="project" />
   </component>
 </module>

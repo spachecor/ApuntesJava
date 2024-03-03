@@ -5,7 +5,7 @@ package protectora.utilidades;
  * @version 1.0
  */
 public class Tamanios {
-	public static int PEQUENIO, MEDIANO, GRANDE, GIGANTE;
+	public static final int PEQUENIO, MEDIANO, GRANDE, GIGANTE;
 	static {
 		PEQUENIO=63;
 		MEDIANO=64;

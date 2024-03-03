@@ -5,7 +5,7 @@ package protectora.utilidades;
  * @version 1.0
  */
 public class SexoAnimal {
-	public static int MACHO, HEMBRA;
+	public static final int MACHO, HEMBRA;
 	static {
 		MACHO=10;
 		HEMBRA=11;

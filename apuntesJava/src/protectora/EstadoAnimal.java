@@ -21,13 +21,14 @@ public class EstadoAnimal implements Comparable<EstadoAnimal>{
 		this.setEstadoAnimal(estadoAnimal);
 		this.setInstanteCambioEstado();
 	}
-	@Override
+
 	/**
 	 * Método compate to de la interfaz Comparable que nos ordena los objetos EstadoAnimal según el nº que le pertenece a cada estado(multiplicamos resultado por menos uno para obtener el orden
 	 * de menor a mayor)
-	 * @param arg0
-	 * @return
+	 * @param arg0 es el objeto que contiene la información del estado del animal
+	 * @return devuelve 0 en caso de ser igual, 1 en caso de ser mayor, y -1 en caso de ser menor
 	 */
+	@Override
 	public int compareTo(EstadoAnimal arg0) {
 		//comprobación de nulidad y de parámetro
 		if(arg0==null) throw new RuntimeException("El parametro no puede ser nulo");

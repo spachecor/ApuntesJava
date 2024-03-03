@@ -5,7 +5,7 @@ package protectora.utilidades;
  * @version 1.0
  */
 public class TipoAnimal {
-	public static int GATO, PERRO;
+	public static final int GATO, PERRO;
 	static {
 		GATO=0;
 		PERRO=1;

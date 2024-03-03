@@ -18,7 +18,7 @@ public final class Adoptante extends Persona implements Agregable, Eliminable, O
 	private static int contadorSolicitudes;//variable estática que sirve para contar las solicitudes actuales
 	private int ingresosAdoptante, dimensionViviendaAdoptante, numeroMascotasAdoptante, codigoAdoptante;//código único del adoptante
 	private boolean vetoAdoptante;//si el adoptante está o no vetado
-	private ArrayList<SolicitudAdopcion> solicitudes;;//array de solicitudes de adopcion realizadas, tanto aceptadas como denegadas
+	private ArrayList<SolicitudAdopcion> solicitudes;//array de solicitudes de adopcion realizadas, tanto aceptadas como denegadas
 	{
 		this.vetoAdoptante=false;
 		//SE LE ASIGNA UNA LONGITUD PROVISIONAL
@@ -55,12 +55,13 @@ public final class Adoptante extends Persona implements Agregable, Eliminable, O
 		//le asignamos su código de adoptante
 		this.setCodigo();
 	}
-	@Override
+
 	/**
 	 * Método agregar que viene de la interfaz Agregable para agregar objetos a los arrays de objetos. En este caso, según el objeto que entre, irá a uno u otro 
 	 * array, o lanzará una excepción si el objeto no es el adecuado o si los arrays están llenos
 	 * @param object el objeto que entrará en el array si no salta una excepción
 	 */
+	@Override
 	public void agregar(Object object) {
 		//comprobacion de que entre un objeto de tipo SolicitudAdopcion
 		if(object instanceof SolicitudAdopcion) {
@@ -72,33 +73,37 @@ public final class Adoptante extends Persona implements Agregable, Eliminable, O
 	public void eliminar(ArrayList array, int indice) {
 		array.remove(indice);
 	}
-	@Override
+
 	/**
 	 * Método setCodigo heredado de clase padre Persona para asignar el código único al adoptante
 	 */
+	@Override
 	public void setCodigo() {
 		this.codigoAdoptante=Integer.parseInt(super.getDni().substring(0, 8));
 	}
-	@Override
+
 	/**
 	 * Método toString reescrito para personalizar el mensaje cuando se imprime un objeto de esta clase
 	 */
+	@Override
 	public String toString() {
 		return "Código adoptante: "+this.getCodigo()+" - "+super.toString();
 	}
-	@Override
+
 	/**
 	 * Método getCodigo heredado de clase padre Persona para mostrar el código único del objeto
 	 */
+	@Override
 	public int getCodigo() {
 		return this.codigoAdoptante;
 	}
-	@Override
+
 	/**
 	 * Método de la interfaz Comparable que nos devuelve un valor u otro según el objeto sea mayor, menor o igual al introducido por parámetro comparados por el 
 	 * código único
 	 * @param arg0 un objeto Adoptante
 	 */
+	@Override
 	public int compareTo(Adoptante arg0) {
 		//comprobación de nulidad y de parámetro
 		if(arg0==null) throw new RuntimeException("El parametro no puede ser nulo");
@@ -108,10 +113,11 @@ public final class Adoptante extends Persona implements Agregable, Eliminable, O
 		else if(arg0.getCodigo()>(this.getCodigo()))return 1*-1;
 		else return 0;
 	}
-	@Override
+
 	/**
 	 * Método implementado por la interfaz Ordenable que ordena el array
 	 */
+	@Override
 	public void ordenar(ArrayList objects) {
 		Collections.sort(objects);
 	}

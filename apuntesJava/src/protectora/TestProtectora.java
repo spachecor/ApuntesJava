@@ -60,6 +60,7 @@ public class TestProtectora implements Buscable, Eliminable{
 		System.out.println(solicitudes.get(0).toString());
 		System.out.println(animales.get(0).buscar(animales.get(0).getEstadosAnimal(), estado4));
 	}
+
 	/**
 	 * Método que sirve para crear un animal. Lo crea, le asigna un estado y agrega el estado del animal. Finalmente, devuelve el animal creado.
 	 * @param nombreAnimal
@@ -67,10 +68,11 @@ public class TestProtectora implements Buscable, Eliminable{
 	 * @param colorAnimal
 	 * @param sexoAnimal
 	 * @param razaAnimal
+	 * @param tamanio
 	 * @param fechaNacimientoAnimal
 	 * @param castrado
 	 * @param chip
-	 * @return el animal creado con el estado asignado
+	 * @return
 	 */
 	private Animal crearAnimal(String nombreAnimal, int tipoAnimal, int colorAnimal, int sexoAnimal, int razaAnimal, int tamanio, LocalDate fechaNacimientoAnimal, boolean castrado, long chip) {
 		Animal animal = new Animal(nombreAnimal, tipoAnimal, colorAnimal, sexoAnimal, razaAnimal, tamanio, fechaNacimientoAnimal, castrado, chip);
@@ -85,8 +87,7 @@ public class TestProtectora implements Buscable, Eliminable{
 		return animal;
 	}
 	private static SolicitudAdopcion crearSolicitud(Animal animal, Adoptante adoptante, boolean aceptacionConvivientes, boolean compromisoCastrar, boolean compromisoInformarProtectora) {
-		SolicitudAdopcion solicitud = new SolicitudAdopcion(animal, adoptante, aceptacionConvivientes, compromisoCastrar, compromisoInformarProtectora);
-		return solicitud;
+		return new SolicitudAdopcion(animal, adoptante, aceptacionConvivientes, compromisoCastrar, compromisoInformarProtectora);
 	}
 	@Override
 	public int buscar(ArrayList array, Object object) {

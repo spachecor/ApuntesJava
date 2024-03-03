@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5f99055-a5f7-46bf-b8d3-8b5a848dd66e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/eclipse_jdt_annotation.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/apuntesJava.iml" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/apuntesJava.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Adoptante.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/Adoptante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/EstadoAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/EstadoAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/SolicitudAdopcion.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/SolicitudAdopcion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/TestProtectora.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/TestProtectora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Eliminable.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Eliminable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/ColorAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/ColorAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/EstadosAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/EstadosAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/EstadosSolicitudAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/EstadosSolicitudAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/Razas.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/Razas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/SexoAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/SexoAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/Tamanios.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/Tamanios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/TipoAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/TipoAnimal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,17 +48,28 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.TestProtectora.executor": "Run",
     "DefaultPlantUmlFileTemplate": "UML Class",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/selene/Documentos/programacion",
+    "last_opened_file_path": "C:/Users/selene/git/Protectora/protectora",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -61,6 +87,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-8336523bb0d9-657b72ed" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

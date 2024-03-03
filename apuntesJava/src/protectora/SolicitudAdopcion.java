@@ -48,9 +48,6 @@ public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 	}
 	/**
 	 * Método que realiza la primera comprobación del estado de la solicitud de adopcion del animal
-	 * @param adoptante objeto de tipo adoptante
-	 * @param animal objeto de tipo Animal
-	 * @param solicitud objeto de tipo SolicitudAdopcion
 	 */
 	public void primeraComprobacion() {
 		boolean requisitos=false;
