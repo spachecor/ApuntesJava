@@ -116,11 +116,7 @@ public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 	void setEstadoSolicitud(int estadoSolicitud) {
 		this.estadoSolicitud=estadoSolicitud;
 	}
-<<<<<<< HEAD
 	public void setAprobacionProtectora(boolean aprobacionProtectora) {
-=======
-	private void setAprobacionProtectora(boolean aprobacionProtectora) {
->>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 		this.aprobacionProtectora=aprobacionProtectora;
 	}
 	private int getContadorInstanciasSolicitudAdopcion() {

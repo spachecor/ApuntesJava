@@ -6,6 +6,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 
 import org.eclipse.jdt.annotation.NonNull;
 
@@ -21,7 +22,7 @@ import protectora.utilidades.EstadosSolicitudAnimal;
  * @author selene
  * @version 1.3
  */
-public class Animal implements Agregable, Ordenable, Comparable<Animal>{
+public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Comparable<Animal>{
 	//el contadoInstanciasAnimales cuenta las instancias que se han hecho
 	private static int contadorInstanciasAnimal;
 	private String nombreAnimal;
@@ -38,15 +39,8 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 		this.nombreAnimal="desconocido";
 		this.capacidadConvivirAnimales=false;	
 		this.chip=0;
-<<<<<<< HEAD
 		this.estadosAnimal= new ArrayList<EstadoAnimal>();
 		this.solicitudes=new ArrayList<SolicitudAdopcion>();
-=======
-		//SE LE PONE UNA LONGITUD PROVISIONAL
-		this.estadosAnimal= new EstadoAnimal[5];
-		//SE LE PONE UNA LONGITUD PROVISIONAL
-		this.solicitudes=new SolicitudAdopcion[5];
->>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 		this.contadorEstados=0;
 		this.contadorSolicitudes=0;
 	}
@@ -95,32 +89,35 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 	public void agregar(Object object) {
 		//comprobacion de que entre un objeto del tipo EstadoAnimal
 		if(object instanceof EstadoAnimal) {
-<<<<<<< HEAD
 			//agregamos el nuevo elemento al arraylist
 			this.estadosAnimal.add((EstadoAnimal) object);
 			//comprobacion de que entre un objeto del tipo SolicitudAdopcion
 		}else if(object instanceof SolicitudAdopcion) {
 			//agregamos el nuevo elemento al arraylist
 			this.solicitudes.add((SolicitudAdopcion)object);
-=======
-			//comprobacion de que no este lleno en array de estados
-			if(this.contadorEstados!=this.estadosAnimal.length) {
-				//se añade el objeto
-				this.estadosAnimal[this.contadorEstados]=(EstadoAnimal)object;
-				//aumenta la veriable numérica que recoge la cantidad de objetos recogidos dentro del array
-				this.contadorEstados++;
-			}else throw new RuntimeException("Historial lleno");
-			//comprobacion de que entre un objeto del tipo SolicitudAdopcion
-		}else if(object instanceof SolicitudAdopcion) {
-			//comprobacion de que no este lleno en array de solicitudes
-			if(this.contadorSolicitudes!=this.solicitudes.length){
-				//se añade el objeto
-				this.solicitudes[this.contadorSolicitudes]=(SolicitudAdopcion)object;
-				//se aumenta la variable num,erica que recoge la cantidad de objetos recogidos dentro del array
-				this.contadorSolicitudes++;
-			}else throw new RuntimeException("Historial lleno");
->>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 		}else throw new RuntimeException("Introducido objeto inválido");
+	}
+	@Override
+	public void eliminar(ArrayList array, int indice) {
+		array.remove(indice);
+	}
+	@Override
+	/**
+	 * Método buscar heredado de la interfaz buscable, que recibe el arraylist en el que queremos buscar y el objeto a buscar.
+	 * @param array es el arraylist en el que vamos a buscar
+	 * @param object es el objeto que vamos a buscar en el arraylist
+	 */
+	public int buscar(ArrayList array, Object object) {
+		//creamos un iterador
+		Iterator it = array.iterator();//usamos el iterador para iterar por la lista
+		//mientras siga habiendo más elementos, el bucle seguirá dando vueltas
+		while(it.hasNext()) {//si hay otro más, continuará
+			Object aux = it.next();
+			if(aux.equals(object))return Collections.binarySearch(array, aux);//si coincide el valor del objeto dentro de la lista 
+			//con el que introducimos por parámetro, se devuelve la posición en la lista del objeto
+		}
+		//si se ha finalizado el bucle y no ha salido del método(lo que significa que no ha encontrado el objeto), devolverá -1
+		return -1;
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -163,7 +160,6 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 				+" - ¿Castrado?: "+this.getCastrado()+" - ¿Chip?"+this.getComprobacionChip()+(this.getComprobacionChip()?
 						" - Nº Chip: "+this.getChip():"");
 	}
-<<<<<<< HEAD
 	public void resolverSolicitud(SolicitudAdopcion solicitud, boolean aprobacionProtectora) {
 		//comprobacion del estado de la solicitud de adopcion del animal y de la aprobación de la protectora
 		if(solicitud.getEstadoSolicitud()==EstadosSolicitudAnimal.EN_ESPERA&&aprobacionProtectora) {
@@ -172,16 +168,6 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 			this.agregar(new EstadoAnimal(this, EstadosAnimal.ADOPTADO));
 			//si no se cumplen las condiciones, la solicitud será denegada
 		}else solicitud.setEstadoSolicitud(EstadosSolicitudAnimal.DENEGADA);
-=======
-	public void resolverSolicitud(boolean aprobacionProtectora) {
-		//comprobacion del estado de la solicitud de adopcion del animal y de la aprobación de la protectora
-		if(this.solicitudes[this.contadorSolicitudes].getEstadoSolicitud()==EstadosSolicitudAnimal.EN_ESPERA&&aprobacionProtectora) {
-			//la solicitud pasa a aprobada y el estado del animal a adoptado
-			this.solicitudes[this.contadorSolicitudes].setEstadoSolicitud(EstadosSolicitudAnimal.APROBADA);
-			this.agregar(new EstadoAnimal(this, EstadosAnimal.ADOPTADO));
-			//si no se cumplen las condiciones, la solicitud será denegada
-		}else this.solicitudes[this.contadorSolicitudes].setEstadoSolicitud(EstadosSolicitudAnimal.DENEGADA);
->>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 	}
 	private void setCodigoAnimal() {
 		this.codigoAnimal=Animal.getContadorInstanciasAnimal();
@@ -224,12 +210,6 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 	}
 	public static int getContadorInstanciasAnimal() {
 		return Animal.contadorInstanciasAnimal;
-	}
-	public int getContadorSolicitudes() {
-		return this.contadorSolicitudes;
-	}
-	public int getContadorEstados() {
-		return this.contadorEstados;
 	}
 	public String getNombreAnimal() {
 		return this.nombreAnimal;
@@ -276,12 +256,7 @@ public class Animal implements Agregable, Ordenable, Comparable<Animal>{
 	 * @return
 	 */
 	public int getEstadoAnimalActual() {
-<<<<<<< HEAD
 		ArrayList<EstadoAnimal> estados = this.getEstadosAnimal();
 		return estados.get(estados.size()-1).getEstadoAnimal();
-=======
-		EstadoAnimal[] estados = (EstadoAnimal[])this.getEstadosAnimal();
-		return estados[this.contadorEstados-1].getEstadoAnimal();
->>>>>>> 9af789db91487a99f07f43bf27c3cb59e41afc91
 	}
 }

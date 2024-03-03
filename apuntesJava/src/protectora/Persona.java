@@ -1,4 +1,8 @@
 package protectora;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Clase padre Persona que define las propiedades y el comportamiento de los objetos persona que hereden de 
  * persona.
@@ -69,6 +73,27 @@ abstract class Persona {
 		return "Nombre: "+this.getNombre()+" - DNI: "+this.getDni()+" - Trabajo: "+this.getTrabajo()+" - Email: "+this.getEmail()+" - Dirección: "+this.getDireccionCompleta()
 				+" - Teléfono: "+this.getTelefono()+" - Información adicional: "+((this.getInfoAdicional()==null)?"ninguna":this.getInfoAdicional());
 	}
+	private static boolean validarDni(String dni) {
+		//Primero creamos un objeto tipo Pattern para representar la expresión regular. Con el método compile
+		//recibimos el parámetro de la expresión regular y se devuelve un objeto de la clase pattern
+		Pattern pat = Pattern.compile("^[0-9]{8}[T|R|W|A|G|M|Y|F|P|D|X|B|N|J|Z|S|Q|V|H|L|C|K|E]$");
+		//Después creamos un objeto de la clase Matcher, que usaremos para comparar el dni que entre con
+		//la expresión regular. 
+		Matcher mat = pat.matcher(dni);
+		//por último, con el método matcher obtendremos si coincide con el patrón, así que directamente
+		//devolvemos el boolean que da como resultado de usar el método matches con el objeto del tipo Matcher
+		return mat.matches();
+	}
+	private static boolean validarEmail(String email) {
+		Pattern pat = Pattern.compile("^[a-z0-9]+@[a-z0-9]+.[a-z]{2,3}$");
+		Matcher mat = pat.matcher(email);
+		return mat.matches();
+	}
+	private static boolean validarNumeroCasa(int numeroCasa) {
+		Pattern pat = Pattern.compile("^[0-9]{1,2}[0-9]?$");
+		Matcher mat = pat.matcher(String.valueOf(numeroCasa));
+		return mat.matches();
+	}
 	protected String getNombre() {
 		return this.nombre;
 	}
@@ -91,13 +116,17 @@ abstract class Persona {
 		this.nombre=nombre;
 	}
 	private void setDni(String dni) {
-		this.dni=dni;
+		if(Persona.validarDni(dni)) {
+			this.dni=dni;
+		}else throw new RuntimeException("Se ha introducido un DNI inválido");
 	}
 	private void setTrabajo(String trabajo) {
 		this.trabajo=trabajo;
 	}
 	private void setEmail(String email) {
-		this.email=email;
+		if(Persona.validarEmail(email)) {
+			this.email=email;
+		}else throw new RuntimeException("Se ha introducido un email inválido");
 	}
 	private void setTipoVia(String tipoVia) {
 		this.tipoVia=tipoVia;
@@ -124,7 +153,9 @@ abstract class Persona {
 		this.telefono=telefono;
 	}
 	private void setNumeroCasa(int numeroCasa) {
-		this.numeroCasa=numeroCasa;
+		if(Persona.validarNumeroCasa(numeroCasa)) {
+			this.numeroCasa=numeroCasa;
+		}else throw new RuntimeException("Se ha introducido un número incorrecto");	
 	}
 	private void setBloque(int bloque) {
 		this.bloque=bloque;
