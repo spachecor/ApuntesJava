@@ -6,8 +6,8 @@ package protectora.interfaces;
  */
 public interface Agregable {
 	/**
-	 * Agrega el objeto indicado por parámetro a un array de objetos
-	 * @param object
+	 * Agrega el objeto indicado por parámetro a un arraylist de objetos
+	 * @param object el objeto que se va a agregar al arraylist
 	 */
 	void agregar(Object object);
 }

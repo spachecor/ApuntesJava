@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 
@@ -13,8 +12,7 @@ import protectora.interfaces.Agregable;
 import protectora.interfaces.Buscable;
 import protectora.interfaces.Eliminable;
 import protectora.interfaces.Ordenable;
-import protectora.utilidades.EstadosAnimal;
-import protectora.utilidades.EstadosSolicitudAnimal;
+import protectora.utilidades.*;
 
 /**
  * Clase Animal que define las propiedades y los comportamientos de los diferentes animales
@@ -37,22 +35,28 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	{
 		this.nombreAnimal="desconocido";
 		this.capacidadConvivirAnimales=false;	
-		this.estadosAnimal= new ArrayList<EstadoAnimal>();
-		this.solicitudes=new ArrayList<SolicitudAdopcion>();
+		this.estadosAnimal= new ArrayList<>();
+		this.solicitudes=new ArrayList<>();
+		this.fechaNacimientoAnimal=null;
 	}
 	static {
 		Animal.contadorInstanciasAnimal=0;
 	}
+
 	/**
 	 * Constructor especializado en inicializar objetos de la clase con los requisitos mínimos especificados y que automáticamente le asocial el código al animal y
 	 * el resto de sus propiedades
-	 * @param colorAnimal
-	 * @param sexoAnimal
-	 * @param fechaNacimientoAnimal
-	 * @param castrado
-	 * @param chip
+	 * @param nombreAnimal el nombre del animal
+	 * @param tipoAnimal el tipo del animal
+	 * @param colorAnimal el color del animal
+	 * @param sexoAnimal el sexo del animal
+	 * @param razaAnimal la raza del animal
+	 * @param tamanio el tamaño del animal
+	 * @param fechaNacimientoAnimal la fecha de nacimiento del animal
+	 * @param castrado si el animal está o no castrado
+	 * @param chip el nº del chip del animal
 	 */
-	public Animal(@NonNull String nombreAnimal, int tipoAnimal, int colorAnimal, int sexoAnimal, int razaAnimal, int tamanio, LocalDate fechaNacimientoAnimal, boolean castrado, long chip) {
+	public Animal(@NonNull String nombreAnimal,@NonNull int tipoAnimal,@NonNull int colorAnimal,@NonNull int sexoAnimal, int razaAnimal, int tamanio,@NonNull LocalDate fechaNacimientoAnimal, boolean castrado, long chip) {
 		//aumentamos el contadorInstanciasAnimal
 		Animal.aumentarContadorInstanciasAnimal();
 		//asignamos los valores al objeto animal
@@ -75,6 +79,13 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	 */
 	private static void aumentarContadorInstanciasAnimal() {
 		Animal.contadorInstanciasAnimal++;
+	}
+
+	/**
+	 * Disminuye el nº de instancias del objeto animal. Usado en los métodos de eliminar que eliminen animales.
+	 */
+	public static void disminuirContadorInstanciasAnimal(){
+		Animal.contadorInstanciasAnimal--;
 	}
 
 	/**
@@ -154,20 +165,21 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	 */
 	@Override
 	public String toString() {
-		return "Nombre: "+this.getNombreAnimal()+" - Tipo: "+this.getTipoAnimal()+" - Color: "+this.getColorAnimal()
-				+" - Sexo: "+this.getSexoAnimal()+" - Raza: "+this.getRazaAnimal()+" - Tamaño: "
-				+this.getTamanio()+" - Edad: "+this.getEdadAnimal()+" - Tiempo en protectora(en meses): "+this.getTiempoEnProtectora()
+		return "Nombre: "+this.getNombreAnimal()+" - Tipo: "+MapeadoAnimal.tiposAnimal.get(this.getTipoAnimal())+" - Color: "+MapeadoAnimal.coloresAnimal.get(this.getColorAnimal())
+				+" - Sexo: "+MapeadoAnimal.sexosAnimal.get(this.getSexoAnimal())+" - Raza: "
+				+((this.getRazaAnimal()>=19&&this.getRazaAnimal()<=38)?MapeadoAnimal.razasGato.get(this.getRazaAnimal()):MapeadoAnimal.razasPerro.get(this.getRazaAnimal()))
+				+" - Tamaño: "+MapeadoAnimal.tamaniosAnimal.get(this.getTamanio())+" - Edad: "+this.getEdadAnimal()+" años - Tiempo en protectora(en meses): "+this.getTiempoEnProtectora()
 				+" - ¿Castrado?: "+this.getCastrado()+" - ¿Chip?"+this.getComprobacionChip()+(this.getComprobacionChip()?
 						" - Nº Chip: "+this.getChip():"");
 	}
 	public void resolverSolicitud(SolicitudAdopcion solicitud, boolean aprobacionProtectora) {
 		//comprobacion del estado de la solicitud de adopcion del animal y de la aprobación de la protectora
-		if(solicitud.getEstadoSolicitud()==EstadosSolicitudAnimal.EN_ESPERA&&aprobacionProtectora) {
+		if(solicitud.getEstadoSolicitud()== EstadosSolicitudAdopcion.EN_ESPERA&&aprobacionProtectora) {
 			//la solicitud pasa a aprobada y el estado del animal a adoptado
-			solicitud.setEstadoSolicitud(EstadosSolicitudAnimal.APROBADA);
-			this.agregar(new EstadoAnimal(this, EstadosAnimal.ADOPTADO));
+			solicitud.setEstadoSolicitud(EstadosSolicitudAdopcion.APROBADA);
+			this.agregar(new EstadoAnimal(EstadosAnimal.ADOPTADO));
 			//si no se cumplen las condiciones, la solicitud será denegada
-		}else solicitud.setEstadoSolicitud(EstadosSolicitudAnimal.DENEGADA);
+		}else solicitud.setEstadoSolicitud(EstadosSolicitudAdopcion.DENEGADA);
 	}
 	private void setCodigoAnimal() {
 		this.codigoAnimal=Animal.getContadorInstanciasAnimal();
@@ -185,10 +197,16 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 		this.sexoAnimal=sexoAnimal;
 	}
 	private void setRazaAnimal(int razaAnimal) {
-		this.razaAnimal=razaAnimal;
+		if(razaAnimal==0&&this.getTipoAnimal()== TipoAnimal.GATO){
+			this.razaAnimal= RazasGato.COMUN_EUROPEO;
+		}else if(razaAnimal==0&&this.getTipoAnimal()==TipoAnimal.PERRO){
+			this.razaAnimal= RazasPerro.MESTIZO;
+		}else this.razaAnimal=razaAnimal;
 	}
 	private void setTamanio(int tamanio) {
-		this.tamanio=tamanio;
+		if(tamanio==0){
+			this.tamanio=Tamanios.MEDIANO;
+		}else this.tamanio=tamanio;
 	}
 	private void setEdadAnimal(LocalDate fechaNacimientoAnimal) {
 		this.edadAnimal=(int)ChronoUnit.YEARS.between(fechaNacimientoAnimal, LocalDate.now());
@@ -253,7 +271,7 @@ public class Animal implements Agregable, Ordenable, Eliminable, Buscable, Compa
 	}
 	/**
 	 * Método que devuelve el estado del animal contenido dentro de un objeto de tipo EstadoAnimal
-	 * @return
+	 * @return Devuelve el estado del animal actual, que es el último dentro del array de estados del animal que éste contiene
 	 */
 	public int getEstadoAnimalActual() {
 		ArrayList<EstadoAnimal> estados = this.getEstadosAnimal();

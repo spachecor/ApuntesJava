@@ -1,5 +1,7 @@
 package protectora;
 
+import org.eclipse.jdt.annotation.NonNull;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,22 +21,23 @@ abstract class Persona {
 	}
 	/**
 	 * Constructor de los objetos de tipo Persona
-	 * @param dni
-	 * @param trabajo
-	 * @param email
-	 * @param tipoVia
-	 * @param nombreVia
-	 * @param escalera
-	 * @param puerta
-	 * @param infoAdicional
-	 * @param localidad
-	 * @param provincia
-	 * @param telefono
-	 * @param numeroCasa
-	 * @param bloque
-	 * @param codigoPostal
+	 * @param nombre el nombre del adoptante
+	 * @param dni el dni de la persona
+	 * @param trabajo el trabajo de la persona
+	 * @param email el email de la persona
+	 * @param tipoVia el tipo de via donde vive la persona
+	 * @param nombreVia el nombre de la via donde vive la persona
+	 * @param escalera la escalera de la direccion de la persona
+	 * @param puerta la puerta de la direccion de la persona
+	 * @param infoAdicional información adicional sobre la persona
+	 * @param localidad la localidad donde vive la persona
+	 * @param provincia la provinicia donde vive la persona
+	 * @param telefono el telefono de la persona
+	 * @param numeroCasa el numero de la casa donde vive la persona
+	 * @param bloque el bloque donde vive la persona
+	 * @param codigoPostal el codigo postal donde vive la persona
 	 */
-	protected Persona(String nombre, String dni, String trabajo, String email, String tipoVia, String nombreVia, String escalera, String puerta, String infoAdicional, String localidad, String provincia, int telefono, int numeroCasa, int bloque, int codigoPostal) {
+	protected Persona(@NonNull String nombre,@NonNull  String dni, String trabajo,@NonNull  String email,@NonNull  String tipoVia,@NonNull  String nombreVia, String escalera,String puerta, String infoAdicional,@NonNull  String localidad,@NonNull  String provincia,@NonNull  int telefono,@NonNull  int numeroCasa, int bloque,@NonNull  int codigoPostal) {
 		this.setNombre(nombre);
 		this.setDni(dni);
 		this.setTrabajo(trabajo);
@@ -61,62 +64,54 @@ abstract class Persona {
 	 * Método abstracto que devuelve el código único del objeto de la clase heredera
 	 * @return el código único de la clase heredera
 	 */
-	protected abstract int getCodigo();
+	public abstract int getCodigo();
 	/**
 	 * Método que aumenta el contador del número de objetos tipo Persona instanciadas
 	 */
+	@Override
+	public String toString() {
+		return "Nombre: "+this.getNombre()+" - DNI: "+this.getDni()+" - Trabajo: "+((trabajo==null||trabajo.equals("null"))?"ninguno":this.getTrabajo())+" - Email: "+this.getEmail()+" - Dirección: "+this.getDireccionCompleta()
+				+" - Teléfono: "+this.getTelefono()+" - Información adicional: "+((this.getInfoAdicional()==null)?"ninguna":this.getInfoAdicional());
+	}
 	private static void aumentarContadorPersonas() {
 		Persona.contadorPersonas++;
 	}
-	@Override
-	public String toString() {
-		return "Nombre: "+this.getNombre()+" - DNI: "+this.getDni()+" - Trabajo: "+this.getTrabajo()+" - Email: "+this.getEmail()+" - Dirección: "+this.getDireccionCompleta()
-				+" - Teléfono: "+this.getTelefono()+" - Información adicional: "+((this.getInfoAdicional()==null)?"ninguna":this.getInfoAdicional());
-	}
-	private static boolean validarDni(String dni) {
-		//Primero creamos un objeto tipo Pattern para representar la expresión regular. Con el método compile
-		//recibimos el parámetro de la expresión regular y se devuelve un objeto de la clase pattern
-		Pattern pat = Pattern.compile("^[0-9]{8}[T|R|W|A|G|M|Y|F|P|D|X|B|N|J|Z|S|Q|V|H|L|C|K|E]$");
-		//Después creamos un objeto de la clase Matcher, que usaremos para comparar el dni que entre con
-		//la expresión regular. 
-		Matcher mat = pat.matcher(dni);
-		//por último, con el método matcher obtendremos si coincide con el patrón, así que directamente
-		//devolvemos el boolean que da como resultado de usar el método matches con el objeto del tipo Matcher
-		return mat.matches();
-	}
-	private static boolean validarEmail(String email) {
-		Pattern pat = Pattern.compile("^[a-z0-9]+@[a-z0-9]+.[a-z]{2,3}$");
-		Matcher mat = pat.matcher(email);
-		return mat.matches();
-	}
-	private static boolean validarNumeroCasa(int numeroCasa) {
-		Pattern pat = Pattern.compile("^[0-9]{1,2}[0-9]?$");
-		Matcher mat = pat.matcher(String.valueOf(numeroCasa));
-		return mat.matches();
-	}
-	protected String getNombre() {
+	public String getNombre() {
 		return this.nombre;
 	}
-	protected String getTrabajo() {
+	public String getTrabajo() {
 		return this.trabajo;
 	}
-	protected String getEmail() {
+	public String getEmail() {
 		return this.email;
 	}
 	/**
 	 * Método específico que genera la dirección completa
 	 * @return la dirección completa
 	 */
-	protected String getDireccionCompleta() {
+	public String getDireccionCompleta() {
 		return this.getTipoVia()+" "+this.getNombreVia()+", "+this.getNumeroCasa()+((this.getBloque()==0)?"":" bloque: "+this.getBloque())
 				+((this.getEscalera()==null)?"":" escalera: "+this.getEscalera())+((this.getPuerta()==null)?"":" puerta: "+this.getPuerta())
 				+". "+this.getLocalidad()+", "+this.getProvincia()+". CP: "+this.getCodigoPostal();
 	}
 	private void setNombre(String nombre) {
-		this.nombre=nombre;
+		//en esta expresión regular, metemos un espacio al final para indicar que el nombre puede contener espacios.
+		Pattern pat = Pattern.compile("^[a-zA-ZáÁéÉíÍóÓúÚ ]+$");
+		Matcher mat = pat.matcher(nombre);
+		if(mat.matches()){
+			this.nombre=nombre;
+		}else throw new RuntimeException("Introducido nombre inválido");
 	}
 	private void setDni(String dni) {
-		if(Persona.validarDni(dni)) {
+		//Primero creamos un objeto tipo Pattern para representar la expresión regular. Con el método compile
+		//recibimos el parámetro de la expresión regular y se devuelve un objeto de la clase pattern
+		Pattern pat = Pattern.compile("^[0-9]{8}[T|R|W|A|G|M|Y|F|P|D|X|B|N|J|Z|S|Q|V|H|L|C|K|E]$");
+		//Después creamos un objeto de la clase Matcher, que usaremos para comparar el dni que entre con
+		//la expresión regular.
+		Matcher mat = pat.matcher(dni);
+		//por último, con el método matcher obtendremos si coincide con el patrón, así que directamente
+		//comparamos si es true o false para validarlo o directamente lanzar una excepción
+		if(mat.matches()) {
 			this.dni=dni;
 		}else throw new RuntimeException("Se ha introducido un DNI inválido");
 	}
@@ -124,24 +119,52 @@ abstract class Persona {
 		this.trabajo=trabajo;
 	}
 	private void setEmail(String email) {
-		if(Persona.validarEmail(email)) {
+		Pattern pat = Pattern.compile("^[a-zA-Z0-9]+\\.[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}$");
+		Matcher mat = pat.matcher(email);
+		if(mat.matches()) {
 			this.email=email;
 		}else throw new RuntimeException("Se ha introducido un email inválido");
 	}
 	private void setTipoVia(String tipoVia) {
-		this.tipoVia=tipoVia;
+		Pattern pat = Pattern.compile("^[a-zA-Z ]+$");
+		Matcher mat = pat.matcher(tipoVia);
+		if(mat.matches()){
+			this.tipoVia=tipoVia;
+		}else throw new RuntimeException("Se ha introducido un tipo de vía incorrecto");
 	}
 	private void setNombreVia(String nombreVia) {
-		this.nombreVia=nombreVia;
+		Pattern pat = Pattern.compile("^[a-zA-ZáÁéÉíÍóÓúÚ ]+$");
+		Matcher mat = pat.matcher(nombreVia);
+		if(mat.matches()){
+			this.nombreVia=nombreVia;
+		}else throw new RuntimeException("Se ha introducido un nombre de vía incorrecto");
 	}
 	private void setEscalera(String escalera) {
-		this.escalera=escalera;
+		if(escalera==null|| escalera.equals("null")){
+			this.escalera= null;
+		}else {
+			Pattern pat = Pattern.compile("^[a-zA-Z0-9 ]+$");
+			Matcher mat = pat.matcher(escalera);
+			if (mat.matches()) {
+				this.escalera = escalera;
+			} else throw new RuntimeException("Se ha introducido una escalera incorrecta");
+		}
 	}
 	private void setPuerta(String puerta) {
-		this.puerta=puerta;
+		if(puerta==null||puerta.equals("null")){
+			this.puerta= null;
+		}else{
+			Pattern pat = Pattern.compile("^[a-zA-Z0-9 ]+$");
+			Matcher mat = pat.matcher(puerta);
+			if(mat.matches()){
+				this.puerta=puerta;
+			}else throw new RuntimeException("Se ha introducido una puerta incorrecta");
+		}
 	}
 	private void setInfoAdicional(String infoAdicional) {
-		this.infoAdicional=infoAdicional;
+		if(infoAdicional==null||infoAdicional.equals("null")){
+			this.infoAdicional=null;
+		}else this.infoAdicional=infoAdicional;
 	}
 	private void setLocalidad(String localidad) {
 		this.localidad=localidad;
@@ -150,15 +173,25 @@ abstract class Persona {
 		this.provincia=provincia;
 	}
 	private void setTelefono(int telefono) {
-		this.telefono=telefono;
+		Pattern pat = Pattern.compile("^[0-9]{9,12}$");
+		Matcher mat = pat.matcher(String.valueOf(telefono));
+		if(mat.matches()){
+			this.telefono=telefono;
+		}else throw new RuntimeException("Se ha introducido un teléfono incorrecto");
 	}
 	private void setNumeroCasa(int numeroCasa) {
-		if(Persona.validarNumeroCasa(numeroCasa)) {
+		Pattern pat = Pattern.compile("^[0-9]{1,2}[0-9]?$");
+		Matcher mat = pat.matcher(String.valueOf(numeroCasa));
+		if(mat.matches()) {
 			this.numeroCasa=numeroCasa;
 		}else throw new RuntimeException("Se ha introducido un número incorrecto");	
 	}
 	private void setBloque(int bloque) {
-		this.bloque=bloque;
+		Pattern pat = Pattern.compile("^[0-9]{1,2}$");
+		Matcher mat = pat.matcher(String.valueOf(bloque));
+		if(mat.matches()){
+			this.bloque=bloque;
+		}else throw new RuntimeException("Introducido nº de bloque inválido");
 	}
 	private void setCodigoPostal(int codigoPostal) {
 		this.codigoPostal=codigoPostal;

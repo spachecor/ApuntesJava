@@ -7,5 +7,9 @@ import java.util.ArrayList;
  * @version 1.1
  */
 public interface Ordenable {
+	/**
+	 * Ordena el arraylist que entra por parámetro
+	 * @param objects arraylist de objetos a ordenar
+	 */
 	void ordenar(ArrayList objects);
 }

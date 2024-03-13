@@ -1,0 +1,33 @@
+package protectora.utilidades;
+/**
+ * Clase que contiene las razas de los gatos como constantes para utilidades
+ * @author selene
+ * @version 1.1
+ */
+public class RazasGato {
+
+	public static final int PERSA, ESFINGE, SIAMES, MAINE_COON, BENGALI, RAGDOLL, SIBERIANO, ANGORA, CORNISH_REX, COMUN_EUROPEO, ORIENTAL, EXOTICO, SOMALI, CURL_AMERICANO, AZUL_RUSO, ABISINIO,
+	CARTUJO, HIMALAYO, BOMBAY, BOSQUE_NORUEGA;
+	static {
+		PERSA=19;
+		ESFINGE=20;
+		SIAMES=21;
+		MAINE_COON=22;
+		BENGALI=23;
+		RAGDOLL=24;
+		SIBERIANO=25;
+		ANGORA=26;
+		CORNISH_REX=27;
+		COMUN_EUROPEO=28;
+		ORIENTAL=29;
+		EXOTICO=30;
+		SOMALI=31;
+		CURL_AMERICANO=32;
+		AZUL_RUSO=33;
+		ABISINIO=34;
+		CARTUJO=35;
+		HIMALAYO=36;
+		BOMBAY=37;
+		BOSQUE_NORUEGA=38;
+	}
+}

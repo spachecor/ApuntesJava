@@ -13,6 +13,7 @@ public class ProtectoraFilter implements Filter{
 	@Override
 	/**
 	 * Método que filtra el nivel en el que los mensajes con se registrarán
+	 * @param arg0 objeto del tipo logrecord
 	 */
 	public boolean isLoggable(LogRecord arg0) {
 		//no se registrartán los mensajes de nivel CONFIG

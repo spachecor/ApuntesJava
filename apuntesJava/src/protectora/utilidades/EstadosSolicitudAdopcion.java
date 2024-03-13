@@ -4,7 +4,7 @@ package protectora.utilidades;
  * @author selene
  * @version 1.0
  */
-public class EstadosSolicitudAnimal {
+public class EstadosSolicitudAdopcion {
 	public static final int DENEGADA, EN_ESPERA, APROBADA;
 	static {
 		DENEGADA=16;

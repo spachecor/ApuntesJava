@@ -1,9 +1,12 @@
 package protectora;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import protectora.utilidades.EstadosAnimal;
-import protectora.utilidades.EstadosSolicitudAnimal;
+import protectora.utilidades.EstadosSolicitudAdopcion;
+import protectora.utilidades.MapeadoAnimal;
+
 /**
  * Clase SolicitudAdopcion, que define las propiedades y el comportamiento de las solicitudes de adopción, pudiendo
  * comprobar si el adoptante cumple los requisitos, y si los cumple, cambiar el estado del animal a adoptado
@@ -13,9 +16,9 @@ import protectora.utilidades.EstadosSolicitudAnimal;
 public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 	private static int contadorInstanciasSolicitudAdopcion;
 	private int codigoSolicitud;
-	private LocalDateTime fechaHoraSolicitud;
+	private LocalDateTime fechaHoraSolicitud, fechaHoraResolucion;
 	private int estadoSolicitud;
-	private boolean aprobacionProtectora, aceptacionConvivientes, compromisoCastrar, compromisoInformarProtectora;
+	private boolean aceptacionConvivientes, compromisoCastrar, compromisoInformarProtectora;
 	private Animal animal;
 	private Adoptante adoptante;
 	private final int INGRESO_MINIMO;
@@ -64,8 +67,8 @@ public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 				else requisitos=false;
 			}
 		}else requisitos=false;
-		if(requisitos)this.setEstadoSolicitud(EstadosSolicitudAnimal.EN_ESPERA);
-		else this.setEstadoSolicitud(EstadosSolicitudAnimal.DENEGADA);
+		if(requisitos)this.setEstadoSolicitud(EstadosSolicitudAdopcion.EN_ESPERA);
+		else this.setEstadoSolicitud(EstadosSolicitudAdopcion.DENEGADA);
 	}
 	/**
 	 * Método que aumenta el contador de objetos de tipo SolicitudAdopcion instanciados
@@ -77,7 +80,7 @@ public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 	public String toString() {
 		return "Solicitud con código: "+this.getCodigoSolicitud()+" sobre el animal con nombre "+this.getAnimal().getNombreAnimal()+" y código: "
 				+this.getAnimal().getCodigoAnimal()+" y solicitado por "+this.getAdoptante().getNombre()+" con código "+this.getAdoptante().getCodigo()
-				+" tiene el siguiente estado: "+this.getEstadoSolicitud();
+				+" tiene el siguiente estado: "+ MapeadoAnimal.estadosSolicitudAdopcion.get(this.getEstadoSolicitud());
 	}
 	@Override
 	public int compareTo(SolicitudAdopcion arg0) {
@@ -88,6 +91,15 @@ public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 		if(arg0.getCodigoSolicitud()<(this.getCodigoSolicitud()))return -1*-1;
 		else if(arg0.getCodigoSolicitud()>(this.getCodigoSolicitud()))return 1*-1;
 		else return 0;
+	}
+	public void resolverSoliditud(boolean aceptacionProtectora){
+		this.fechaHoraResolucion = LocalDateTime.now();
+		if(aceptacionProtectora&&this.getEstadoSolicitud()==EstadosSolicitudAdopcion.EN_ESPERA){
+			this.setEstadoSolicitud(EstadosSolicitudAdopcion.APROBADA);
+			//aumentamos el nº de mascotas del adoptante si este consigue la adopcion
+			this.getAdoptante().aumentarNumeroMascotas();
+		}
+		else this.setEstadoSolicitud(EstadosSolicitudAdopcion.DENEGADA);
 	}
 	private void setCodigoSolicitud() {
 		this.codigoSolicitud=this.getContadorInstanciasSolicitudAdopcion();
@@ -113,9 +125,6 @@ public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 	void setEstadoSolicitud(int estadoSolicitud) {
 		this.estadoSolicitud=estadoSolicitud;
 	}
-	public void setAprobacionProtectora(boolean aprobacionProtectora) {
-		this.aprobacionProtectora=aprobacionProtectora;
-	}
 	private int getContadorInstanciasSolicitudAdopcion() {
 		return SolicitudAdopcion.contadorInstanciasSolicitudAdopcion;
 	}
@@ -139,5 +148,11 @@ public class SolicitudAdopcion implements Comparable<SolicitudAdopcion>{
 	}
 	public int getEstadoSolicitud() {
 		return this.estadoSolicitud;
+	}
+	public LocalDateTime getFechaHoraSolicitud(){
+		return this.fechaHoraSolicitud;
+	}
+	public LocalDateTime getFechaHoraResolucion(){
+		return this.fechaHoraResolucion;
 	}
 }

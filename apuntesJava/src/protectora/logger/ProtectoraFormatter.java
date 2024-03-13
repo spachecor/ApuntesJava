@@ -13,6 +13,7 @@ public class ProtectoraFormatter extends Formatter{
 	@Override
 	/**
 	 * Método con el que asignamos el formato con el que se imprimirá nuestro mensaje de depuración
+	 * @param arg0 objeto del tipo logrecord
 	 */
 	public String format(LogRecord arg0) {
 		return "Ubicación: "+arg0.getSourceClassName()+" - Método: "+arg0.getSourceMethodName()+" - Instante en el que ocurre: "+new Date(arg0.getMillis())+" - Mensaje: "+arg0.getMessage()+"\n";

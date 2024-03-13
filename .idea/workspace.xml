@@ -5,22 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5f99055-a5f7-46bf-b8d3-8b5a848dd66e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/eclipse_jdt_annotation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Selene.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/apuntesJava.iml" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/apuntesJava.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Adoptante.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/Adoptante.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/EstadoAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/EstadoAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/Persona.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/SolicitudAdopcion.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/SolicitudAdopcion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/TestProtectora.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/TestProtectora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Agregable.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Agregable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Buscable.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Buscable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Eliminable.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Eliminable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/ColorAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/ColorAnimal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/EstadosAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/EstadosAnimal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/EstadosSolicitudAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/EstadosSolicitudAnimal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/Razas.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/Razas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/SexoAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/SexoAnimal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/Tamanios.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/Tamanios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/TipoAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/TipoAnimal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Ordenable.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Ordenable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraFormatter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/EstadosSolicitudAnimal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/Razas.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="UML Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,6 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.EjercicioTresSiete.executor": "Run",
     "Application.TestProtectora.executor": "Run",
     "DefaultPlantUmlFileTemplate": "UML Class",
     "Downloaded.Files.Path.Enabled": "false",
@@ -59,7 +62,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/selene/git/Protectora/protectora",
+    "last_opened_file_path": "C:/Users/Selene/Documents/workspace-java/ApuntesJava",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,7 +72,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
+    "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -91,7 +94,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-8336523bb0d9-657b72ed" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>

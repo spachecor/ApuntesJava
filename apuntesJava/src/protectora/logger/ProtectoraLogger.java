@@ -17,7 +17,7 @@ public class ProtectoraLogger {
 	/**
 	 * Método estático que general el logger personalizado a través del nombre de la clase que lo solicita
 	 * @param clase Es el nombre de la clase que utiliza el método
-	 * @return
+	 * @return el objeto de tipo logger listo y configurado para usarlo
 	 */
 	public static Logger getLogger(String clase) {
 		Logger logger = Logger.getLogger(clase);
@@ -40,7 +40,7 @@ public class ProtectoraLogger {
 		logger.addHandler(new ProtectoraHandler());
 		try {
 			//nuevo filehandler para fichero con limitación de tamaño y numero de registros de mensajes
-			Handler fileHandler = new FileHandler(System.getProperty("user.home")+"/git/protectora/protectora/protectora/logs/logger.log", 2000, 5);
+			Handler fileHandler = new FileHandler(System.getProperty("user.home")+"/Documents/workspace-java/Protectora-proyecto/logs/logger.log", 2000, 5);
 			//le asignamos un nuevo formato
 			fileHandler.setFormatter(new ProtectoraFormatter());
 			//le asignamos el filtro

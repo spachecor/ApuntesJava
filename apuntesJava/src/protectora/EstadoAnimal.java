@@ -9,15 +9,12 @@ import java.time.LocalDateTime;
  */
 public class EstadoAnimal implements Comparable<EstadoAnimal>{
 	private int estadoAnimal;
-	private Animal animal;
 	private LocalDateTime instanteCambioEstado;
 	/**
 	 * Constructor de los estados que tomará el animal
-	 * @param animal objeto del tipo animal
 	 * @param estadoAnimal valor que entra por constante y que determina el estado del animal
 	 */
-	public EstadoAnimal(Animal animal, int estadoAnimal) {
-		this.setAnimal(animal);
+	public EstadoAnimal(int estadoAnimal) {
 		this.setEstadoAnimal(estadoAnimal);
 		this.setInstanteCambioEstado();
 	}
@@ -38,9 +35,6 @@ public class EstadoAnimal implements Comparable<EstadoAnimal>{
 		if(arg0.getEstadoAnimal()<this.estadoAnimal)return -1*-1;
 		else if(arg0.getEstadoAnimal()>this.estadoAnimal)return 1*-1;
 		else return 0;
-	}
-	private void setAnimal(Animal animal) {
-		this.animal=animal;
 	}
 	private void setEstadoAnimal(int estadoAnimal) {
 		this.estadoAnimal=estadoAnimal;
