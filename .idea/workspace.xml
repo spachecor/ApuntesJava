@@ -5,24 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5f99055-a5f7-46bf-b8d3-8b5a848dd66e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Selene.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Adoptante.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/Adoptante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/EstadoAnimal.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/EstadoAnimal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/Persona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/SolicitudAdopcion.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/SolicitudAdopcion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/TestProtectora.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/TestProtectora.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Agregable.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Agregable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Buscable.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Buscable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Eliminable.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Eliminable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Ordenable.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/interfaces/Ordenable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraFormatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/protectora/logger/ProtectoraLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/EstadosSolicitudAnimal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/protectora/utilidades/Razas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/temaseis/ejercicioexpresionesregulares/EjercicicioTresOnce.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/ejercicioexpresionesregulares/EjercicicioSeisTrece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/temaseis/ejercicioexpresionesregulares/EjercicioTresSiete.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/ejercicioexpresionesregulares/EjercicioSeisSiete.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +36,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.EjercicicioSeisTrece.executor": "Run",
+    "Application.EjercicioSeisCatorce.executor": "Run",
     "Application.EjercicioTresSiete.executor": "Run",
     "Application.TestProtectora.executor": "Run",
     "DefaultPlantUmlFileTemplate": "UML Class",

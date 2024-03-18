@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<empleados>
+    <empleado edad="23" nif="12345678A" nombre="Lola Fernández" telefono="678678678"/>
+    <empleado edad="46" nif="34234234S" nombre="Manuel Lanjarón" telefono="56"/>
+    <empleado edad="35" nif="44555666D" nombre="María Pérez" telefono="456456456"/>
+    <empleado edad="41" nif="45674321F" nombre="Susana Fernández" telefono="665998552"/>
+    <empleado edad="54" nif="34532134J" nombre="Juan Carmona" telefono="657890746"/>
+</empleados>
