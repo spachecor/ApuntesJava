@@ -1,4 +1,4 @@
-package edu.xml;
+package temaseis.ejerciciosxml.actividadseisocho;
 
 public class Persona {
 	private int id;

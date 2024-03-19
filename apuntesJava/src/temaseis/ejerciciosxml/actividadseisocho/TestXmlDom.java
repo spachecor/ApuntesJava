@@ -1,6 +1,7 @@
 package temaseis.ejerciciosxml.actividadseisocho;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -16,8 +17,12 @@ import org.xml.sax.SAXException;
 
 public class TestXmlDom {
 	//TODO definir la lista de personas
+	static ArrayList<Persona> personas;
 	//TODO definir el mapa que se construye a partir del XML
-	public static void main(String[] args) {			
+	static HashMap<Integer, String> emails;
+	public static void main(String[] args) {
+		//Creamos un objeto de la clase para poder invocar métodos propios
+		TestXmlDom ts = new TestXmlDom();
 		try {
 			// 1º Creamos una nueva instancia de un fábrica de constructores
 			// de documentos.DocumentBuilderFactory
@@ -27,7 +32,7 @@ public class TestXmlDom {
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			// 3º Procesamos el documento (almacenado en un archivo) 
 			// y lo convertimos en un árbol DOM.			
-			Document documento=db.parse("personas.xml");	
+			Document documento=db.parse("apuntesJava\\src\\temaseis\\ejerciciosxml\\actividadseisocho\\personas.xml");
 
 			System.out.println(documento.getXmlVersion());
 			System.out.println(documento.getXmlEncoding());
@@ -39,11 +44,15 @@ public class TestXmlDom {
 			//Buscar un nodo concreto
 			NodeList listaNodos=documento.
 					getElementsByTagName("persona");
+			//Llamamos al método showPersonProperties, que recibe un nodelist(el de arriba) e imprime por consola
+			//las propiedades de la persona
+			ts.showPersonProperties(listaNodos);
 
 			Element persona;
 			if (listaNodos.getLength()>0){
 				persona=(Element)listaNodos.item(0);
 				NodeList nodoPersona = persona.getElementsByTagName("age");
+
 				if(nodoPersona.getLength()==1) {
 					Element firstName = (Element)nodoPersona.item(0);
 					System.out.println(firstName.getChildNodes().
@@ -58,7 +67,15 @@ public class TestXmlDom {
 					getDocumentElement().getChildNodes();
 			
 
-
+			//LLENAMOS LA LISTA DE PERSONAS DE PERSONAS SEGÚN EL XML PERSONAS
+			personas = new ArrayList<Persona>();
+			NodeList personasNodeList = documento.getElementsByTagName("persona");
+			for(int i = 0;i<personasNodeList.getLength();i++){
+				Node personaNodo = personasNodeList.item(i);
+				if(personaNodo.getNodeType()==Node.ELEMENT_NODE){
+					personas.add(new Persona());//INTRODUCIR DATOSSSSSS
+				}
+			}
 
 		} catch (SAXException | IOException | ParserConfigurationException e) {
 
@@ -71,22 +88,17 @@ public class TestXmlDom {
 	private void showPersonProperties(NodeList listaNodos) {
 		for (int i=0; i<listaNodos.getLength();i++) {
 			Node nodo=listaNodos.item(i);
-			switch (nodo.getNodeType()){
-			case Node.ELEMENT_NODE:
-				Element elemento = (Element) nodo;
-				System.out.println("Etiqueta:" + 
-						elemento.getTagName());
-				
+			if(nodo.getNodeType()==Node.ELEMENT_NODE){
 				//TODO tratar las propiedades de cada persona
-				
-				break;
-			case Node.TEXT_NODE:
-				Text texto = (Text) nodo;
-				System.out.println("Texto:" + 
-						texto.getWholeText());										
-				
-				break;
-			}      
+				Element elemento = (Element) nodo;
+				System.out.print(nodo.getNodeName()+" nº"+i+": ");
+				System.out.print("Id: "+elemento.getElementsByTagName("id").item(0).getTextContent());
+				System.out.print(" Nombre: "+elemento.getElementsByTagName("first_name").item(0).getTextContent());
+				System.out.print(" Apellido: "+elemento.getElementsByTagName("last_name").item(0).getTextContent());
+				System.out.print(" Email: "+elemento.getElementsByTagName("email").item(0).getTextContent());
+				System.out.print(" Género: "+elemento.getElementsByTagName("gender").item(0).getTextContent());
+				System.out.println(" Edad: "+elemento.getElementsByTagName("age").item(0).getTextContent());
+			}
 		}
 	}
 	//TODO recorrer cada persona, mostrar sus propiedades, crear y almacenar
@@ -94,7 +106,9 @@ public class TestXmlDom {
 	//almacenar todas las personas en un mapa compuesto por: el identificador
 	//como clave y el correo como valor
 	private HashMap<Integer,String> showProperties(Element elemento) {
-		
-		return null;		
+		HashMap<Integer, String>propiedades = new HashMap<>();
+
+
+		return propiedades;
 	}
 }
