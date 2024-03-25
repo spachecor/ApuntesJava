@@ -61,6 +61,10 @@ public class ClaseStringJoiner {
 		
 		String sjCambiao = sj3.toString();
 		System.out.println(sjCambiao);
+
+		System.out.println(sj1);
+		System.out.println(sj2);
+		System.out.println(sj3);
 		
 		
 	}

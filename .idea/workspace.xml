@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5f99055-a5f7-46bf-b8d3-8b5a848dd66e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/MetodosGenericosConListYComodines.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/MetodosGenericosUsandoComparable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasessingenericomuymal/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasessingenericomuymal/Automovil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasessingenericomuymal/Camion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasessingenericomuymal/Maquinaria.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasessingenericomuymal/TestGenericos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/temaseis/ejerciciosxml/actividadseisocho/TestXmlDom.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/ejerciciosxml/actividadseisocho/TestXmlDom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/temados/librerias/clasestringjoiner/ClaseStringJoiner.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/temados/librerias/clasestringjoiner/ClaseStringJoiner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/MetodosGenericosLimitado.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/MetodosGenericosLimitado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/Persona.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/Vendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/Vendedor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,38 +46,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.EjercicicioSeisTrece.executor": "Run",
-    "Application.EjercicioSeisCatorce.executor": "Run",
-    "Application.EjercicioTresSiete.executor": "Run",
-    "Application.MetodosGenericos.executor": "Debug",
-    "Application.TestProtectora.executor": "Run",
-    "Application.TestXmlDom.executor": "Run",
-    "DefaultPlantUmlFileTemplate": "UML Class",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Selene/Documents/workspace-java/ApuntesJava",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Auxiliar.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ClaseStringJoiner.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.EjercicicioSeisTrece.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EjercicioSeisCatorce.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EjercicioTresSiete.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ExamenTTres.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MetodosGenericos.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MetodosGenericosConListYComodines.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MetodosGenericosLimitado.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MetodosGenericosUsandoComparable.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestGenericos.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestProtectora.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestXmlDom.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Selene/Documents/workspace-java/ClasesMaria&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name=".org.eclipse.egit.core.cmp" />
@@ -103,10 +117,31 @@
       <updated>1702831503888</updated>
       <workItem from="1705484707761" duration="3130000" />
       <workItem from="1705568171794" duration="360000" />
+      <workItem from="1711208021264" duration="356000" />
+      <workItem from="1711208384999" duration="76000" />
+      <workItem from="1711208466560" duration="1675000" />
+      <workItem from="1711211757161" duration="39000" />
+      <workItem from="1711211825391" duration="230000" />
+      <workItem from="1711214036760" duration="370000" />
+      <workItem from="1711270332992" duration="1695000" />
+      <workItem from="1711359660391" duration="2520000" />
+      <workItem from="1711370890354" duration="395000" />
+      <workItem from="1711371450361" duration="2226000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/apuntesJava/src/temados/librerias/clasestringjoiner/ClaseStringJoiner.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

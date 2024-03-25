@@ -5,4 +5,11 @@ public class Persona {
     public Persona(String nombre){
         this.nombre=nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                '}';
+    }
 }
