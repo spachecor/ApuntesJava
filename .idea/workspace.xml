@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5f99055-a5f7-46bf-b8d3-8b5a848dd66e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/BolsaSupermercado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/TestEjercicio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/productos/Fruta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/productos/Lacteo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/productos/Limpieza.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/productos/NoPerecible.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/productos/Producto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Class" />
+        <option value="package-info" />
         <option value="Class" />
       </list>
     </option>
@@ -48,6 +55,7 @@
     &quot;Application.MetodosGenericosConListYComodines.executor&quot;: &quot;Run&quot;,
     &quot;Application.MetodosGenericosLimitado.executor&quot;: &quot;Run&quot;,
     &quot;Application.MetodosGenericosUsandoComparable.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestEjercicio.executor&quot;: &quot;Run&quot;,
     &quot;Application.TestGenericos.executor&quot;: &quot;Run&quot;,
     &quot;Application.TestProtectora.executor&quot;: &quot;Run&quot;,
     &quot;Application.TestXmlDom.executor&quot;: &quot;Run&quot;,
@@ -61,7 +69,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Selene/Documents/workspace-java/Protectora-proyecto&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Selene/Documents/workspace-java/EjemplosVenta&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -119,7 +127,9 @@
       <workItem from="1711371450361" duration="2226000" />
       <workItem from="1711407511978" duration="195000" />
       <workItem from="1711448335598" duration="2860000" />
-      <workItem from="1711451387020" duration="600000" />
+      <workItem from="1711451387020" duration="848000" />
+      <workItem from="1711458141591" duration="3151000" />
+      <workItem from="1711533383524" duration="2399000" />
     </task>
     <servers />
   </component>
