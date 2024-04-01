@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5f99055-a5f7-46bf-b8d3-8b5a848dd66e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/BolsaSupermercado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/TestEjercicio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/productos/Fruta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/productos/Lacteo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/productos/Limpieza.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/productos/NoPerecible.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaseis/genericos/clasegenerica/ejercicio/productos/Producto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temacinco/claseFile/EjercicioFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,47 +37,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Auxiliar.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ClaseStringJoiner.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.EjercicicioSeisTrece.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EjercicioSeisCatorce.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EjercicioTresSiete.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ExamenTTres.executor&quot;: &quot;Run&quot;,
-    &quot;Application.JuegoDados.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MetodosGenericos.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MetodosGenericosConListYComodines.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MetodosGenericosLimitado.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MetodosGenericosUsandoComparable.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestEjercicio.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestGenericos.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestProtectora.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestXmlDom.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Selene/Documents/workspace-java/EjemplosVenta&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Auxiliar.executor": "Run",
+    "Application.ClaseStringJoiner.executor": "Debug",
+    "Application.EjercicicioSeisTrece.executor": "Run",
+    "Application.EjercicioFile.executor": "Run",
+    "Application.EjercicioSeisCatorce.executor": "Run",
+    "Application.EjercicioTresSiete.executor": "Run",
+    "Application.ExamenTTres.executor": "Run",
+    "Application.JuegoDados.executor": "Run",
+    "Application.MetodosGenericos.executor": "Run",
+    "Application.MetodosGenericosConListYComodines.executor": "Run",
+    "Application.MetodosGenericosLimitado.executor": "Run",
+    "Application.MetodosGenericosUsandoComparable.executor": "Run",
+    "Application.TestEjercicio.executor": "Run",
+    "Application.TestGenericos.executor": "Run",
+    "Application.TestProtectora.executor": "Run",
+    "Application.TestXmlDom.executor": "Run",
+    "DefaultPlantUmlFileTemplate": "UML Class",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/selene/Documentos/workspace-java/ApuntesJava/apuntesJava/src/temacinco/claseFile",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apuntesJava/src/temacinco/claseFile" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name=".org.eclipse.egit.core.cmp" />
@@ -101,7 +102,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
+        <option value="jdk-22-openjdk-22-4caba194b151-6fbd92ee" />
       </set>
     </attachedChunks>
   </component>
@@ -130,6 +131,7 @@
       <workItem from="1711451387020" duration="848000" />
       <workItem from="1711458141591" duration="3151000" />
       <workItem from="1711533383524" duration="2399000" />
+      <workItem from="1711957397203" duration="2353000" />
     </task>
     <servers />
   </component>
@@ -146,5 +148,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
