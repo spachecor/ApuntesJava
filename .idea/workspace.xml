@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5f99055-a5f7-46bf-b8d3-8b5a848dd66e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temacinco/buffers/EjercicioDos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temacinco/buffers/EjercicioUno.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/temacinco/buffers/EjercicioDos.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/temacinco/buffers/EjercicioDos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/src/temacinco/buffers/EjercicioUno.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/temacinco/buffers/EjercicioUno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archivo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/archivo.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +43,7 @@
     "Application.Auxiliar.executor": "Run",
     "Application.ClaseStringJoiner.executor": "Debug",
     "Application.EjercicicioSeisTrece.executor": "Run",
+    "Application.EjercicioDos.executor": "Run",
     "Application.EjercicioFile.executor": "Run",
     "Application.EjercicioSeisCatorce.executor": "Run",
     "Application.EjercicioTresSiete.executor": "Run",
@@ -104,7 +105,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-22-openjdk-22-4caba194b151-6fbd92ee" />
+        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
       </set>
     </attachedChunks>
   </component>
@@ -137,6 +138,7 @@
       <workItem from="1711966596902" duration="34000" />
       <workItem from="1711966938883" duration="178000" />
       <workItem from="1712044767466" duration="1799000" />
+      <workItem from="1712082740956" duration="2699000" />
     </task>
     <servers />
   </component>

@@ -26,4 +26,20 @@ forma más eficiente*/
             e.printStackTrace();
         }
     }
+    /*public static void main(String[] args) {
+        createFileWithLines("miArchivo.txt", 20);
+    }
+
+    public static void createFileWithLines(String filename, int n) {
+        //try-with-resources
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            for (int i = 1; i <= n; i++) {
+                writer.write("Esta es la línea " + i);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
+
 }
