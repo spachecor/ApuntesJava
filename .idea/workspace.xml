@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5f99055-a5f7-46bf-b8d3-8b5a848dd66e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temacinco/claseFile/EjercicioFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temacinco/buffers/EjercicioDos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temacinco/buffers/EjercicioUno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -45,6 +46,7 @@
     "Application.EjercicioFile.executor": "Run",
     "Application.EjercicioSeisCatorce.executor": "Run",
     "Application.EjercicioTresSiete.executor": "Run",
+    "Application.EjercicioUno.executor": "Run",
     "Application.ExamenTTres.executor": "Run",
     "Application.JuegoDados.executor": "Run",
     "Application.MetodosGenericos.executor": "Run",
@@ -65,7 +67,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/selene/Documentos/workspace-java/ApuntesJava/apuntesJava/src/temacinco/claseFile",
+    "last_opened_file_path": "/home/selene/Documentos/workspace-java/RemodelacionProyecto",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -131,7 +133,10 @@
       <workItem from="1711451387020" duration="848000" />
       <workItem from="1711458141591" duration="3151000" />
       <workItem from="1711533383524" duration="2399000" />
-      <workItem from="1711957397203" duration="2353000" />
+      <workItem from="1711957397203" duration="2649000" />
+      <workItem from="1711966596902" duration="34000" />
+      <workItem from="1711966938883" duration="178000" />
+      <workItem from="1712044767466" duration="1799000" />
     </task>
     <servers />
   </component>
