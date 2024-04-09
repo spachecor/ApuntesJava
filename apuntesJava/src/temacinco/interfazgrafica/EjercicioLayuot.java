@@ -1,7 +1,6 @@
 package temacinco.interfazgrafica;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,10 +17,10 @@ y un área principal debajo de ella. Podrías usar un VBox como layout
 principal y añadir un HBox para la barra de botones y un StackPane (o
 cualquier otro layout) para el área principal*/
 
-    /*Invocamos al método launch (de la case Application)
-    Inicializa al entorno de JavaFX y llama al método start
-    Como puede aceptar argumentos, se le suele poner como parámetros el arrray de string args, pero podemos no ponerlo*/
     public static void main(String[] args) {
+        /*Invocamos al método launch (de la case Application)
+        Inicializa al entorno de JavaFX y llama al método start
+        Como puede aceptar argumentos, se le suele poner como parámetros el arrray de string args, pero podemos no ponerlo*/
         Application.launch();
     }
     public void start(Stage ventanappal) {
@@ -30,35 +29,36 @@ cualquier otro layout) para el área principal*/
         Button botonDos = new Button("Modificar");
         Button botonTres = new Button("Listar");
         //2º creamos un contenedor para los botones tipo hbox
-        HBox contenedorBotonesSuperior = new HBox(20);
+        HBox contenedorBotonesSuperior = new HBox(10);
         //tomamos el hbox, sacamos sus hijos (que devuelve una observableList), y luego usamos el método add para agregar los nuevos botones
         //a la lista de hijos
         contenedorBotonesSuperior.getChildren().addAll(botonUno, botonDos, botonTres);
-        contenedorBotonesSuperior.setAlignment(Pos.CENTER);
+        contenedorBotonesSuperior.setAlignment(Pos.CENTER);//centramos
         //creamos el area del texto, contenida en otro HBox, que contendrá un texto(objeto tipo text)
         Text textoUno = new Text("Esto es una etiqueta dentro de un VBox");
         HBox contenedorTexto = new HBox();
-        contenedorTexto.getChildren().addAll(textoUno);
+        contenedorTexto.getChildren().add(textoUno);
+        contenedorTexto.setAlignment(Pos.CENTER);//centramos
         //Creamos un objeto tipo Image
         Image imagen = new Image("/img/JavaFX_Logo.png");
         ImageView imagenView = new ImageView(imagen);
         HBox contenedorImagen = new HBox();
-        contenedorImagen.getChildren().addAll(imagenView);
+        contenedorImagen.getChildren().add(imagenView);
+        contenedorImagen.setAlignment(Pos.CENTER);//centramos
 
         //creamos otros dos botones y los metemos en otro hbox
         Button botonCuatro = new Button("Borrar");
         Button botonCinco = new Button("Reiniciar");
-        HBox contenedorBotonesInferior = new HBox(20);
+        HBox contenedorBotonesInferior = new HBox(10);
         contenedorBotonesInferior.getChildren().addAll(botonCuatro, botonCinco);
-        contenedorBotonesInferior.setAlignment(Pos.CENTER);
+        contenedorBotonesInferior.setAlignment(Pos.CENTER);//centramos
 
         //3º Creamos un VBox para introducir dentro ambos HBox
-        VBox contenedorGordo = new VBox(20);
+        VBox contenedorGordo = new VBox(30);
         contenedorGordo.getChildren().addAll(contenedorBotonesSuperior, contenedorTexto, contenedorImagen, contenedorBotonesInferior);
-        contenedorGordo.setAlignment(Pos.CENTER);
-        contenedorGordo.setPadding(new Insets(0.0000000001));//todo revisar por dios
+        contenedorGordo.setAlignment(Pos.CENTER);//centramos
         //4º creamos la escena
-        Scene escena = new Scene(contenedorGordo, 500, 500);
+        Scene escena = new Scene(contenedorGordo, 600, 400);
         //5º introducimos la escena en la ventana ppal
         ventanappal.setScene(escena);
         //6º cambiamos el titulo
