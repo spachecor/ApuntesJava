@@ -34,5 +34,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="eclipse.jdt.annotation" level="project" />
+    <orderEntry type="library" name="javafx.web" level="project" />
   </component>
 </module>

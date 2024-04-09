@@ -26,6 +26,7 @@ public class HolaMundo {
 		String nombreTipo = cadena.getClass().getName();
 		System.out.println(nombreTipo);
 		System.out.println(cadena instanceof String);
+		System.out.println(System.getProperty("user.dir")+"/apuntesJava/src/img/JavaFX_Logo.png");
 		
 		
 		
