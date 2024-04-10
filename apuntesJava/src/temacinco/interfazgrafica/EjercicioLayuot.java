@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -35,7 +36,7 @@ cualquier otro layout) para el área principal*/
         contenedorBotonesSuperior.getChildren().addAll(botonUno, botonDos, botonTres);
         contenedorBotonesSuperior.setAlignment(Pos.CENTER);//centramos
         //creamos el area del texto, contenida en otro HBox, que contendrá un texto(objeto tipo text)
-        Text textoUno = new Text("Esto es una etiqueta dentro de un VBox");
+        Label textoUno = new Label("Esto es una etiqueta dentro de un VBox");
         HBox contenedorTexto = new HBox();
         contenedorTexto.getChildren().add(textoUno);
         contenedorTexto.setAlignment(Pos.CENTER);//centramos
