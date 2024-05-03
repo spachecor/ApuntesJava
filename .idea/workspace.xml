@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5f99055-a5f7-46bf-b8d3-8b5a848dd66e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/oracle_database_jdbc_ojdbc11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temacinco/ejercicioconversor/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temacinco/ejercicioconversor/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaocho/ejercicioochodos/E2_EjercicioOperaciones_Erratas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaocho/ejercicioochodos/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaocho/ejercicioochouno/EjemploOracle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apuntesJava/src/temaocho/ejercicioochouno/EjemploUno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apuntesJava/src/temacinco/interfazgrafica/EjercicioLayuot.java" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/src/temacinco/interfazgrafica/EjercicioLayuot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apuntesJava/apuntesJava.iml" beforeDir="false" afterPath="$PROJECT_DIR$/apuntesJava/apuntesJava.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,60 +47,78 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Auxiliar.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ClaseStringJoiner.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.EjercicicioSeisTrece.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Ejercicio.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EjercicioEjemplo.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EjercicioFile.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EjercicioInterfazGrafica.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EjercicioLayout.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EjercicioSeisCatorce.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EjercicioTresSiete.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EjercicioUno.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ExamenTTres.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HolaMundo.executor&quot;: &quot;Run&quot;,
-    &quot;Application.JuegoDados.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MetodosGenericos.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MetodosGenericosConListYComodines.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MetodosGenericosLimitado.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MetodosGenericosUsandoComparable.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestEjercicio.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestGenericos.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestProtectora.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestXmlDom.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/selene/Documentos/workspace-java/openjfx-22_linux-x64_bin-sdk/javafx-sdk-22/lib/javafx-swt.jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Auxiliar.executor": "Run",
+    "Application.ClaseStringJoiner.executor": "Debug",
+    "Application.E2_EjercicioOperaciones_Erratas.executor": "Run",
+    "Application.EjemploOracle.executor": "Run",
+    "Application.EjemploUno.executor": "Run",
+    "Application.EjercicicioSeisTrece.executor": "Run",
+    "Application.Ejercicio.executor": "Run",
+    "Application.EjercicioConversor.executor": "Run",
+    "Application.EjercicioEjemplo.executor": "Run",
+    "Application.EjercicioFile.executor": "Run",
+    "Application.EjercicioInterfazGrafica.executor": "Run",
+    "Application.EjercicioLayout.executor": "Run",
+    "Application.EjercicioSeisCatorce.executor": "Run",
+    "Application.EjercicioTresSiete.executor": "Run",
+    "Application.EjercicioUno.executor": "Run",
+    "Application.ExamenTTres.executor": "Run",
+    "Application.HolaMundo.executor": "Run",
+    "Application.JuegoDados.executor": "Run",
+    "Application.MetodosGenericos.executor": "Run",
+    "Application.MetodosGenericosConListYComodines.executor": "Run",
+    "Application.MetodosGenericosLimitado.executor": "Run",
+    "Application.MetodosGenericosUsandoComparable.executor": "Run",
+    "Application.SolucionEjOchoDos.executor": "Run",
+    "Application.Test.executor": "Run",
+    "Application.TestEjercicio.executor": "Run",
+    "Application.TestGenericos.executor": "Run",
+    "Application.TestProtectora.executor": "Run",
+    "Application.TestXmlDom.executor": "Run",
+    "DefaultPlantUmlFileTemplate": "UML Class",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Selene/Documents/workspace-java/ApuntesJava/apuntesJava/src/temacinco/ejercicioconversor",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Selene\Documents\workspace-java\ApuntesJava\apuntesJava\src\temacinco\ejercicioconversor" />
       <recent name="$PROJECT_DIR$/apuntesJava/src/temacinco/claseFile" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Selene\Documents\workspace-java\ApuntesJava\apuntesJava\src\temaocho\ejercicioochodos" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.EjercicioLayout">
+  <component name="RunManager" selected="Application.EjercicioConversor">
+    <configuration name="EjercicioConversor" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="temacinco.ejercicioconversor.Main" />
+      <module name="apuntesJava" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Selene\Documents\workspace-java\lib\javafx-sdk-22\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EjercicioEjemplo" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="temacinco.interfazgrafica.EjercicioEjemplo" />
       <module name="apuntesJava" />
@@ -121,6 +150,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.EjercicioEjemplo" />
+      <item itemvalue="Application.EjercicioConversor" />
       <item itemvalue="Application.EjercicioLayout" />
     </list>
   </component>
@@ -171,6 +201,16 @@
       <workItem from="1712657319743" duration="214000" />
       <workItem from="1712657541815" duration="446000" />
       <workItem from="1712731533958" duration="3463000" />
+      <workItem from="1714040032793" duration="2948000" />
+      <workItem from="1714119336571" duration="177000" />
+      <workItem from="1714119524315" duration="589000" />
+      <workItem from="1714120631453" duration="2819000" />
+      <workItem from="1714119569917" duration="1111000" />
+      <workItem from="1714372945434" duration="3475000" />
+      <workItem from="1714376468567" duration="26000" />
+      <workItem from="1714376503292" duration="3003000" />
+      <workItem from="1714385478435" duration="22000" />
+      <workItem from="1714461442919" duration="334000" />
     </task>
     <servers />
   </component>

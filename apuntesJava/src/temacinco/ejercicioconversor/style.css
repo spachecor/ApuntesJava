@@ -1,0 +1,11 @@
+*{
+    -fx-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -fx-background-color: #d1d1db;
+}
+TextField{
+    -fx-background-color: #161740;
+}
+ComboBox{
+    -fx-background-color: #161740;
+    -fx-border-color: #161740;
+}

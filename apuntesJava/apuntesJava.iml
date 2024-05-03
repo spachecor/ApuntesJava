@@ -34,6 +34,16 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="eclipse.jdt.annotation" level="project" />
-    <orderEntry type="library" name="javafx.web" level="project" />
+    <orderEntry type="library" name="javafx-swt" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../lib/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="oracle.database.jdbc.ojdbc11" level="project" />
   </component>
 </module>
